@@ -1,5 +1,5 @@
 # Administrador-Sava-Express
 ## Instalar dependencias
-### npm install-legacy-peer-dep
+### npm install --legacy-peer-deps
 ## Desplegar el servidor
 ### ng s
