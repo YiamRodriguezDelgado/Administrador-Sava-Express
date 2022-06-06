@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="search">
+    <h1>Buscar Paquete</h1>
+    <div class="search-box">
+      <div class="bar">
+        <input type="text" placeholder="Ingresar Codigo">
+      </div>
+      <button>Buscar</button>
+    </div>
+  </div>
+  
+  <mat-tab-group mat-align-tabs="center" backgroundColor="primary">
+    <mat-tab label="Paquetes en Miami">
+      <div class="packages-miami row">
+        <div class="package col-12">
+          <p class="package-num">Paquete 1</p>
+          <p class="package-code">1020304</p>
+          <div class="package-info">
+            <div class="img col-4">
+              <img src="./assets/images/package.jpg" alt="package">
+            </div>
+            <div class="package-box col-8">
+              <p class="package-location">En la bodega de Miami</p>
+              <div class="package-options col-12">
+                <button routerLink='/details'>Enviar</button>
+                <a class="package-details">Ver detalles</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="package col-12">
+          <p class="package-num">Paquete 1</p>
+          <p class="package-code">1020304</p>
+          <div class="package-info">
+            <div class="img col-4">
+              <img src="./assets/images/package.jpg" alt="package">
+            </div>
+            <div class="package-box col-8">
+              <p class="package-location">En la bodega de Miami</p>
+              <div class="package-options col-12">
+                <button routerLink='/details'>Enviar</button>
+                <a class="package-details">Ver detalles</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Paquetes camino a Ecuador">
+      <div class="packages-ecuador">
+  
+      </div>
+    </mat-tab>
+  </mat-tab-group>
