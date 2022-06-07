@@ -8,13 +8,12 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/icons', title: 'Notificaciones',  icon:'ni ni-bell-55 text-info', class: '' },
-    { path: '/maps', title: 'Mensajes',  icon:'ni ni-email-83 text-red', class: '' },
-    { path: '/user-profile', title: 'Perfil de Usuario',  icon:'ni-single-02 text-yellow', class: '' },
-    { path: '/tables', title: 'Paquetes y usuarios',  icon:'ni-bullet-list-67 text-red', class: '' },
-    { path: '/login', title: 'Ingresar Paquete',  icon:'ni ni-box-2 text-info', class: '' },
-    { path: '/register', title: 'Registrar usuario',  icon:'ni-circle-08 text-pink', class: '' }
+    { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 icon-color-sidebar', class: 'text-color-sidebar' },
+    { path: '/icons', title: 'Notificaciones',  icon:'ni ni-bell-55 icon-color-sidebar', class: 'text-color-sidebar' },
+    { path: '/user-profile', title: 'Perfil de Usuario',  icon:'ni-single-02 icon-color-sidebar', class: 'text-color-sidebar' },
+    { path: '/tables', title: 'Paquetes y usuarios',  icon:'ni-bullet-list-67 icon-color-sidebar', class: 'text-color-sidebar' },
+    { path: '/login', title: 'Ingresar Paquete',  icon:'ni ni-box-2 icon-color-sidebar', class: 'text-color-sidebar' },
+    { path: '/register', title: 'Registrar usuario',  icon:'ni-circle-08 icon-color-sidebar', class: 'text-color-sidebar' }
 ];
 
 @Component({
