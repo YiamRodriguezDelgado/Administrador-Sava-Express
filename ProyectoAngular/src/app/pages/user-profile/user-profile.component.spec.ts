@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AdminUsersDialogComponent } from './admin-users-dialog/admin-users-dialog.component';
 
 import { UserProfileComponent } from './user-profile.component';
 
@@ -8,7 +9,8 @@ describe('UserProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserProfileComponent ]
+      declarations: [ UserProfileComponent,
+      AdminUsersDialogComponent ]
     })
     .compileComponents();
   }));
