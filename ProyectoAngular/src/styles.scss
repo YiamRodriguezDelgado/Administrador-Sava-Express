@@ -4,6 +4,7 @@
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
@@ -64,7 +65,6 @@ sans-serif;
 }
 
 .card-title {
-
     font-family: $title-font;
 }
 html, body { height: 100%; }
@@ -79,3 +79,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --body-bg-color: #F5F5F5;
     --bar-bg-color: lightgrey;
   }
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
