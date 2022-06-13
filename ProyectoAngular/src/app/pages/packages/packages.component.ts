@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-packages',
@@ -8,21 +8,10 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PackagesComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) { }
+  constructor() { }
+  route:string;
+  visibility:boolean;
 
   ngOnInit(): void {
   }
-
-  displayEntry(detail: any): void {
-    this.modalService.open(detail, {
-      centered: true,
-      backdrop: 'static',
-      size: 'm'
-    });
-  }
-
-  onClose() {
-    this.modalService.dismissAll();
-  }
-
 }

@@ -6,6 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+   
   ],
   exports: [
     FooterComponent,
