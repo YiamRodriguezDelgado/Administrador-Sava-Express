@@ -155,6 +155,7 @@ var colors = {
   black: '#12263F',
   white: '#FFFFFF',
   transparent: 'transparent',
+  blue: '#2D6CB5'
 };
 
 export function chartOptions() {
@@ -193,7 +194,7 @@ export function chartOptions() {
             borderCapStyle: 'rounded'
           },
           rectangle: {
-            backgroundColor: colors.theme['warning']
+            backgroundColor: colors.blue,
           },
           arc: {
             backgroundColor: colors.theme['primary'],
