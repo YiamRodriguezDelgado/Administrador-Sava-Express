@@ -15,7 +15,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminPackagesDialogComponent } from './pages/tables/admin-packages-dialog/admin-packages-dialog.component';
 import { AdminUsersDialogComponent } from './pages/user-profile/admin-users-dialog/admin-users-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { SentComponent } from './pages/sent/sent.component';
 
 @NgModule({
   imports: [
@@ -37,7 +36,6 @@ import { SentComponent } from './pages/sent/sent.component';
     HeaderComponent,
     AdminPackagesDialogComponent,
     AdminUsersDialogComponent,
-    SentComponent
   ],
   entryComponents: [AdminPackagesDialogComponent,
     AdminUsersDialogComponent],
