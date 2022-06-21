@@ -22,11 +22,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     HttpClientModule,
     ComponentsModule,
-    NgbModule,
     RouterModule,
     MatDialogModule,
     AppRoutingModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgbModule,
   ],
   declarations: [
     AppComponent,
@@ -35,7 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     UserLayoutComponent,
     HeaderComponent,
     AdminPackagesDialogComponent,
-    AdminUsersDialogComponent
+    AdminUsersDialogComponent,
   ],
   entryComponents: [AdminPackagesDialogComponent,
     AdminUsersDialogComponent],
