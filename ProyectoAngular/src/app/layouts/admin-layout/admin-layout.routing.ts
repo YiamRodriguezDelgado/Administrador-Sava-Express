@@ -11,5 +11,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user-profile',   component: UserProfileComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
     { path: 'tables',         component: TablesComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
     { path: 'icons',          component: IconsComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
-    { path: 'maps',           component: MapsComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  }
+    { path: 'maps',           component: MapsComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
+    { path: 'tablesPackages', component: TablesComponent }
 ];

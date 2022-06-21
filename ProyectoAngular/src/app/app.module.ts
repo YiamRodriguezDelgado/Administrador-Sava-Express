@@ -13,6 +13,9 @@ import { UserLayoutComponent } from './layouts/user-layout/user-layout.component
 import { HeaderComponent } from './components/header/header.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { AdminPackagesDialogComponent } from './pages/tables/admin-packages-dialog/admin-packages-dialog.component';
+import { AdminUsersDialogComponent } from './pages/user-profile/admin-users-dialog/admin-users-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -20,22 +23,27 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     FormsModule,
     HttpClientModule,
     ComponentsModule,
-    NgbModule,
     RouterModule,
+    MatDialogModule,
     AppRoutingModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgbModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
     UserLayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    AdminPackagesDialogComponent,
+    AdminUsersDialogComponent,
   ],
   providers: [
   {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService
   ],
+  entryComponents: [AdminPackagesDialogComponent,
+    AdminUsersDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

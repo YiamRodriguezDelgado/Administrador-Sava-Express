@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="d-flex justify-content-start  mt-2 ">
+      <div class="row click align-self-center " [routerLink]="['/inicio/paquetes']">
+        <img class="img-fluid img-size my-2 mr-2" src="../../../assets/img/icons/common/arrowReverse.png" alt="Imagen de flecha">
+        <p class="text-title texto my-auto" >Regresar<br></p>
+      </div>
+    </div>
+    <h1 class="text-center">Selecciona los paquetes</h1>
+    <div class="d-flex flex-row justify-content-center py-3">
+      <mat-form-field appearance="outline" id="specific-border">
+        <mat-label>Codigo paquete</mat-label>
+        <mat-select [formControl]="selectedPackages" multiple (selectionChange)="agregarPaquete($event.value)">
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button type="button" class="btn btn-primary mx-3 mt-2" (click)="Enviar()">Envio</button>
+    </div>
+    </div>
+    <div class="package-container">
+      <div class="row">
+        <div *ngFor="let items of paquetesMostrar">
+          <div class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="..." alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Numero de Tracking:</h5>
+                <p class="card-text"> {{items.TrackingNumber}}</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>

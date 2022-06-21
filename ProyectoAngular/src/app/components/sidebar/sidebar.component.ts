@@ -11,7 +11,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 icon-color-sidebar', class: 'text-color-sidebar' },
     { path: '/icons', title: 'Notificaciones',  icon:'ni ni-bell-55 icon-color-sidebar', class: 'text-color-sidebar' },
     { path: '/user-profile', title: 'Clientes',  icon:'ni-single-02 icon-color-sidebar', class: 'text-color-sidebar' },
-    { path: '/tables', title: 'Paquetes',  icon:'ni-bullet-list-67 icon-color-sidebar', class: 'text-color-sidebar' }
+    { path: '/tablesPackages', title: 'Paquetes',  icon:'ni-bullet-list-67 icon-color-sidebar', class: 'text-color-sidebar' }
 ];
 
 @Component({
@@ -32,4 +32,8 @@ export class SidebarComponent implements OnInit {
       this.isCollapsed = true;
    });
   }
+
+  ngOnDestroy() {
+  }
+
 }

@@ -18,7 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-   
+
   ],
   exports: [
     FooterComponent,
