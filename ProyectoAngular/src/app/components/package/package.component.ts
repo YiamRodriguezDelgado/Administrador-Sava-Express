@@ -8,7 +8,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class PackageComponent implements OnInit {
-  route:string;
+  route: string;
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {

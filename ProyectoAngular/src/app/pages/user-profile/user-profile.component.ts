@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog"
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AdminUsersDialogComponent } from './admin-users-dialog/admin-users-dialog.component';
 
 @Component({
@@ -17,7 +17,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   openAdminUsersDialog(): void {
-   this.dialog.open(AdminUsersDialogComponent)
+   this.dialog.open(AdminUsersDialogComponent);
   }
 
 }
