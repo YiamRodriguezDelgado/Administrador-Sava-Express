@@ -12,6 +12,7 @@ import { ComponentsModule } from './components/components.module';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   imports: [
@@ -31,7 +32,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     UserLayoutComponent,
     HeaderComponent
   ],
-  providers: [],
+  providers: [
+  {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,8 @@ import { PackagesComponent } from 'src/app/pages/packages/packages.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { PictureComponent } from 'src/app/components/picture/picture.component';
 import { PackageComponent } from 'src/app/components/package/package.component';
+import { LoginRegisterComponent } from 'src/app/pages/login-register/login-register.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { PackageComponent } from 'src/app/components/package/package.component';
   declarations: [
     PackagesComponent,
     PictureComponent,
-    PackageComponent
+    PackageComponent,
+    LoginRegisterComponent
   ]
 })
 export class UserLayoutModule { }
