@@ -12,6 +12,9 @@ import { ComponentsModule } from './components/components.module';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AdminPackagesDialogComponent } from './pages/tables/admin-packages-dialog/admin-packages-dialog.component';
+import { AdminUsersDialogComponent } from './pages/user-profile/admin-users-dialog/admin-users-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -21,6 +24,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ComponentsModule,
     NgbModule,
     RouterModule,
+    MatDialogModule,
     AppRoutingModule,
     ModalModule.forRoot()
   ],
@@ -29,8 +33,12 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AdminLayoutComponent,
     AuthLayoutComponent,
     UserLayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    AdminPackagesDialogComponent,
+    AdminUsersDialogComponent
   ],
+  entryComponents: [AdminPackagesDialogComponent,
+    AdminUsersDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

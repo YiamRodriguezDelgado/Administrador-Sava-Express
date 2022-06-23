@@ -48,7 +48,14 @@ sans-serif;
 
 .main-background {
     background-color: $blue-main-color;
+}
 
+.icon-one{
+   background-color: $yellow-color;
+}
+
+.icon-two{
+  background-color: $lightest-blue-color;
 }
 
 .icon-color-sidebar{
@@ -57,8 +64,15 @@ sans-serif;
 
 .text-color-sidebar{
     color: white !important;
+    font-family: $title-font;
+    font-size: 16px;
 }
 
+.text-title{
+  font-family: $title-font;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
 
 .color-navbar {
     background-color: white;
@@ -66,7 +80,16 @@ sans-serif;
 
 .card-title {
     font-family: $title-font;
+    letter-spacing: 2px;
 }
+
+.alert-inner--text, .alert-inner--icon{
+  font-family: $information-messages-font;
+  color: white;
+  font-weight:500;
+
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 

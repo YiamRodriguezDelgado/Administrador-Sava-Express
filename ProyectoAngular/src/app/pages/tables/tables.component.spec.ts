@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AdminPackagesDialogComponent } from './admin-packages-dialog/admin-packages-dialog.component';
 import { TablesComponent } from './tables.component';
 
 describe('TablesComponent', () => {
@@ -8,7 +8,8 @@ describe('TablesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TablesComponent ]
+      declarations: [ TablesComponent,
+      AdminPackagesDialogComponent ]
     })
     .compileComponents();
   }));

@@ -2952,15 +2952,15 @@ fieldset:disabled a.btn
 .btn-primary
 {
     color: #fff;
-    border-color: #5e72e4;
-    background-color: #5e72e4;
+    border-color: var(--yellow-color);
+    background-color: var(--yellow-color);
     box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
 .btn-primary:hover
 {
     color: #fff;
-    border-color: #5e72e4;
-    background-color: #5e72e4;
+    border-color: var(--light-blue-color);
+    background-color: var(--light-blue-color);
 }
 .btn-primary:focus,
 .btn-primary.focus
@@ -2971,22 +2971,22 @@ fieldset:disabled a.btn
 .btn-primary:disabled
 {
     color: #fff;
-    border-color: #5e72e4;
-    background-color: #5e72e4;
+    border-color: var(--blue-main-color);
+    background-color: var(--blue-main-color);
 }
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle
 {
     color: #fff;
-    border-color: #5e72e4;
-    background-color: #324cdd;
+    border-color: var(--blue-main-color);
+    background-color: var(--blue-main-color);
 }
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus
 {
-    box-shadow: none, 0 0 0 0 rgba(94, 114, 228, .5);
+    box-shadow: none, 0 0 0 0 var(--yellow-color;
 }
 
 .btn-secondary
@@ -7954,7 +7954,7 @@ button.bg-info:focus
 
 .bg-warning
 {
-    background-color: #fb6340 !important;
+    background-color: var(--lightest-blue-color) !important;
 }
 
 a.bg-warning:hover,
@@ -7967,7 +7967,7 @@ button.bg-warning:focus
 
 .bg-danger
 {
-    background-color: #f5365c !important;
+    background-color: #03acca !important;
 }
 
 a.bg-danger:hover,
@@ -14904,7 +14904,7 @@ button.bg-orange:focus
 
 .bg-yellow
 {
-    background-color: #ffd600 !important;
+    background-color: var(--yellow-color) !important;
 }
 
 a.bg-yellow:hover,
@@ -17452,7 +17452,7 @@ a.btn-icon-only
 
     text-align: center;
 
-    color: #8898aa;
+    color: var(--blue-main-color);
 
     justify-content: center;
 }

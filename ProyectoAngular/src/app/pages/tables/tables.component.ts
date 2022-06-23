@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import { AdminPackagesDialogComponent } from './admin-packages-dialog/admin-packages-dialog.component';
 
 @Component({
   selector: 'app-tables',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TablesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
   }
+
+  openAdminPackagesDialog(): void {
+    this.dialog.open(AdminPackagesDialogComponent )
+  }
+
 
 }

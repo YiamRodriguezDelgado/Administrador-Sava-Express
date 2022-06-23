@@ -34,12 +34,11 @@ export class DashboardComponent implements OnInit {
     var chartOrders = document.getElementById('chart-orders');
 
     parseOptions(Chart, chartOptions());
-
-
     var ordersChart = new Chart(chartOrders, {
       type: 'bar',
       options: chartExample2.options,
-      data: chartExample2.data
+      data: chartExample2.data,
+    
     });
 
     var chartSales = document.getElementById('chart-sales');

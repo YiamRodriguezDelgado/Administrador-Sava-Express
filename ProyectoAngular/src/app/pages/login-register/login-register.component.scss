@@ -1,0 +1,214 @@
+::ng-deep body {
+    background-color: var(--body-bg-color);
+    min-width: 500px;
+}
+
+.login-register-box {
+    padding: 2rem;
+    background-color: white;
+    margin: 0 auto;
+    max-width: 70rem;
+    display: flex;
+    flex-direction: row;
+    border: 1.5px solid lightgray;
+}
+
+span.field::after {
+    content: '\a';
+    white-space: pre;
+}
+
+.register-form {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 2rem;
+}
+
+.register-form p {
+    flex: 1 0 45%;
+}
+
+.register-form p:nth-child(odd) {
+    margin-right: 1rem;
+}
+
+.contain {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    padding: 2rem;
+}
+
+.register-box {
+    border-right: 1px solid lightgray;
+    margin-right: 1rem;
+    flex: 1 1 70%;
+}
+
+.login-box {
+    margin-left: 1rem;
+    flex:  1 1 30%;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input {
+    width: 100%;
+}
+
+input {
+    border: 1px solid lightgray;
+    height: 3rem;
+    padding: .5rem;
+}
+
+input:hover, .radio-contact:hover, input:focus {
+    border-color: #44789D;
+}
+
+label, legend {
+    font-size: medium;
+    line-height: 2.5rem;
+}
+
+legend {
+    margin: 0;
+}
+
+fieldset + input, p + input {
+    background-color: #44789D;
+    color: white;
+    font-weight: 600;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    border: none;
+    border-bottom: 2px solid gray;
+    transition: 0.3s all ease 0s;
+}
+
+fieldset + input:hover, p + input:hover {
+    background-color: var(--side-color);
+}
+
+header p {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.contact-options {
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-options label {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.contact-field {
+    width: 50%;
+}
+
+.radio-contact {
+    width: fit-content;
+    height: fit-content;
+    margin-right: .5rem;
+    appearance: none;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+
+.radio-contact::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #44789D;
+  }
+
+  .radio-contact:checked::before {
+      transform: scale(1.5);
+  }
+
+  .radio-contact:hover {
+      cursor: pointer;
+  }
+
+  @media only screen and (max-width: 950px) {
+      .login-register-box {
+          flex-direction: column;
+      }
+
+      .login-box {
+          order: 1;
+      }
+
+      .register-box {
+          order: 2;
+      }
+      
+      .contain {
+          height: auto;
+      }
+
+      ::ng-deep body {
+          background-color: white;
+      }
+
+      ::ng-deep html {
+        scroll-padding-top: 70px;
+      }
+
+      .login-register-box {
+          margin: 0;
+          padding: 0;
+          border: none;
+          max-width: 25rem;
+      }
+
+      .register-box {
+          margin: 0;
+          border-right: none;
+      }
+
+      .login-box {
+          margin: 0 0 3rem 0;
+          padding-bottom: 3rem;
+      }
+
+      main {
+          padding: 3rem;
+      }
+
+      .contact-field {
+          width: 100%;
+      }
+
+      .register-form {
+          padding: 0;
+      }
+
+      .register-form p {
+          flex: 1 1 100%;
+      }
+
+      .register-form p:nth-child(odd) {
+        margin-right: 0;
+    }
+
+  }
+
