@@ -77,6 +77,7 @@ input:hover, .radio-contact:hover, input:focus {
 label, legend {
     font-size: medium;
     line-height: 2.5rem;
+    font-weight: 400;
 }
 
 legend {
@@ -86,7 +87,7 @@ legend {
 fieldset + input, p + input {
     background-color: #44789D;
     color: white;
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 1rem;
     border-radius: .5rem;
     border: none;
@@ -98,7 +99,7 @@ fieldset + input:hover, p + input:hover {
     background-color: var(--side-color);
 }
 
-header p {
+header p:nth-child(1) {
     font-weight: bold;
     font-size: x-large;
 }
@@ -117,7 +118,7 @@ header p {
 }
 
 .contact-field {
-    width: 50%;
+    width: 49%;
 }
 
 .radio-contact {
@@ -146,6 +147,14 @@ header p {
 
   .radio-contact:hover {
       cursor: pointer;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #registered, #missing, #wrong-credentials, #non-existence, #missing-credentials {
+    color: red;
   }
 
   @media only screen and (max-width: 950px) {
