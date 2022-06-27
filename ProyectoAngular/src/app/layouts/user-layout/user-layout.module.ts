@@ -9,6 +9,9 @@ import { PictureComponent } from 'src/app/components/picture/picture.component';
 import { PackageComponent } from 'src/app/components/package/package.component';
 import { SentComponent } from 'src/app/pages/sent/sent.component';
 import {MatSelectModule} from '@angular/material/select';
+import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LandingPageComponent } from 'src/app/pages/landing-page/landing-page.component';
 
 @NgModule({
   imports: [
@@ -17,13 +20,16 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     MatTabsModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   declarations: [
     PackagesComponent,
     PictureComponent,
     PackageComponent,
-    SentComponent
+    SentComponent,
+    CarouselComponent,
+    LandingPageComponent
   ]
 })
 export class UserLayoutModule { }

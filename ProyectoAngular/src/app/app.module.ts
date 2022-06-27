@@ -35,7 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     UserLayoutComponent,
     HeaderComponent,
     AdminPackagesDialogComponent,
-    AdminUsersDialogComponent,
+    AdminUsersDialogComponent
   ],
   entryComponents: [AdminPackagesDialogComponent,
     AdminUsersDialogComponent],

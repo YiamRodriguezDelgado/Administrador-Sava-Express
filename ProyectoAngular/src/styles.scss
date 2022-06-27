@@ -93,6 +93,11 @@ sans-serif;
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
+
 :root {
     --main-color: #1A237E;
     --side-color: #FFD600;
