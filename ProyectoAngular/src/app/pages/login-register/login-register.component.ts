@@ -47,7 +47,7 @@ export class LoginRegisterComponent implements OnInit {
     if (this.user.correo == "" || this.user.password == "") {
       missingCredentialsMessage.classList.remove('hidden');
     } else {
-      this.authService.signin(this.user).subscribe( (res: any) => {
+      this.authService.signIn(this.user).subscribe( (res: any) => {
         if (res.message == "Usuario no existe") {
           nonExistenceMessage.classList.remove('hidden');
           loginForm.reset();
@@ -55,14 +55,13 @@ export class LoginRegisterComponent implements OnInit {
           wrongCredentialsMessage.classList.remove('hidden');
           loginForm.reset();
         } else {
-          localStorage.setItem("token", res.token);
-  
           const rol = decode(res.token);
-  
+          console.log(rol);
           if (rol["rol"] == 1) {
+            console.log("Entrando")
             this.router.navigate(['dashboard']);
           } else {
-            this.router.navigate(['inicio/paquetes']);
+            this.router.navigate(['inicio']);
           }
         }
 
