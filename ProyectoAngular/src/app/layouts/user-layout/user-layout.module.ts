@@ -30,8 +30,8 @@ import { LandingPageComponent } from 'src/app/pages/landing-page/landing-page.co
     PackageComponent,
     SentComponent,
     CarouselComponent,
-    LandingPageComponent
-    //LoginRegisterComponent (descomentar si tienes el componente)
+    LandingPageComponent,
+    LoginRegisterComponent
   ]
 })
 export class UserLayoutModule { }
