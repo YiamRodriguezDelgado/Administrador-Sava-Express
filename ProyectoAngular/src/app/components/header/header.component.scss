@@ -2,7 +2,7 @@
     font-size: 20px;
 }
 a.nav-link {
-    font-size: 1rem;
+    font-size: medium;
 }
 a{
     font-family:  Open Sans,sans-serif;;
@@ -13,4 +13,44 @@ a .imagen{
 }
 nav.navbar{
     background-color:#003462;
+}
+ul li i{
+    color: white;
+    font-size: 16px;
+}
+li::after {
+    background-color: #44789D;
+    content: "";
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    transition: width 0.35s ease 0s;
+    position: absolute;
+  }
+li {
+    position: relative;
+}
+li:hover::after {
+    width: 100%;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}  
+
+.dropdown-menu-end {
+    right: 0;
+    left: auto;
+    width: 20rem;
+}
+.card{
+    color:#525f7f
+}
+.card-header{
+    font-weight: bold;
+}
+.list-group-item{
+    font-size: small;
 }

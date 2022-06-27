@@ -7,11 +7,11 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./picture.component.scss']
 })
 export class PictureComponent {
-  @Input() url:string;
-  @ViewChild("picture") pictureShow:any;
+  @Input() url: string;
+  @ViewChild('picture') pictureShow: any;
   constructor(private modalService: NgbModal) { }
 
-  showPicture(name:any){
+  CreateModal(name: any){
     this.url=name;
     this.modalService.open(this.pictureShow, {
       centered: true,

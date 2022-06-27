@@ -17,7 +17,7 @@ export class TablesComponent implements OnInit {
   }
 
   openAdminPackagesDialog(): void {
-    this.dialog.open(AdminPackagesDialogComponent )
+    this.dialog.open(AdminPackagesDialogComponent );
   }
 
 

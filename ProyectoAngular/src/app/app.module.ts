@@ -12,6 +12,7 @@ import { ComponentsModule } from './components/components.module';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AdminPackagesDialogComponent } from './pages/tables/admin-packages-dialog/admin-packages-dialog.component';
 import { AdminUsersDialogComponent } from './pages/user-profile/admin-users-dialog/admin-users-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -37,9 +38,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     AdminPackagesDialogComponent,
     AdminUsersDialogComponent
   ],
+  providers: [
+  {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    JwtHelperService
+  ],
   entryComponents: [AdminPackagesDialogComponent,
     AdminUsersDialogComponent],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
