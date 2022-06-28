@@ -11,7 +11,7 @@ export class PictureComponent {
   @ViewChild('picture') pictureShow: any;
   constructor(private modalService: NgbModal) { }
 
-  CreateModal(name: any){
+  createModal(name: any){
     this.url=name;
     this.modalService.open(this.pictureShow, {
       centered: true,

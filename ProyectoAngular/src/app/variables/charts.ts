@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import Chart from 'chart.js';
 //
 // Chart extension for making the bars rounded
@@ -7,7 +8,7 @@ import Chart from 'chart.js';
 Chart.elements.Rectangle.prototype.draw = function() {
   const ctx = this._chart.ctx;
   const vm = this._view;
-  let left; let right; let top; let bottom; let signX; let signY; let borderSkipped; var radius;
+  let left; let right; let top; let bottom; let signX; let signY; let borderSkipped; let radius;
   let borderWidth = vm.borderWidth;
   // Set Radius Here
   // If radius is large enough to cause drawing errors a max radius is imposed
@@ -98,7 +99,7 @@ Chart.elements.Rectangle.prototype.draw = function() {
     const x = corners[1][0];
     const y = corners[1][1];
     // eslint-disable-next-line
-    var radius: any = cornerRadius;
+    let radius: any = cornerRadius;
 
     // Fix radius being too large
     if (radius > height / 2) {

@@ -7,7 +7,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class BlockGuard implements CanActivate {
 
-  constructor (
+  constructor(
     private authService: AuthService,
     private router: Router
   ) {}
@@ -19,5 +19,5 @@ export class BlockGuard implements CanActivate {
     }
     return true;
   }
-  
+
 }

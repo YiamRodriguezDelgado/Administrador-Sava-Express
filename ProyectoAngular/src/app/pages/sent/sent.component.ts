@@ -9,27 +9,28 @@ import { ClientsDataService } from 'src/app/service/clients-data.service';
 })
 export class SentComponent implements OnInit {
   paquetes: Package[];
-  paquetesMostrar:Package[];
+  paquetesMostrar: Package[];
   selectedPackages = new FormControl('');
-  TrackingNumbers: number[]=[];
-  constructor(private _petitions :ClientsDataService) { }
+  trackingNumbers: number[]=[];
+  constructor(private _petitions: ClientsDataService) { }
 
   ngOnInit(): void {
-    this.paquetes=this._petitions.SearchPackages();
-    for(let pack of this.paquetes){
-      console.log(pack.TrackingNumber);
-      this.TrackingNumbers.push(pack.TrackingNumber);
+    this.paquetes=this._petitions.searchPackages();
+    for(const pack of this.paquetes){
+      console.log(pack.trackingNumber);
+      this.trackingNumbers.push(pack.trackingNumber);
     }
   }
-  Enviar(){
-    console.log(this.selectedPackages.value)
+  enviar(){
+    console.log(this.selectedPackages.value);
   }
   agregarPaquete(value) {
     this.paquetesMostrar=[];
+    /* eslint-disable @typescript-eslint/prefer-for-of */
     for(let posicion=0;posicion<this.paquetes.length;posicion++){
-      let trackingNumber=this.paquetes[posicion].TrackingNumber;
+      const trackingNumber=this.paquetes[posicion].trackingNumber;
       if(value.includes(trackingNumber)){
-        this.paquetesMostrar.push(this.paquetes[posicion])
+        this.paquetesMostrar.push(this.paquetes[posicion]);
       }
     }
   }

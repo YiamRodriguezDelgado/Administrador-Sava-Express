@@ -7,7 +7,7 @@ import { BlockGuard } from 'src/app/guards/block.guard';
 import { SentComponent } from 'src/app/pages/sent/sent.component';
 import { LandingPageComponent } from 'src/app/pages/landing-page/landing-page.component';
 
-export const UserLayoutRoutes: Routes = [
+export const userLayoutRoutes: Routes = [
     { path: 'paquetes',          component: PackagesComponent, canActivate: [BlockGuard]},
     { path: 'login',             component: LoginRegisterComponent, canActivate: [AuthGuard] },
     { path:'envio',              component: SentComponent},

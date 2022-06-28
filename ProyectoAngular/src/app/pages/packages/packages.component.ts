@@ -7,11 +7,11 @@ import { Package } from 'src/app/models/package';
   styleUrls: ['./packages.component.scss']
 })
 export class PackagesComponent implements OnInit {
-  UserPackage:Package[];
-  constructor(private _petitions:ClientsDataService) { }
+  userPackage: Package[];
+  constructor(private _petitions: ClientsDataService) { }
 
   ngOnInit(): void {
-    this.UserPackage=this._petitions.SearchPackages();
-    console.log(this.UserPackage);
+    this.userPackage=this._petitions.searchPackages();
+    console.log(this.userPackage);
   }
 }

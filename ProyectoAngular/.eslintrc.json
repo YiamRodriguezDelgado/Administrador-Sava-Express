@@ -1,4 +1,18 @@
 {
+  "plugins": ["prefer-arrow-functions"],
+  "env": {
+    "browser": false,
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+
+  "globals": {
+    "document": false,
+    "navigator": false,
+    "window": false
+  },
+
   "root": true,
   "ignorePatterns": [
     "projects/**/*"
@@ -34,9 +48,21 @@
           "error",
           "1tbs"
         ],
+        "prefer-arrow-functions/prefer-arrow-functions": [
+          "off",
+          {
+            "classPropertiesAllowed": false,
+            "disallowPrototype": false,
+            "returnStyle": "unchanged",
+            "singleReturnOnly": false
+          }
+        ],
         "id-blacklist": "off",
         "id-match": "off",
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "prefer-for-of": "off",
+        "prefer-arrow/prefer-arrow-functions": "off"
+        
       }
     },
     {

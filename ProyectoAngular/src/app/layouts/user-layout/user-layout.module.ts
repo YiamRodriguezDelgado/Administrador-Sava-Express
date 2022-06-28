@@ -3,7 +3,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserLayoutRoutes } from './user-layout.routing';
+import { userLayoutRoutes } from './user-layout.routing';
 import { PackagesComponent } from 'src/app/pages/packages/packages.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { PictureComponent } from 'src/app/components/picture/picture.component';
@@ -17,7 +17,7 @@ import { LandingPageComponent } from 'src/app/pages/landing-page/landing-page.co
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild( UserLayoutRoutes ),
+    RouterModule.forChild( userLayoutRoutes ),
     FormsModule,
     MatTabsModule,
     MatSelectModule,

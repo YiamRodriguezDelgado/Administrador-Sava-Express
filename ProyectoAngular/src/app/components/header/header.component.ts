@@ -15,9 +15,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn =this.acct.isLoggedIn();
     console.log(this.isLoggedIn );
-    this.acct.isLoggedInObservable().subscribe(isLoggedIn => this.isLoggedIn =isLoggedIn)
+    this.acct.isLoggedInObservable().subscribe(isLoggedIn => this.isLoggedIn =isLoggedIn);
   }
-  
+
   onLogOut(): void{
     this.acct.logout();
   }
