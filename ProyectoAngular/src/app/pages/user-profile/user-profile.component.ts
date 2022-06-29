@@ -17,7 +17,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   openAdminUsersDialog(): void {
-   //this.dialog.open(AdminUsersDialogComponent);
+   this.dialog.open(AdminUsersDialogComponent);
   }
 
 }
