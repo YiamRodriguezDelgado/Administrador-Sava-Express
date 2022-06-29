@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import { Package } from 'src/app/models/package';
 import { ClientsDataService } from 'src/app/service/clients-data.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-sent',
   templateUrl: './sent.component.html',
@@ -23,6 +24,18 @@ export class SentComponent implements OnInit {
   }
   Enviar(){
     console.log(this.selectedPackages.value)
+    if(this.selectedPackages.value.length>0){
+      Swal.fire(
+        "Paquetes",
+        'Acabas de crear tu paquete Sava',
+        'success'
+      )
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Seleccione al menos un paquete',
+      })
+    }
   }
   agregarPaquete(value) {
     this.paquetesMostrar=[];
