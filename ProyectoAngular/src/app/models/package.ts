@@ -1,7 +1,7 @@
 export interface Package {
-    TrackingNumber:number;
-    foto:String;
-    precio:number;
-    peso:String;
-    FechaLLegada:String;
+    trackingNumber: number;
+    foto: string;
+    precio: number;
+    peso: string;
+    fechaLLegada: string;
 }

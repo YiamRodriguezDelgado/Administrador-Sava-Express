@@ -6,13 +6,12 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { RoleGuard } from 'src/app/guards/role.guard';
 
-export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-   // { path: 'dashboard',      component: DashboardComponent, canActivate: [RoleGuard], data: {expectedRole: 1} },
 
-    { path: 'user-profile',   component: UserProfileComponent  },
-    { path: 'tables',         component: TablesComponent,  },
-    { path: 'icons',          component: IconsComponent, },
-    { path: 'maps',           component: MapsComponent,  },
+export const adminLayoutRoutes: Routes = [
+    { path: 'dashboard',      component: DashboardComponent, canActivate: [RoleGuard], data: {expectedRole: 1} },
+    { path: 'user-profile',   component: UserProfileComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
+    { path: 'tables',         component: TablesComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
+    { path: 'icons',          component: IconsComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
+    { path: 'maps',           component: MapsComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
     { path: 'tablesPackages', component: TablesComponent }
 ];

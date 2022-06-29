@@ -13,19 +13,19 @@ export class LoginRegisterComponent implements OnInit {
   user = {
     correo: '',
     password: ''
-  }
+  };
 
   client = {
     correo: '',
     password: '',
     telefono: '',
     contacto: '',
-  }
+  };
 
   contactOptions = {
     correoOption: 'correo',
     telefonoOption: 'telefono'
-  }
+  };
 
   constructor(
     private router: Router,
@@ -36,7 +36,7 @@ export class LoginRegisterComponent implements OnInit {
   }
 
   logIn() {
-    let loginForm = <HTMLFormElement> document.getElementById('login-form');
+    const loginForm = document.getElementById('login-form') as HTMLFormElement;
     const nonExistenceMessage = document.getElementById('non-existence');
     const wrongCredentialsMessage = document.getElementById('wrong-credentials');
     const missingCredentialsMessage = document.getElementById('missing-credentials');
@@ -44,52 +44,51 @@ export class LoginRegisterComponent implements OnInit {
     nonExistenceMessage.classList.add('hidden');
     wrongCredentialsMessage.classList.add('hidden');
 
-    if (this.user.correo == "" || this.user.password == "") {
+    if (this.user.correo === '' || this.user.password === '') {
       missingCredentialsMessage.classList.remove('hidden');
     } else {
-      this.authService.signin(this.user).subscribe( (res: any) => {
-        if (res.message == "Usuario no existe") {
+      this.authService.signIn(this.user).subscribe( (res: any) => {
+        if (res.message === 'Usuario no existe') {
           nonExistenceMessage.classList.remove('hidden');
           loginForm.reset();
-        } else if (res.token == 'error'){
+        } else if (res.token === 'error'){
           wrongCredentialsMessage.classList.remove('hidden');
           loginForm.reset();
         } else {
-          localStorage.setItem("token", res.token);
-  
           const rol = decode(res.token);
-  
-          if (rol["rol"] == 1) {
+          console.log(rol);
+          if (rol['rol'] === 1) {
+            console.log('Entrando');
             this.router.navigate(['dashboard']);
           } else {
-            this.router.navigate(['inicio/paquetes']);
+            this.router.navigate(['inicio']);
           }
         }
 
         this.user.correo = '';
         this.user.password = '';
-  
-      })
+
+      });
     }
   }
 
   register() {
-    let registerForm = <HTMLFormElement> document.getElementById('register-form');
+    const registerForm = document.getElementById('register-form') as HTMLFormElement;
     const registeredMessage = document.getElementById('registered');
     const missingMessage = document.getElementById('missing');
     registeredMessage.classList.add('hidden');
     missingMessage.classList.add('hidden');
 
-    if (this.client.correo == "" || this.client.telefono == "" || this.client.password == "" || this.client.contacto == "") {
+    if (this.client.correo === '' || this.client.telefono === '' || this.client.password === '' || this.client.contacto === '') {
       missingMessage.classList.remove('hidden');
     } else {
-      this.authService.create(this.client).subscribe( (res:any) => {
-        if (res.message == "Usuario ya registrado") {
+      this.authService.create(this.client).subscribe( (res: any) => {
+        if (res.message === 'Usuario ya registrado') {
           registeredMessage.classList.remove('hidden');
           registerForm.reset();
         } else {
           registerForm.reset();
-          alert("Usuario registrado con exito");
+          alert('Usuario registrado con exito');
           window.location.reload();
         }
 
@@ -100,7 +99,7 @@ export class LoginRegisterComponent implements OnInit {
 
       });
     }
-    
+
   }
 
 }

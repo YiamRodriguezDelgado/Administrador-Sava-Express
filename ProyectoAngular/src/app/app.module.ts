@@ -36,7 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     UserLayoutComponent,
     HeaderComponent,
     AdminPackagesDialogComponent,
-    AdminUsersDialogComponent,
+    AdminUsersDialogComponent
   ],
   providers: [
   {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},

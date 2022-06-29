@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <ngb-carousel>
+        <ng-template ngbSlide *ngFor="let image of images">
+            <div class="wrapper d-flex justify-content-center">
+                <img [src]="image.src" height="100%" alt="Random first slide">
+            </div>
+            <div class="carousel-caption">
+                <p>{{ image.short }}</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</div>
