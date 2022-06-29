@@ -23,8 +23,8 @@ export class RoleGuard implements CanActivate {
     const expectedRole = route.data.expectedRole;
     const token = localStorage.getItem('token');
     const rol = decode(token);
-
-    if (rol['rol'] !== expectedRole) {
+    console.log(expectedRole);
+    if (rol['rol'] != expectedRole) {
       console.log('Token o usuario no válidos');
       return false;
     }
