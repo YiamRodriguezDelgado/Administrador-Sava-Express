@@ -9,7 +9,7 @@ import decode from 'jwt-decode';
 })
 export class RoleGuard implements CanActivate {
 
-  constructor (
+  constructor(
     private authService: AuthService,
     private router: Router
   ) {}
@@ -19,17 +19,17 @@ export class RoleGuard implements CanActivate {
       this.router.navigate(['inicio/login']);
       return false;
     }
-    
+
     const expectedRole = route.data.expectedRole;
     const token = localStorage.getItem('token');
     const rol = decode(token);
 
-    if (rol["rol"] != expectedRole) {
-      console.log("Token o usuario no válidos");
+    if (rol['rol'] !== expectedRole) {
+      console.log('Token o usuario no válidos');
       return false;
     }
 
     return true;
   }
-  
+
 }

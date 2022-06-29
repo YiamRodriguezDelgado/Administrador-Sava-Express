@@ -7,7 +7,7 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { RoleGuard } from 'src/app/guards/role.guard';
 
 
-export const AdminLayoutRoutes: Routes = [
+export const adminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent, canActivate: [RoleGuard], data: {expectedRole: 1} },
     { path: 'user-profile',   component: UserProfileComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
     { path: 'tables',         component: TablesComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },

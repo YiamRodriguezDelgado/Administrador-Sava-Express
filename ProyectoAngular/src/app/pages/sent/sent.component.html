@@ -10,10 +10,10 @@
       <mat-form-field appearance="outline" id="specific-border">
         <mat-label>Codigo paquete</mat-label>
         <mat-select [formControl]="selectedPackages" multiple (selectionChange)="agregarPaquete($event.value)">
-          <mat-option *ngFor="let topping of TrackingNumbers" [value]="topping">{{topping}}</mat-option>
+          <mat-option *ngFor="let topping of trackingNumbers" [value]="topping">{{topping}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <button type="button" class="btn btn-primary mx-3 mt-2" (click)="Enviar()">Envio</button>
+      <button type="button" class="btn btn-primary mx-3 mt-2" (click)="enviar()">Envio</button>
     </div>
     </div>
     <div class="package-container">
@@ -24,7 +24,7 @@
               <img class="card-img-top" src="{{items.foto}}" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">Numero de Tracking:</h5>
-                <p class="card-text"> {{items.TrackingNumber}}</p>
+                <p class="card-text"> {{items.trackingNumber}}</p>
               </div>
             </div>
           </div>

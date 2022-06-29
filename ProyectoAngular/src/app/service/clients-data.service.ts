@@ -5,9 +5,11 @@ import { Package } from '../models/package';
   providedIn: 'root'
 })
 export class ClientsDataService {
-  constructor(private _http:HttpClient) { }
-  SearchPackages(){
-    let paquetes :Package[]=[{TrackingNumber:123,foto:"../../../assets/img/icons/common/package.jpg",precio:90,peso:"110.8",FechaLLegada:"Mañana"},{TrackingNumber:124,foto:"../../../assets/img/icons/common/package.jpg",precio:90,peso:"110.8",FechaLLegada:"Mañana"},{TrackingNumber:125,foto:"../../../assets/img/icons/common/package.jpg",precio:90,peso:"110.8",FechaLLegada:"Mañana"}]
+  constructor(private _http: HttpClient) { }
+  searchPackages(){
+    const paquetes: Package[]=[{trackingNumber:123,foto:"../../../assets/img/icons/common/package.jpg",precio:90,peso:'110.8',fechaLLegada:'Mañana'},
+    {trackingNumber:124,foto:'url',precio:90,peso:"../../../assets/img/icons/common/package.jpg",fechaLLegada:'Mañana'},
+    {trackingNumber:125,foto:'url',precio:90,peso:"../../../assets/img/icons/common/package.jpg",fechaLLegada:'Mañana'}];
     return paquetes;
   }
 }
