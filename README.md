@@ -36,14 +36,11 @@
 This proyect is create for the company savaexpress, which offers a courier service.
 This web allows to manage accounts and packages, and also let clients see the tracking of their packages by reciving notification when their status is update.
 
-<table>
- <td>
+
  ![gif1](https://user-images.githubusercontent.com/66740354/176971356-ce229d43-fb98-4ee5-b7fa-83b9c4423b77.gif)
- </td>
- <td>
+
  ![gif2](https://user-images.githubusercontent.com/66740354/176971548-08b7dd99-5513-4af1-b9b0-2427ca8140e4.gif)
- </td>
-</table>
+
 
 ## Versions
 
@@ -242,4 +239,4 @@ At present, we officially aim to support the last two versions of the following 
 
 ### Social Media
 
-Instagram: <https://www.instagram.com/CreativeTimOfficial?ref=creativetim>
+Instagram: <https://www.instagram.com/savaexpress/>
