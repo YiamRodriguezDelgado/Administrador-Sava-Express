@@ -1,7 +1,7 @@
-<h1> SHIPTRACKER 💯 </h1>
+<h1 align="center"> SHIPTRACKER 💯 </h1>
 
 > SAVAEXPRESS.
-<h3> Integrantes </h3>
+<h3> Members </h3>
 
 <div align="center">
  <table>
@@ -15,11 +15,20 @@
 
 </table>
 </div>
- ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) [![GitHub issues open]](0) [![GitHub issues closed]](0) 
-
-
-![Product Gif](https://imgbox.com/Gys1r8Ls)
-
+ <a href="https://github.com/anuraghazra/github-readme-stats/actions">
+      <img alt="Tests Passing" src="https://github.com/anuraghazra/github-readme-stats/workflows/Test/badge.svg" />
+ </a>
+ <a href="https://codecov.io/gh/anuraghazra/github-readme-stats">
+      <img src="https://codecov.io/gh/anuraghazra/github-readme-stats/branch/master/graph/badge.svg" />
+ </a>
+ <a href="https://github.com/anuraghazra/github-readme-stats/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/anuraghazra/github-readme-stats?color=0088ff" />
+ </a>
+ <a href="https://github.com/anuraghazra/github-readme-stats/pulls">
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/anuraghazra/github-readme-stats?color=0088ff" />
+ </a>
+ 
+ 
 **Admin and recibe updates for your packages.**
 
 This proyect is create for the company savaexpress, which offers a courier service.
