@@ -52,8 +52,12 @@ This web allows to manage accounts and packages, also let customers to see the t
 ## Quick start
 
 - Clone the repo: `https://github.com/YiamRodriguezDelgado/T6.git`. or download ZIP.
-- In the root of the project, utilice `ng serve --open` to execute the project.
-- By default, The application will run in `http://localhost:4200/`
+- In the root of the project, run `npm install`.
+
+## Development Server
+
+- In the root of the project, use `ng serve --open` to run the project.
+- By default, the application will run on <b>http://localhost:4200/`</b>.
 
 For more help on Angular CLI use `ng help` 
 or review [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
