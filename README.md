@@ -15,6 +15,7 @@
 
 </table>
 </div>
+<div align="center">
  <a href="https://github.com/anuraghazra/github-readme-stats/actions">
       <img alt="Tests Passing" src="https://github.com/anuraghazra/github-readme-stats/workflows/Test/badge.svg" />
  </a>
@@ -27,26 +28,31 @@
  <a href="https://github.com/anuraghazra/github-readme-stats/pulls">
       <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/anuraghazra/github-readme-stats?color=0088ff" />
  </a>
- 
- 
-**Admin and recibe updates for your packages.**
+</div>
+
+
+**MANAGE AND TRACK YOUR PACKAGE**
 
 This proyect is create for the company savaexpress, which offers a courier service.
 This web allows to manage accounts and packages, and also let clients see the tracking of their packages by reciving notification when their status is update.
 
-
+<table>
+ <td>
+ ![gif1](https://user-images.githubusercontent.com/66740354/176971356-ce229d43-fb98-4ee5-b7fa-83b9c4423b77.gif)
+ </td>
+ <td>
+ ![gif2](https://user-images.githubusercontent.com/66740354/176971548-08b7dd99-5513-4af1-b9b0-2427ca8140e4.gif)
+ </td>
+</table>
 
 ## Versions
 
-[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-react)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/angular-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-angular)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/nodejs-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-nodejs)[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/laravel_logo.png" width="60" height="60" style="background:white"/>](https://www.creative-tim.com/product/argon-dashboard-laravel)[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/sketch-logo.jpg" width="60" height="60" />]
-
+[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-react)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/angular-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-angular)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/nodejs-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-nodejs)
 
 
 ## Quick start
 
-- [Download from Github](https://github.com/creativetimofficial/argon-dashboard-angular/archive/master.zip).
-- [Download from Creative Tim](https://www.creative-tim.com/product/argon-dashboard-angular?ref=ada-github-readme).
-- Clone the repo: `git clone https://github.com/creativetimofficial/argon-dashboard-angular.git`.
+- Clone the repo: `https://github.com/YiamRodriguezDelgado/T6.git`.
 
 
 ## File Structure
@@ -81,10 +87,35 @@ argon-dashboard-angular
 │   │   │   │   ├── navbar.component.spec.ts
 │   │   │   │   └── navbar.component.ts
 │   │   │   └── sidebar
-│   │   │       ├── sidebar.component.html
-│   │   │       ├── sidebar.component.scss
-│   │   │       ├── sidebar.component.spec.ts
-│   │   │       └── sidebar.component.ts
+│   │   │   |    ├── sidebar.component.html
+│   │   │   |    ├── sidebar.component.scss
+│   │   │   |    ├── sidebar.component.spec.ts
+│   │   │   |    └── sidebar.component.ts
+│   │   │   ├── carousel
+│   │   │   │   ├── carousel.component.html
+│   │   │   │   ├── carousel.component.scss
+│   │   │   │   ├── carousel.component.spec.ts
+│   │   │   │   └── carousel.component.ts
+│   │   │   ├── header
+│   │   │   │   ├── header.component.html
+│   │   │   │   ├── header.component.scss
+│   │   │   │   ├── header.component.spec.ts
+│   │   │   │   └── header.component.ts
+│   │   │   ├── package
+│   │   │   │   ├── package.component.html
+│   │   │   │   ├── package.component.scss
+│   │   │   │   ├── package.component.spec.ts
+│   │   │   │   └── package.component.ts
+│   │   │   ├── picture
+│   │   │   │   ├── picture.component.html
+│   │   │   │   ├── picture.component.scss
+│   │   │   │   ├── picture.component.spec.ts
+│   │   │   │   └── picture.component.ts
+│   │   │   └── sidebar
+│   │   ├── guards
+│   │   │   │   ├── auth.guard.ts
+│   │   │   │   ├── block.guard.ts
+│   │   │   │   ├── role.guard.ts
 │   │   ├── layouts
 │   │   │   ├── admin-layout
 │   │   │   │   ├── admin-layout.component.html
@@ -94,12 +125,21 @@ argon-dashboard-angular
 │   │   │   │   ├── admin-layout.module.ts
 │   │   │   │   └── admin-layout.routing.ts
 │   │   │   └── auth-layout
-│   │   │       ├── auth-layout.component.html
-│   │   │       ├── auth-layout.component.scss
-│   │   │       ├── auth-layout.component.spec.ts
-│   │   │       ├── auth-layout.component.ts
-│   │   │       ├── auth-layout.module.ts
-│   │   │       └── auth-layout.routing.ts
+│   │   │   │   ├── auth-layout.component.html
+│   │   │   │   ├── auth-layout.component.scss
+│   │   │   │   ├── auth-layout.component.spec.ts
+│   │   │   │   ├── auth-layout.component.ts
+│   │   │   │   ├── auth-layout.module.ts
+│   │   │   │   └── auth-layout.routing.ts
+│   │   │   ├── user-layout
+│   │   │   │   ├── user-layout.component.html
+│   │   │   │   ├── user-layout.component.scss
+│   │   │   │   ├── user-layout.component.spec.ts
+│   │   │   │   ├── user-layout.component.ts
+│   │   │   │   ├── user-layout.module.ts
+│   │   │   │   └── user-layout.routing.ts
+│   │   ├── models
+│   │   │   │   ├── package.ts
 │   │   ├── pages
 │   │   │   ├── dashboard
 │   │   │   │   ├── dashboard.component.html
@@ -111,31 +151,53 @@ argon-dashboard-angular
 │   │   │   │   ├── icons.component.scss
 │   │   │   │   ├── icons.component.spec.ts
 │   │   │   │   └── icons.component.ts
+│   │   │   ├── landing-page
+│   │   │   │   ├── landing-page.component.html
+│   │   │   │   ├── landing-page.component.scss
+│   │   │   │   ├── landing-page.component.spec.ts
+│   │   │   │   └── landing-page.component.ts
 │   │   │   ├── login
 │   │   │   │   ├── login.component.html
 │   │   │   │   ├── login.component.scss
 │   │   │   │   ├── login.component.spec.ts
 │   │   │   │   └── login.component.ts
+│   │   │   ├── login-register
+│   │   │   │   ├── login-register.component.html
+│   │   │   │   ├── login-register.component.scss
+│   │   │   │   ├── login-register.component.spec.ts
+│   │   │   │   └── login-register.component.ts
 │   │   │   ├── maps
 │   │   │   │   ├── maps.component.html
 │   │   │   │   ├── maps.component.scss
 │   │   │   │   ├── maps.component.spec.ts
 │   │   │   │   └── maps.component.ts
-│   │   │   ├── register
-│   │   │   │   ├── register.component.html
-│   │   │   │   ├── register.component.scss
-│   │   │   │   ├── register.component.spec.ts
-│   │   │   │   └── register.component.ts
+│   │   │   ├── packages
+│   │   │   │   ├── packages.component.html
+│   │   │   │   ├── packages.component.scss
+│   │   │   │   ├── packages.component.spec.ts
+│   │   │   │   └── packages.component.ts
 │   │   │   ├── tables
 │   │   │   │   ├── tables.component.html
 │   │   │   │   ├── tables.component.scss
 │   │   │   │   ├── tables.component.spec.ts
 │   │   │   │   └── tables.component.ts
+│   │   │   ├── sent
+│   │   │   │   ├── sent.component.html
+│   │   │   │   ├── sent.component.scss
+│   │   │   │   ├── sent.component.spec.ts
+│   │   │   │   └── sent.component.ts
 │   │   │   └── user-profile
-│   │   │       ├── user-profile.component.html
-│   │   │       ├── user-profile.component.scss
-│   │   │       ├── user-profile.component.spec.ts
-│   │   │       └── user-profile.component.ts
+│   │   │   └── user-profile
+│   │   │   |   ├── user-profile.component.html
+│   │   │   |   ├── user-profile.component.scss
+│   │   │   |   ├── user-profile.component.spec.ts
+│   │   │   |   └── user-profile.component.ts
+│   │   ├── service
+│   |   |   ├── clients-data.service.spec.ts
+│   |   |   ├── clients-data.service.ts
+│   │   ├── services
+│   |   |   ├── account.service.ts
+│   |   |   ├── auth.service.ts
 │   │   └── variables
 │   │       └── charts.ts
 │   ├── assets
@@ -172,18 +234,12 @@ At present, we officially aim to support the last two versions of the following 
 
 ## Reporting Issues
 
-We use GitHub Issues as the official bug tracker for the Material Kit. Here are some advices for our users that want to report an issue:
+ Here are some advices for our users that want to report an issue:
 
-1. Make sure that you are using the latest version of the Material Kit. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/?ref=ada-github-readme).
+1. Make sure that you are using the latest version. 
 2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
 
 ### Social Media
-
-Twitter: <https://twitter.com/CreativeTim?ref=creativetim>
-
-Facebook: <https://www.facebook.com/CreativeTim?ref=creativetim>
-
-Dribbble: <https://dribbble.com/creativetim?ref=creativetim>
 
 Instagram: <https://www.instagram.com/CreativeTimOfficial?ref=creativetim>
