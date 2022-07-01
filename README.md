@@ -1,7 +1,21 @@
 # [SHIPTRACKER FOR SAVAEXPRESS][![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/home?status=Argon%20Dashboard%20is%20a%20Free%20Bootstrap%20and%20Angular%20Dashboard%20made%20using%20angular-cli%20%E2%9D%A4%EF%B8%8F%0Ahttps%3A//demos.creative-tim.com/argon-dashboard-angular%20%23angular%20%23angular-cli%20%23argon%20%23argondesign%20%23angulardashboard%20%23argonangular%20%23angulardesign%20%23bootstrap%20%23design%20%23uikit%20%23freebie%20%20via%20%40CreativeTim)
 
 
+> GRUPO PICATECLAS.
+<h3> Integrantes </h3>
 
+<div align="center">
+ <table>
+  <tr>
+    <td align="center"><a href="https://github.com/claudiasofia18"><img src="https://https://avatars.githubusercontent.com/u/44529630?v=4?v=4" width="100px;" alt=""/><br /><sub><b>Claudia Asanza</b></sub></a><br/><a>🌹</a></td>
+<td align="center"><a href="https://github.com/YiamRodriguezDelgado><img src="https://avatars.githubusercontent.com/u/59121896?v=4" width="100px;" alt=""/><br /><sub><b>Yiam Rodriguez</b></sub></a><br/><a>😎</a></td>
+    <td align="center"><a href="https://github.com/Cmenesess"><img src="https://avatars.githubusercontent.com/u/66740049?v=4" width="100px;" alt=""/><br /><sub><b>Carlos Meneses</b></sub></a><br/><a>👽</a></td>
+    <td align="center"><a href="https://github.com/miglcesp01"><img src="https://avatars.githubusercontent.com/u/66740053?v=4" width="100px;" alt=""/><br /><sub><b>Miguel Licea</b></sub></a><br/><a>🤖</a></td>
+    <td align="center"><a href="https://github.com/joelalvaradowd"><img src="https://avatars.githubusercontent.com/u/73082033?v=4" width="100px;" alt=""/><br /><sub><b>Joel Alvarado</b></sub></a><br/><a>👾</a></td>
+    <td align="center"><a href="https://github.com/Alfreed0"><img src="https://avatars.githubusercontent.com/u/66737451?v=4" width="100px;" alt=""/><br /><sub><b>Luis Rodriguez</b></sub></a><br/><a>👾</a></td>
+
+</table>
+</div>
  ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) [![GitHub issues open]](0) [![GitHub issues closed]](0) 
 
 
