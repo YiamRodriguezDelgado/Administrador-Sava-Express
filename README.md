@@ -33,34 +33,31 @@
 
 **MANAGE AND TRACK YOUR PACKAGE**
 
-This proyect is create for the company savaexpress, which offers a courier service.
-This web allows to manage accounts and packages, and also let clients see the tracking of their packages by reciving notification when their status is update.
+<h4> This project is developed for SavaExpress company, which offers a courier service.
+This web allows to manage accounts and packages, also let customers to see the tracking of their packages by reciving notifications when their packages status is update. </h4>
 
 
- ![gif1](https://user-images.githubusercontent.com/66740354/176971356-ce229d43-fb98-4ee5-b7fa-83b9c4423b77.gif)
+![gif1](https://user-images.githubusercontent.com/66740354/176971356-ce229d43-fb98-4ee5-b7fa-83b9c4423b77.gif)
 
 ![gif2](https://user-images.githubusercontent.com/66740354/176975722-3d179718-975d-442e-a0e7-41d6e7a60a4d.gif)
 
 
-## Versions
-
-[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/angular-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-angular)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/nodejs-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-nodejs)
-
-## Prerequisites
+## Pre - requisites
 - [Node](https://nodejs.org/es/) 13.13.0
 - [Angular CLI](https://cli.angular.io/) 9.1.1
 - Bootstrap
   Run command: `ng add @ng-bootstrap/ng-bootstrap to install it`
 
   
-  
 ## Quick start
 
 - Clone the repo: `https://github.com/YiamRodriguezDelgado/T6.git`. or download ZIP.
-- En la raíz del proyecto, utilice `ng serve --open` para ejecutar el proyecto.
-- Por defecto, la aplicación correra en `http://localhost:4200/`
+- In the root of the project, utilice `ng serve --open` to execute the project.
+- By default, The application will run in `http://localhost:4200/`
 
-Para obtener más ayuda sobre Angular CLI use `ng help` o revise [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For more help on Angular CLI use `ng help` 
+or review [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
 ## File Structure
 Within the download you'll find the following directories and files:
 
@@ -229,6 +226,9 @@ argon-dashboard-angular
 ├── tsconfig.json
 └── tslint.json
 ```
+## Versions
+
+[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/angular-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-angular)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/nodejs-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-nodejs)
 
 
 ## Browser Support
