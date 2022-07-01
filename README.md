@@ -39,19 +39,28 @@ This web allows to manage accounts and packages, and also let clients see the tr
 
  ![gif1](https://user-images.githubusercontent.com/66740354/176971356-ce229d43-fb98-4ee5-b7fa-83b9c4423b77.gif)
 
- ![gif2](https://user-images.githubusercontent.com/66740354/176971548-08b7dd99-5513-4af1-b9b0-2427ca8140e4.gif)
+![gif2](https://user-images.githubusercontent.com/66740354/176975722-3d179718-975d-442e-a0e7-41d6e7a60a4d.gif)
 
 
 ## Versions
 
-[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-react)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/angular-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-angular)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/nodejs-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-nodejs)
+[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/angular-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-angular)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/nodejs-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/argon-dashboard-nodejs)
 
+## Prerequisites
+- [Node](https://nodejs.org/es/) 13.13.0
+- [Angular CLI](https://cli.angular.io/) 9.1.1
+- Bootstrap
+  Run command: `ng add @ng-bootstrap/ng-bootstrap to install it`
 
+  
+  
 ## Quick start
 
-- Clone the repo: `https://github.com/YiamRodriguezDelgado/T6.git`.
+- Clone the repo: `https://github.com/YiamRodriguezDelgado/T6.git`. or download ZIP.
+- En la raíz del proyecto, utilice `ng serve --open` para ejecutar el proyecto.
+- Por defecto, la aplicación correra en `http://localhost:4200/`
 
-
+Para obtener más ayuda sobre Angular CLI use `ng help` o revise [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 ## File Structure
 Within the download you'll find the following directories and files:
 
