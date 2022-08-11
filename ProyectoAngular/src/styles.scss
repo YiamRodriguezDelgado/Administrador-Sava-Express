@@ -62,6 +62,39 @@ sans-serif;
     color: $blue-main-color;
 }
 
+.validation-message {
+  font-size: 12px;
+  color: #c0392b;
+}
+
+.input-label{
+  font-weight: 600;
+  font-size: 18px;
+  font-family: $title-font ; 
+  color: $blue-main-color;
+}
+
+.package-dialog .mat-dialog-container {
+  width: 800px;
+  max-width: fit-content;
+  border-radius: 5px;
+  padding: 20px 40px 80px 40px;
+}
+
+.input-box {
+  margin-top: 5px;
+  border-color: $content-font;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: $light-blue-color;
+  height: 50px;
+  font-size: 15px;
+  font-family: Raleway;
+  }
+.input-box:focus {
+  outline-color: $yellow-color;
+  }
+
 .text-color-sidebar{
     color: white !important;
     font-family: $title-font;

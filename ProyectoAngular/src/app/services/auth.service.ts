@@ -23,9 +23,6 @@ export class AuthService {
     this.isUserLoggedIn=this.checkLoginStatus();
    }
 
-
-
-
   signIn(user: any) {
     return this.http.post<any>(`${this.url}/users/userConfirmation`, user, {withCredentials: true}).pipe(
       map(result=>{
@@ -51,6 +48,7 @@ export class AuthService {
     }
     return true;
   }
+
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('loginStatus');
@@ -58,6 +56,7 @@ export class AuthService {
     this.isUserLoggedIn = false;
     this.subject.next(this.isUserLoggedIn);
   }
+
   checkLoginStatus(): boolean {
         const loginCookie = localStorage.getItem('loginStatus');
         if(loginCookie === '1'){
@@ -73,9 +72,11 @@ export class AuthService {
         }
         return false;
   }
+
   public isLoggedIn(): boolean {
     return this.isUserLoggedIn;
   }
+  
   public isLoggedInObservable(): Observable<boolean> {
     return this.observable;
   }

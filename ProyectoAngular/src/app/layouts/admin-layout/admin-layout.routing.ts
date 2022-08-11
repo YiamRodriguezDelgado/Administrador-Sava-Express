@@ -9,7 +9,7 @@ import { RoleGuard } from 'src/app/guards/role.guard';
 
 export const adminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent, canActivate: [RoleGuard], data: {expectedRole: 1} },
-    { path: 'user-profile',   component: UserProfileComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
+    { path: 'user-profile',   component: UserProfileComponent},
     { path: 'tables',         component: TablesComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
     { path: 'icons',          component: IconsComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },
     { path: 'maps',           component: MapsComponent, canActivate: [RoleGuard], data: {expectedRole: 1}  },

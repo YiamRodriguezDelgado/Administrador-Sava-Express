@@ -1,3 +1,7 @@
+$blue-main-color: #003462;
+$light-blue-color: #2D6CB5;
+$lightest-blue-color: #44789D;
+$yellow-color: #FEBE10;
 .dropdown,
 .dropup{
   .dropdown-toggle::after{
@@ -136,7 +140,7 @@ ngb-datepicker {
             &.range{
               color: $white;
               &:hover{
-                background: #5e72e4;
+                background: $light-blue-color;
               }
             }
             &.range-start{
@@ -172,7 +176,7 @@ ngb-datepicker {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   color: #fff;
-  background: #5e72e4;
+  background: $light-blue-color;
   box-shadow: none;
   font-size: .875rem;
   width: 36px;
