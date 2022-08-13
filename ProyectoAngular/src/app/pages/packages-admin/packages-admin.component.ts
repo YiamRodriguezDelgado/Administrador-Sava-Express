@@ -4,14 +4,15 @@ import { Subscription } from 'rxjs';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
 import { WarehousePackagesService } from 'src/app/services/warehouse-packages.service';
 import Swal from 'sweetalert2';
-import { AdminPackagesDialogComponent } from './admin-packages-dialog/admin-packages-dialog.component';
+import { PackagesAdminDialogComponent } from './packages-admin-dialog/packages-admin-dialog.component';
 
 @Component({
-  selector: 'app-tables',
-  templateUrl: './tables.component.html',
-  styleUrls: ['./tables.component.scss']
+  selector: 'app-packages-admin',
+  templateUrl: './packages-admin.component.html',
+  styleUrls: ['./packages-admin.component.scss']
 })
-export class TablesComponent implements OnInit {
+
+export class PackagesAdminComponent implements OnInit {
   warehousePackages: Array<WarehousePackage> = [{
     id: 5,
     tracking_number: "0788566565",
@@ -46,9 +47,7 @@ export class TablesComponent implements OnInit {
         this.warehousePackages = result
       },
       (error) => {}
-
     )
-
   }
 
   edit(){
@@ -57,7 +56,7 @@ export class TablesComponent implements OnInit {
     dialogConfig.data = {
       object: this.object
     }
-    this.dialog.open(AdminPackagesDialogComponent, dialogConfig)
+    this.dialog.open(PackagesAdminDialogComponent, dialogConfig)
   }
 
   delete(packagee: WarehousePackage){
@@ -98,10 +97,10 @@ export class TablesComponent implements OnInit {
     })
   }
 
-  openAdminPackagesDialog(): void {
+  openPackagesAdminDialog(): void {
     const dialogConfig = new MatDialogConfig()
     dialogConfig.panelClass = "package-dialog"
-    this.dialog.open(AdminPackagesDialogComponent, {
+    this.dialog.open(PackagesAdminDialogComponent, {
       width: '40vw', //sets width of dialog
       height:'95vh', //sets width of dialog
       maxWidth: '80vw', //overrides default width of dialog

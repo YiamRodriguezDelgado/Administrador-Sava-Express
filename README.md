@@ -183,11 +183,11 @@ argon-dashboard-angular
 │   │   │   │   ├── packages.component.scss
 │   │   │   │   ├── packages.component.spec.ts
 │   │   │   │   └── packages.component.ts
-│   │   │   ├── tables
-│   │   │   │   ├── tables.component.html
-│   │   │   │   ├── tables.component.scss
-│   │   │   │   ├── tables.component.spec.ts
-│   │   │   │   └── tables.component.ts
+│   │   │   ├── packages-admin
+│   │   │   │   ├── packages-admin.component.html
+│   │   │   │   ├── packages-admin.component.scss
+│   │   │   │   ├── packages-admin.component.spec.ts
+│   │   │   │   └── packages-admin.component.ts
 │   │   │   ├── sent
 │   │   │   │   ├── sent.component.html
 │   │   │   │   ├── sent.component.scss

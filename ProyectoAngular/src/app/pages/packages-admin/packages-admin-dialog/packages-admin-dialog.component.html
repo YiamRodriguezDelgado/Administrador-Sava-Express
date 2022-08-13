@@ -3,11 +3,11 @@
     <h2 mat-dialog-title  class="input-label ml-3"  style="font-weight: 900;">EDITAR PAQUETE</h2>
 </ng-template>
 <mat-dialog-content class="container-fluid d-flex align-items-center" style="margin: 0; padding: 0">
-    <form [formGroup]="warehousePackageForm" class="d-flex flex-column justify-content-between">
+    <form [formGroup]="warehousePackageForm" class="d-flex flex-column justify-content-between my-5">
         <div class="container">
-            <div class="row">
+            <div class="row" style="margin-top: 400px;">
                 <div class="col-md d-flex flex-column justify-content-between">
-                    <div class="w-100 d-flex flex-column" style="margin-top: 120px;">
+                    <div class="w-100 d-flex flex-column">
                         <span class="input-label">Cliente:</span>
                         <input class="input-box" [formControl]="client_name" />
                         <div class="validation-message"
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-md d-flex flex-column justify-content-between">
-                    <div class="w-100 d-flex flex-column" style="margin-top:120px ;">
+                    <div class="w-100 d-flex flex-column mt-3">
                         <span class="input-label">Peso en libras:</span>
                         <input class="input-box" [formControl]="pounds" />
                         <div class="validation-message"

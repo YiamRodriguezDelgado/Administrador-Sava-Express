@@ -1,0 +1,10 @@
+$blue-main-color: #003462;
+$light-blue-color: #2D6CB5;
+.cancel-button{
+    border-color: $blue-main-color;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 5px;
+    color: $blue-main-color;
+    background-color: white;
+}

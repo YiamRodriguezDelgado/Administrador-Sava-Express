@@ -1,17 +1,18 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
 import { WarehousePackagesService } from 'src/app/services/warehouse-packages.service';
 import Swal from 'sweetalert2';
+import { PackagesAdminDialogComponent } from '../packages-admin-dialog/packages-admin-dialog.component';
 
 @Component({
-  selector: 'app-admin-packages-dialog',
-  templateUrl: './admin-packages-dialog.component.html',
-  styleUrls: ['./admin-packages-dialog.component.scss']
+  selector: 'app-packages-sava-admin-dialog',
+  templateUrl: './packages-sava-admin-dialog.component.html',
+  styleUrls: ['./packages-sava-admin-dialog.component.scss']
 })
-export class AdminPackagesDialogComponent implements OnInit {
+export class PackagesSavaAdminDialogComponent implements OnInit {
 
   warehousePackageForm: FormGroup;
   onCreate: boolean = true;
@@ -28,7 +29,7 @@ export class AdminPackagesDialogComponent implements OnInit {
   private warehouseCrudSubscription: Subscription;
   private warehousePackage: WarehousePackage
   constructor(
-    private dialogRef: MatDialogRef<AdminPackagesDialogComponent>,
+    private dialogRef: MatDialogRef<PackagesAdminDialogComponent>,
     private _warehousePackageCrudService: WarehousePackagesService,
     @Inject(MAT_DIALOG_DATA) private data,
   ) { }

@@ -15,7 +15,7 @@ export class WarehousePackagesService {
   ) { }
 
   createWarehousePackage(warehouse_package: WarehousePackage): Observable<any> {
-    const apiUrl = `${this.url}/api/warehouse-packages/`
+    const apiUrl = `${this.url}/api/warehouse-packages`
     return this.http.post(apiUrl, warehouse_package)
   }
 

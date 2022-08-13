@@ -1,0 +1,63 @@
+
+<h2 mat-dialog-title  class="input-label ml-3"  style="font-weight: 900;">EDITAR PAQUETE SAVA</h2>
+<mat-dialog-content class="container-fluid d-flex align-items-center" style="margin: 0; padding: 0">
+    <form [formGroup]="warehousePackageForm" class="d-flex flex-column justify-content-between my-5">
+        <div class="container">
+            <div class="row" style="margin-top: 400px;">
+                <div class="col-md d-flex flex-column justify-content-between">
+                    <div class="w-100 d-flex flex-column">
+                        <span class="input-label">Cliente:</span>
+                        <input class="input-box" [formControl]="client_name" />
+                        <div class="validation-message"
+                            *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">
+                            *Campo cliente obligatorio
+                        </div>
+                    </div>
+                    <div class="w-100 d-flex flex-column mt-3">
+                        <span class="input-label">Estado de paquete:</span>
+                        <input class="input-box" [formControl]="status" />
+                        <div class="validation-message"
+                            *ngIf="(status.dirty || status.touched) && status.invalid && status.errors.required">
+                            *Campo estado obligatorio
+                        </div>
+                    </div>
+                    <div class="w-100 d-flex flex-column mt-3">
+                        <span class="input-label">Peso en libras:</span>
+                        <input class="input-box" [formControl]="pounds" />
+                        <div class="validation-message"
+                            *ngIf="(pounds.dirty || pounds.touched) && pounds.invalid && pounds.errors.required">
+                            *Campo peso obligatorio
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md d-flex flex-column justify-content-between">
+                    <div class="w-100 d-flex flex-column  mt-1">
+                        <span class="input-label">Precio:</span>
+                        <input class="input-box" [formControl]="price" />
+                    </div>
+                    <div class="w-100 d-flex flex-column  mt-2">
+                        <span class="input-label">Fecha llegada a destino:</span>
+                        <input class="input-box" [formControl]="arrival_date_destiny" />
+                        <div class="validation-message"
+                            *ngIf="(arrival_date_destiny.dirty || arrival_date_destiny.touched) && arrival_date_destiny.invalid && arrival_date_destiny.errors.required">
+                            *Campo fecha de llegada obligatorio
+                        </div>
+                    </div>
+                    <div class="w-100 d-flex flex-column  mt-2">
+                        <span class="input-label">Fecha salida de bodega:</span>
+                        <input class="input-box" [formControl]="arrival_date_warehouse" />
+                        <div class="validation-message"
+                            *ngIf="(arrival_date_warehouse.dirty || arrival_date_warehouse.touched) && arrival_date_warehouse.invalid && arrival_date_warehouse.errors.required">
+                            *Campo fecha de salida obligatorio
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="model-dialog-actions d-none d-sm-flex flex-row justify-content-between"
+    style="padding: 0">
+    <button class="btn btn-primary mt-5 ml-3"  style="width: 36%;"  (click)="accept()" type="submit">Guardar</button>
+    <button class="btn cancel-button mt-5 mr-3" style="width: 36%" (click)="cancel()">Cancelar</button>
+</mat-dialog-actions>
