@@ -8,7 +8,9 @@
     <h1 class="text-center">Selecciona los paquetes</h1>
     <div class="d-flex flex-row justify-content-center py-3">
       <mat-form-field appearance="outline" id="specific-border">
-        <mat-label>Codigo paquete</mat-label>
+        <mat-label *ngIf="trackingNumbers.length==0">No existen paquetes</mat-label>
+        <mat-label *ngIf="trackingNumbers.length!=0">Codigos paquete</mat-label>
+
         <mat-select [formControl]="selectedPackages" multiple (selectionChange)="agregarPaquete($event.value)">
           <mat-option *ngFor="let topping of trackingNumbers" [value]="topping">{{topping}}</mat-option>
         </mat-select>
@@ -24,7 +26,7 @@
               <img class="card-img-top" src="{{items.foto}}" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">Numero de Tracking:</h5>
-                <p class="card-text"> {{items.trackingNumber}}</p>
+                <p class="card-text"> {{items.tracking_number}}</p>
               </div>
             </div>
           </div>

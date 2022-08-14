@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientsDataService } from 'src/app/service/clients-data.service';
+import { ClientsDataService } from 'src/app/services/clients-data.service';
 import { Package } from 'src/app/models/package';
 @Component({
   selector: 'app-packages',
@@ -7,11 +7,13 @@ import { Package } from 'src/app/models/package';
   styleUrls: ['./packages.component.scss']
 })
 export class PackagesComponent implements OnInit {
-  userPackage: Package[];
+  userPackage: any[]=[];
   constructor(private _petitions: ClientsDataService) { }
 
   ngOnInit(): void {
-    this.userPackage=this._petitions.searchPackages();
-    console.log(this.userPackage);
+    this._petitions.searchPackages().subscribe((res: any)=>{
+      this.userPackage=res
+    });
   }
 }
+
