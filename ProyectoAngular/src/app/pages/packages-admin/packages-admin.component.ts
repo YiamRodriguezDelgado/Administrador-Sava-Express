@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
-import { WarehousePackagesService } from 'src/app/services/warehouse-packages.service';
+import { PackagesService } from 'src/app/services/packages.service';
 import Swal from 'sweetalert2';
 import { PackagesAdminDialogComponent } from './packages-admin-dialog/packages-admin-dialog.component';
+import { PackagesSavaAdminDialogComponent } from './packages-sava-admin-dialog/packages-sava-admin-dialog.component';
+
 
 @Component({
   selector: 'app-packages-admin',
@@ -13,6 +16,11 @@ import { PackagesAdminDialogComponent } from './packages-admin-dialog/packages-a
 })
 
 export class PackagesAdminComponent implements OnInit {
+  public focus;
+  default_package: string = "Paquetes bodega"
+  packagesForm: FormGroup
+  package_instance: FormControl = new FormControl()
+  packagesOptions: Array<string> = ["Paquetes SAVA", "Paquetes bodega"]
   warehousePackages: Array<WarehousePackage> = [{
     id: 5,
     tracking_number: "0788566565",
@@ -26,18 +34,49 @@ export class PackagesAdminComponent implements OnInit {
     sava_code: "21555-255512-456",
     images: []
   }]
+
   @Input() object: WarehousePackage
   private warehousePackageSubscription: Subscription
   constructor(
     public dialog: MatDialog,
-    private _warehouseCrudService: WarehousePackagesService
+    private _warehouseCrudService: PackagesService
   ) { }
 
   ngOnInit() {
-    this.downloadPackages()
+    this.packagesForm = new FormGroup({
+      package_instance: this.package_instance
+    })
+
+    this.packagesForm.valueChanges.subscribe(() => {
+      this.search()
+    })
+
   }
 
-  downloadPackages(){
+  search(){
+    if (this.package_instance.value === "Paquetes SAVA"){
+      this.downloadSavaPackages()
+    }else {
+      this.downloadWarehousePackages()
+    }
+  }
+
+  downloadWarehousePackages(){
+    this.default_package = "Paquetes bodega"
+    if (this.warehousePackageSubscription) {
+      this.warehousePackageSubscription.unsubscribe()
+    }
+
+    this.warehousePackageSubscription = this._warehouseCrudService.getWarehousePackageList().subscribe(
+      (result) => {
+        this.warehousePackages = result
+      },
+      (error) => {}
+    )
+  }
+
+  downloadSavaPackages(){
+    this.default_package = "Paquetes SAVA"
     if (this.warehousePackageSubscription) {
       this.warehousePackageSubscription.unsubscribe()
     }
@@ -57,6 +96,19 @@ export class PackagesAdminComponent implements OnInit {
       object: this.object
     }
     this.dialog.open(PackagesAdminDialogComponent, dialogConfig)
+  }
+
+  editSavaPackage(){
+    const dialogConfig = new MatDialogConfig()
+    dialogConfig.disableClose = true
+    dialogConfig.width = '40vm'
+    dialogConfig.height = '95vm'
+    dialogConfig.maxHeight = '100vm'
+    dialogConfig.maxWidth = '80vm'
+    dialogConfig.data = {
+      object: this.object
+    }
+    this.dialog.open(PackagesSavaAdminDialogComponent, dialogConfig)
   }
 
   delete(packagee: WarehousePackage){

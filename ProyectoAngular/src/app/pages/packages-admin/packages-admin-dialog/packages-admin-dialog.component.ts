@@ -3,8 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
-import { WarehousePackagesService } from 'src/app/services/warehouse-packages.service';
+import { PackagesService } from 'src/app/services/packages.service';
 import Swal from 'sweetalert2';
+import $ from "jquery";
 
 @Component({
   selector: 'app-packages-admin-dialog',
@@ -25,12 +26,22 @@ export class PackagesAdminDialogComponent implements OnInit {
   arrival_date_destiny: FormControl = new FormControl("");
   images: FormControl = new FormControl("");
   private warehouseCrudSubscription: Subscription;
+  colectionImages : string[] = [];
+  imageForm = new FormGroup({
+   name: new FormControl('', [Validators.required]),
+   file: new FormControl('', [Validators.required]),
+   fileSource: new FormControl('', [Validators.required])
+ });
   private warehousePackage: WarehousePackage
   constructor(
     private dialogRef: MatDialogRef<PackagesAdminDialogComponent>,
-    private _warehousePackageCrudService: WarehousePackagesService,
+    private _warehousePackageCrudService: PackagesService,
     @Inject(MAT_DIALOG_DATA) private data,
   ) { }
+
+  get formValue(){
+    return this.imageForm.controls;
+  }
 
   ngOnInit(): void {
     if (this.data) {
@@ -55,8 +66,37 @@ export class PackagesAdminDialogComponent implements OnInit {
       status: this.status,
       sava_code: this.sava_code,
       departure_date: this.departure_date,
-      arrival_date_destiny: this.arrival_date_destiny
+      arrival_date_destiny: this.arrival_date_destiny,
+      images: this.imageForm
     })
+  }
+
+  onFileChange(event:any) {
+    if (event.target.files && event.target.files[0]) {
+        var filesAmount = event.target.files.length;
+        for (let i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+                reader.onload = (event:any) => {
+                  // Push Base64 string
+                  this.colectionImages.push(event.target.result); 
+                  this.patchValues();
+                }
+                reader.readAsDataURL(event.target.files[i]);
+        }
+    }
+  }
+
+  patchValues(){
+    this.imageForm.patchValue({
+       fileSource: this.colectionImages
+    });
+  }
+
+  // Remove Image
+  removeImage(url:any){
+    console.log(this.colectionImages,url);
+    this.colectionImages = this.colectionImages.filter(img => (img != url));
+    this.patchValues();
   }
 
   accept() {

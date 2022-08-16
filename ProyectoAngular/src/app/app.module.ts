@@ -48,7 +48,7 @@ import { PackagesSavaAdminDialogComponent } from './pages/packages-admin/package
     JwtHelperService
   ],
   entryComponents: [PackagesAdminDialogComponent,
-    AdminUsersDialogComponent],
+    AdminUsersDialogComponent, PackagesSavaAdminDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

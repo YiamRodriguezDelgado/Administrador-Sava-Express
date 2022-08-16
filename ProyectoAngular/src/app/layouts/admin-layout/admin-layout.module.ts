@@ -10,7 +10,6 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { PackagesAdminComponent } from '../../pages/packages-admin/packages-admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -18,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule.forChild(adminLayoutRoutes),
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     NgbModule,
     ClipboardModule
   ],

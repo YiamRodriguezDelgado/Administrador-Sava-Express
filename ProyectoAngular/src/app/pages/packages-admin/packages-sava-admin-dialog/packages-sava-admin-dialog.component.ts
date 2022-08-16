@@ -2,8 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
-import { WarehousePackage } from 'src/app/models/warehouse-package';
-import { WarehousePackagesService } from 'src/app/services/warehouse-packages.service';
+import { Package } from 'src/app/models/package';
+import { PackagesService } from 'src/app/services/packages.service';
 import Swal from 'sweetalert2';
 import { PackagesAdminDialogComponent } from '../packages-admin-dialog/packages-admin-dialog.component';
 
@@ -14,7 +14,7 @@ import { PackagesAdminDialogComponent } from '../packages-admin-dialog/packages-
 })
 export class PackagesSavaAdminDialogComponent implements OnInit {
 
-  warehousePackageForm: FormGroup;
+  savaPackageForm: FormGroup;
   onCreate: boolean = true;
   client_name: FormControl = new FormControl("", [Validators.required]);
   tracking_number: FormControl = new FormControl("", [Validators.required]);
@@ -26,34 +26,25 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
   departure_date: FormControl = new FormControl("");
   arrival_date_destiny: FormControl = new FormControl("");
   images: FormControl = new FormControl("");
-  private warehouseCrudSubscription: Subscription;
-  private warehousePackage: WarehousePackage
+  private savaCrudSubscription: Subscription;
+  private savaPackage: Package
   constructor(
     private dialogRef: MatDialogRef<PackagesAdminDialogComponent>,
-    private _warehousePackageCrudService: WarehousePackagesService,
+    private _savaPackageCrudService: PackagesService,
     @Inject(MAT_DIALOG_DATA) private data,
   ) { }
 
   ngOnInit(): void {
     if (this.data) {
       this.onCreate = false
-      this.warehousePackage = this.data.object as WarehousePackage
-      this.client_name.setValue(this.warehousePackage.client_name)
-      this.tracking_number.setValue(this.warehousePackage.tracking_number)
-      this.sava_code.setValue(this.warehousePackage.sava_code)
-      this.pounds.setValue(this.warehousePackage.pounds)
-      this.price.setValue(this.warehousePackage.price)
-      this.arrival_date_warehouse.setValue(this.warehousePackage.arrival_date_warehouse)
-      this.arrival_date_destiny.setValue(this.warehousePackage.arrival_date_destiny)
-      this.departure_date.setValue(this.warehousePackage.departure_date)
-      this.status.setValue(this.warehousePackage.status)
+      this.savaPackage = this.data.object as Package
     }
-    this.warehousePackageForm = new FormGroup({
+    this.savaPackageForm = new FormGroup({
       client_name: this.client_name,
       tracking_number: this.tracking_number,
       pounds: this.pounds,
       price: this.price,
-      arrival_date_warehouse: this.arrival_date_warehouse,
+      warehouse: this.arrival_date_warehouse,
       status: this.status,
       sava_code: this.sava_code,
       departure_date: this.departure_date,
@@ -62,10 +53,10 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
   }
 
   accept() {
-    this.warehousePackageForm.markAllAsTouched()
-    if (this.arrival_date_warehouse.valid) {
-      if (this.onCreate) {
-        this.warehouseCrudSubscription = this._warehousePackageCrudService.createWarehousePackage(this.warehousePackageForm.value).subscribe(
+    this.savaPackageForm.markAllAsTouched()
+    if (this.savaPackageForm.valid) {
+     /* if (this.onCreate) {
+        this.savaCrudSubscription = this._savaPackageCrudService.createsavaPackage(this.savaPackageForm.value).subscribe(
           (result) => {
             
         },
@@ -74,7 +65,7 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
           }
          )
     } else {
-      this.warehouseCrudSubscription = this._warehousePackageCrudService.updateWarehousePackage(this.warehousePackageForm.value).subscribe(
+      this.savaCrudSubscription = this._savaPackageCrudService.updatesavaPackage(this.savaPackageForm.value).subscribe(
         (result) => {
           Swal.fire(
             'Eliminado!',
@@ -85,7 +76,7 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
         (error) => {
 
         })
-    }
+    }*/
   }
 }
 cancel(){
