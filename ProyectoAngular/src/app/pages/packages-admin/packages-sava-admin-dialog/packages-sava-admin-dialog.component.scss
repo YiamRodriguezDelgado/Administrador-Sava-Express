@@ -8,3 +8,15 @@ $light-blue-color: #2D6CB5;
     color: $blue-main-color;
     background-color: white;
 }
+
+@media (min-width: 700px) {
+    .control-media{
+        margin-top: 10px;
+        margin-left: -40px;
+    }
+}
+@media (max-width: 700px) {
+    .control-media{
+        margin-top: 50px;
+    }
+}

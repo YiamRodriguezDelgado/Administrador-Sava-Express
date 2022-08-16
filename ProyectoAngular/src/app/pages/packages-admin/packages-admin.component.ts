@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
+import { Package } from 'src/app/models/package';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
 import { PackagesService } from 'src/app/services/packages.service';
 import Swal from 'sweetalert2';
@@ -34,6 +35,8 @@ export class PackagesAdminComponent implements OnInit {
     sava_code: "21555-255512-456",
     images: []
   }]
+
+  savaPackages: Array<Package> = []
 
   @Input() object: WarehousePackage
   private warehousePackageSubscription: Subscription
@@ -80,10 +83,9 @@ export class PackagesAdminComponent implements OnInit {
     if (this.warehousePackageSubscription) {
       this.warehousePackageSubscription.unsubscribe()
     }
-
-    this.warehousePackageSubscription = this._warehouseCrudService.getWarehousePackageList().subscribe(
+    this.warehousePackageSubscription = this._warehouseCrudService.getSavaPackageList().subscribe(
       (result) => {
-        this.warehousePackages = result
+        this.savaPackages = result
       },
       (error) => {}
     )

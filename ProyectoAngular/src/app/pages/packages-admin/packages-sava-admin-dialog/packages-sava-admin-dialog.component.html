@@ -1,12 +1,12 @@
 
-<h2 mat-dialog-title  class="input-label ml-3"  style="font-weight: 900;">EDITAR PAQUETE SAVA</h2>
+<h2 mat-dialog-title  class="input-label ml-3"  style="font-weight: 799;">EDITAR PAQUETE SAVA</h2>
 <mat-dialog-content class="container-fluid d-flex align-items-center" style="margin: 0; padding: 0">
-    <div class="container-fluid mt--7">
+    <div class="container-fluid ">
         <div>
             <div class="card bg-secondary shadow">
                 <div class="card-body">
                     <form [formGroup]="savaPackageForm">
-                        <div class="pl-lg-4">
+                        <div class="pl-lg-4 control-media">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -22,7 +22,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Estado de paquete</label>
-                                        <input [formControl]="status" type="email" id="status"
+                                        <input [formControl]="status" type="text" id="status"
                                             class="form-control form-control-alternative" placeholder="Estado paquete">
                                         <div class="validation-message"
                                             *ngIf="(status.dirty || status.touched) && status.invalid && status.errors.required">
@@ -48,6 +48,10 @@
                                         <label class="form-control-label">Precio</label>
                                         <input [formControl]="price" type="text" id="price"
                                             class="form-control form-control-alternative" placeholder="Precio" value="">
+                                            <div class="validation-message"
+                                            *ngIf="(price.dirty || price.touched) && price.invalid && price.errors.required">
+                                            *Campo precio obligatorio
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -55,8 +59,8 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Fecha llegada a destino</label>
-                                        <input [formControl]="arrival_date_destiny" type="text" id="arrival_date_destiny"
-                                            class="form-control form-control-alternative" placeholder="Peso" value="">
+                                        <input [formControl]="arrival_date_destiny" type="date" id="arrival_date_destiny"
+                                            class="form-control form-control-alternative" placeholder="DD-MM-AA" value="">
                                         <div class="validation-message"
                                             *ngIf="(arrival_date_destiny.dirty || arrival_date_destiny.touched) && arrival_date_destiny.invalid && arrival_date_destiny.errors.required">
                                             *Campo fecha de llegada obligatorio
@@ -66,8 +70,8 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Fecha salida de bodega</label>
-                                        <input [formControl]="arrival_date_warehouse" type="text" id="arrival_date_warehouse"
-                                            class="form-control form-control-alternative" placeholder="Precio" value="">
+                                        <input [formControl]="arrival_date_warehouse" type="date" id="arrival_date_warehouse"
+                                            class="form-control form-control-alternative" placeholder="DD-MM-AA" value="">
                                         <div class="validation-message"
                                             *ngIf="(arrival_date_warehouse.dirty || arrival_date_warehouse.touched) && arrival_date_warehouse.invalid && arrival_date_warehouse.errors.required">
                                             *Campo fecha de salida obligatorio
@@ -82,8 +86,9 @@
         </div>
     </div>
 </mat-dialog-content>
-<mat-dialog-actions class="model-dialog-actions d-none d-sm-flex flex-row justify-content-between"
-    style="padding: 0">
+<mat-dialog-actions 
+    class="model-dialog-actions d-sm-flex flex-row justify-content-between"
+    style="padding: 0; margin-bottom: 20px;">
     <button class="btn btn-primary mt-5 ml-3"  style="width: 36%;"  (click)="accept()" type="submit">Guardar</button>
     <button class="btn cancel-button mt-5 mr-3" style="width: 36%" (click)="cancel()">Cancelar</button>
 </mat-dialog-actions>

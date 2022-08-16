@@ -1,7 +1,9 @@
 export interface Package {
-    trackingNumber: number;
-    foto: string;
-    precio: number;
-    peso: string;
-    fechaLLegada: string;
+    id: number,
+    sava_code: string;
+    status:string,
+    price: number,
+    departureDate: Date,
+    arrival_date_destiny: Date,
+    username: number
 }

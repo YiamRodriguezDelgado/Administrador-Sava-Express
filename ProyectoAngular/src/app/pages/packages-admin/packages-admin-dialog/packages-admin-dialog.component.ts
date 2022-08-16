@@ -121,7 +121,12 @@ export class PackagesAdminDialogComponent implements OnInit {
           )
         },
         (error) => {
-
+          Swal.fire({ 
+            title: 'Error', 
+            text: 'No se pudo actualizar el paquete', 
+            confirmButtonColor: '#FEBE10', 
+            icon: 'error', 
+            confirmButtonText: 'OK'});
         })
     }
   }

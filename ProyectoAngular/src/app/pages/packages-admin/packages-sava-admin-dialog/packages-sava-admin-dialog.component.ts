@@ -54,33 +54,24 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
 
   accept() {
     this.savaPackageForm.markAllAsTouched()
-    if (this.savaPackageForm.valid) {
-     /* if (this.onCreate) {
-        this.savaCrudSubscription = this._savaPackageCrudService.createsavaPackage(this.savaPackageForm.value).subscribe(
-          (result) => {
-            
-        },
-          (error) => {
-
-          }
-         )
-    } else {
-      this.savaCrudSubscription = this._savaPackageCrudService.updatesavaPackage(this.savaPackageForm.value).subscribe(
+      this.savaCrudSubscription = this._savaPackageCrudService.updateSavaPackage(this.savaPackageForm.value).subscribe(
         (result) => {
           Swal.fire(
-            'Eliminado!',
+            'Paquete SAVA actualizado',
             'success',
-            
           )
         },
         (error) => {
-
+          Swal.fire({ 
+            title: 'Error', 
+            text: 'No se pudo actualizar paquete', 
+            confirmButtonColor: '#FEBE10', 
+            icon: 'error', 
+            confirmButtonText: 'OK'});
         })
-    }*/
   }
-}
-cancel(){
-  this.dialogRef.close()
-}
+  cancel() {
+    this.dialogRef.close()
+  }
 
 }

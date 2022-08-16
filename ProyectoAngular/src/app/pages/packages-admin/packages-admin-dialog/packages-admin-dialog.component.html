@@ -1,103 +1,104 @@
-<h2 mat-dialog-title class="input-label ml-3" style="font-weight: 900;" *ngIf="onCreate; else userTitle">AGREGAR PAQUETE
+<h2 mat-dialog-title class="input-label ml-3" style="font-weight: 799;" *ngIf="onCreate; else userTitle">AGREGAR PAQUETE
     EN BODEGA</h2>
 <ng-template #userTitle>
-    <h2 mat-dialog-title class="input-label ml-3" style="font-weight: 900;">EDITAR PAQUETE</h2>
+    <h2 mat-dialog-title class="input-label ml-3" style="font-weight: 799;">EDITAR PAQUETE EN BODEGA</h2>
 </ng-template>
 <mat-dialog-content class="container-fluid d-flex flex-column align-items-center" style="margin: 0; padding: 0">
-    <form [formGroup]="warehousePackageForm" class="d-flex flex-column justify-content-between">
-        <div class="container">
-            <div class="row" >
-                <div class="col-md d-flex flex-column justify-content-between">
-                    <div class="w-100 d-flex flex-column">
-                        <span class="input-label">Cliente:</span>
-                        <input class="input-box" [formControl]="client_name" />
-                        <div class="validation-message"
-                            *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">
-                            *Campo cliente obligatorio
+    <div class="container-fluid">
+        <div>
+            <div class="card bg-secondary shadow">
+                <div class="card-body">
+                    <form [formGroup]="warehousePackageForm">
+                        <div class="pl-lg-4" style="margin-left: -40px;">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Cliente</label>
+                                        <input [formControl]="client_name" type="text" id="client_name"
+                                            class="form-control form-control-alternative" placeholder="Cliente" value="">
+                                        <div class="validation-message"
+                                            *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">
+                                            *Campo cliente obligatorio
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Estado de paquete</label>
+                                        <input [formControl]="status" type="text" id="status"
+                                            class="form-control form-control-alternative" placeholder="Estado paquete">
+                                        <div class="validation-message"
+                                            *ngIf="(status.dirty || status.touched) && status.invalid && status.errors.required">
+                                            *Campo estado obligatorio
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Número de tracking</label>
+                                        <input [formControl]="tracking_number" type="text" id="tracking_number"
+                                            class="form-control form-control-alternative" placeholder="Número tracking" value="">
+                                        <div class="validation-message"
+                                            *ngIf="(tracking_number.dirty || tracking_number.touched) && tracking_number.invalid && tracking_number.errors.required">
+                                            *Campo número de tracking obligatorio
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Código SAVA</label>
+                                        <input [formControl]="sava_code" type="text" id="sava_code"
+                                            class="form-control form-control-alternative" placeholder="Estado paquete">
+                                        <div class="validation-message"
+                                            *ngIf="(sava_code.dirty || sava_code.touched) && sava_code.invalid && sava_code.errors.required">
+                                            *Campo estado obligatorio
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Peso en libras</label>
+                                        <input [formControl]="pounds" type="text" id="pounds"
+                                            class="form-control form-control-alternative" placeholder="Peso" value="">
+                                        <div class="validation-message"
+                                            *ngIf="(pounds.dirty || pounds.touched) && pounds.invalid && pounds.errors.required">
+                                            *Campo peso obligatorio
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Precio</label>
+                                        <input [formControl]="price" type="text" id="price"
+                                            class="form-control form-control-alternative" placeholder="Precio" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Fecha llegada</label>
+                                        <input [formControl]="arrival_date_warehouse" type="date" id="arrival_date_warehouse"
+                                            class="form-control form-control-alternative" placeholder="DD/MM/AA" value="">
+                                        <div class="validation-message"
+                                            *ngIf="(arrival_date_warehouse.dirty || arrival_date_warehouse.touched) && arrival_date_warehouse.invalid && arrival_date_warehouse.errors.required">
+                                            *Campo fecha de llegada obligatorio
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="w-100 d-flex flex-column mt-3">
-                        <span class="input-label">Estado de paquete:</span>
-                        <input class="input-box" [formControl]="status" />
-                        <div class="validation-message"
-                            *ngIf="(status.dirty || status.touched) && status.invalid && status.errors.required">
-                            *Campo estado obligatorio
-                        </div>
-                    </div>
-                    <div class="w-100 d-flex flex-column mt-3">
-                        <span class="input-label">Número de tracking:</span>
-                        <input class="input-box" [formControl]="tracking_number" />
-                        <div class="validation-message"
-                            *ngIf="(tracking_number.dirty || tracking_number.touched) && tracking_number.invalid && tracking_number.errors.required">
-                            *Campo número de tracking obligatorio
-                        </div>
-                    </div>
-                    <div class="w-100 d-flex flex-column mt-3">
-                        <span class="input-label">Fecha de llegada a bodega:</span>
-                        <input class="input-box" [formControl]="arrival_date_warehouse" />
-                        <div class="validation-message"
-                            *ngIf="(arrival_date_warehouse.dirty || arrival_date_warehouse.touched) && arrival_date_warehouse.invalid && arrival_date_warehouse.errors.required">
-                            *Campo fecha obligatorio
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <div class="col-md d-flex flex-column justify-content-between">
-                    <div class="w-100 d-flex flex-column mt-3">
-                        <span class="input-label">Peso en libras:</span>
-                        <input class="input-box" [formControl]="pounds" />
-                        <div class="validation-message"
-                            *ngIf="(pounds.dirty || pounds.touched) && pounds.invalid && pounds.errors.required">
-                            *Campo peso obligatorio
-                        </div>
-                    </div>
-                    <div class="w-100 d-flex flex-column  mt-1">
-                        <span class="input-label">Precio:</span>
-                        <input class="input-box" [formControl]="price" />
-                    </div>
-                    <div class="w-100 d-flex flex-column  mt-2">
-                        <span class="input-label">Fecha llegada a destino:</span>
-                        <input class="input-box" [formControl]="arrival_date_destiny" />
-                        <div class="validation-message"
-                            *ngIf="(arrival_date_destiny.dirty || arrival_date_destiny.touched) && arrival_date_destiny.invalid && arrival_date_destiny.errors.required">
-                            *Campo fecha de llegada obligatorio
-                        </div>
-                    </div>
-                    <div class="w-100 d-flex flex-column  mt-2">
-                        <span class="input-label">Fecha salida de bodega:</span>
-                        <input class="input-box" [formControl]="arrival_date_warehouse" />
-                        <div class="validation-message"
-                            *ngIf="(arrival_date_warehouse.dirty || arrival_date_warehouse.touched) && arrival_date_warehouse.invalid && arrival_date_warehouse.errors.required">
-                            *Campo fecha de salida obligatorio
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="w-100 d-flex flex-column ml-3 mb-2  mt-3">
-            <span class="input-label">Código sava:</span>
-            <input class="input-box" [formControl]="sava_code" />
-            <div class="validation-message"
-                *ngIf="(sava_code.dirty || sava_code.touched) && sava_code.invalid && sava_code.errors.required">
-                *Campo número de tracking obligatorio
-            </div>
-        </div>
-        <div class="form-group w-100 d-flex flex-column ml-3 mb-2  mt-3">
-            <label  class="input-label" for="file">Fotos paquete</label>
-            <input formControlName="file" id="file" type="file" class="form-control-file" multiple=""
-                (change)="onFileChange($event)">
-            <div *ngIf="formValue.file.touched && formValue.file.invalid" class="alert alert-danger">
-                <div *ngIf="formValue.file.errors && formValue.file.errors.required">Subir fotos es requerido.</div>
-            </div>
-        </div>
-        <div class="preview-wrapper d-flex flex-row">
-            <div class="img-preview" *ngFor='let url of colectionImages'>
-                <img [src]="url" width="200px">
-                <button type="button" class="btn btn-danger btn-sm" (click)="removeImage(url)">x</button>
-            </div>
-        </div>
-    </form>
+    </div>
 </mat-dialog-content>
-<mat-dialog-actions class="model-dialog-actions d-none d-sm-flex flex-row justify-content-between" style="padding: 0">
+<mat-dialog-actions class="model-dialog-actions d-sm-flex flex-row justify-content-between mb-2" style="padding: 0">
     <button class="btn btn-primary mt-5 ml-3" style="width: 36%;" (click)="accept()" type="submit">Guardar</button>
     <button class="btn cancel-button mt-5 mr-3" style="width: 36%" (click)="cancel()">Cancelar</button>
 </mat-dialog-actions>

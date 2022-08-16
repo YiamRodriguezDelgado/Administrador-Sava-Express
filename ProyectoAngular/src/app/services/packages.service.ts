@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { WarehousePackage } from '../models/warehouse-package';
 import { environment } from "src/environments/environment"
 import { HttpClient } from '@angular/common/http';
+import { Package } from '../models/package';
 
 
 @Injectable({
@@ -20,17 +21,27 @@ export class PackagesService {
   }
 
   getWarehousePackageList(filters: string = ""): Observable<Array<WarehousePackage>> {
-    const apiUrl = `${this.url}track-logs${filters}`
+    const apiUrl = `${this.url}/warehouse-packages${filters}`
     return this.http.get<Array<WarehousePackage>>(apiUrl)
   }
 
+  getSavaPackageList(filters: string = ""): Observable<Array<Package>> {
+    const apiUrl = `${this.url}/savaPackage${filters}`
+    return this.http.get<Array<Package>>(apiUrl)
+  }
+
   updateWarehousePackage(warehouse_package: WarehousePackage): Observable<any> {
-    const apiUrl = `${this.url}warehouse_packages/${warehouse_package.id}`
+    const apiUrl = `${this.url}/warehouse_packages${warehouse_package.id}`
     return this.http.put(apiUrl, warehouse_package)
   }
 
+  updateSavaPackage(sava_package: Package): Observable<any> {
+    const apiUrl = `${this.url}/savaPackage/newStatus${sava_package.id}`
+    return this.http.put(apiUrl, sava_package)
+  }
+
   deleteWarehousePackage(id: number): Observable<any> {
-    const apiUrl = `${this.url}warehouse_packages/${id}`
+    const apiUrl = `${this.url}/warehouse_packages${id}`
     return this.http.delete(apiUrl)
   }
 }
