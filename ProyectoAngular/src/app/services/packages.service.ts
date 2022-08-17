@@ -15,7 +15,7 @@ export class PackagesService {
     private http: HttpClient,
   ) { }
 
-  createWarehousePackage(warehouse_package: WarehousePackage): Observable<any> {
+  createWarehousePackage(warehouse_package: FormData): Observable<any> {
     const apiUrl = `${this.url}/api/warehouse-packages`
     return this.http.post(apiUrl, warehouse_package)
   }

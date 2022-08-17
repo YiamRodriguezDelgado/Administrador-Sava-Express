@@ -5,13 +5,17 @@ import { Subscription } from 'rxjs';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
 import { PackagesService } from 'src/app/services/packages.service';
 import Swal from 'sweetalert2';
-import $ from "jquery";
+
+class ImageSnippet {
+  constructor(public src: string, public file: File) { }
+}
 
 @Component({
   selector: 'app-packages-admin-dialog',
   templateUrl: './packages-admin-dialog.component.html',
   styleUrls: ['./packages-admin-dialog.component.scss']
 })
+
 export class PackagesAdminDialogComponent implements OnInit {
   warehousePackageForm: FormGroup;
   onCreate: boolean = true;
@@ -24,7 +28,8 @@ export class PackagesAdminDialogComponent implements OnInit {
   sava_code: FormControl = new FormControl("");
   departure_date: FormControl = new FormControl("");
   arrival_date_destiny: FormControl = new FormControl("");
-  images: FormControl = new FormControl("");
+  images: FormControl = new FormControl(File);
+  selectedFile: ImageSnippet
   private warehouseCrudSubscription: Subscription;
   colectionImages : string[] = [];
   imageForm = new FormGroup({
@@ -67,7 +72,7 @@ export class PackagesAdminDialogComponent implements OnInit {
       sava_code: this.sava_code,
       departure_date: this.departure_date,
       arrival_date_destiny: this.arrival_date_destiny,
-      images: this.imageForm
+      images: this.images
     })
   }
 
@@ -102,8 +107,14 @@ export class PackagesAdminDialogComponent implements OnInit {
   accept() {
     this.warehousePackageForm.markAllAsTouched()
     if (this.arrival_date_warehouse.valid) {
+      const formData = new FormData()
+      if (this.colectionImages){
+        formData.append("images", JSON.stringify(this.colectionImages))
+      }
+      formData.append("warehouseForm", JSON.stringify(this.warehousePackageForm.value))
       if (this.onCreate) {
-        this.warehouseCrudSubscription = this._warehousePackageCrudService.createWarehousePackage(this.warehousePackageForm.value).subscribe(
+  
+        this.warehouseCrudSubscription = this._warehousePackageCrudService.createWarehousePackage(formData).subscribe(
           (result) => {
             
         },
