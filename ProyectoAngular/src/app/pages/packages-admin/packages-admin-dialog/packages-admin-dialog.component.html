@@ -15,7 +15,8 @@
                                     <div class="form-group">
                                         <label class="form-control-label">Cliente</label>
                                         <input [formControl]="client_name" type="text" id="client_name"
-                                            class="form-control form-control-alternative" placeholder="Cliente" value="">
+                                            class="form-control form-control-alternative" placeholder="Cliente"
+                                            value="">
                                         <div class="validation-message"
                                             *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">
                                             *Campo cliente obligatorio
@@ -39,7 +40,8 @@
                                     <div class="form-group">
                                         <label class="form-control-label">Número de tracking</label>
                                         <input [formControl]="tracking_number" type="text" id="tracking_number"
-                                            class="form-control form-control-alternative" placeholder="Número tracking" value="">
+                                            class="form-control form-control-alternative" placeholder="Número tracking"
+                                            value="">
                                         <div class="validation-message"
                                             *ngIf="(tracking_number.dirty || tracking_number.touched) && tracking_number.invalid && tracking_number.errors.required">
                                             *Campo número de tracking obligatorio
@@ -82,8 +84,9 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Fecha llegada</label>
-                                        <input [formControl]="arrival_date_warehouse" type="date" id="arrival_date_warehouse"
-                                            class="form-control form-control-alternative" placeholder="DD/MM/AA" value="">
+                                        <input [formControl]="arrival_date_warehouse" type="date"
+                                            id="arrival_date_warehouse" class="form-control form-control-alternative"
+                                            placeholder="DD/MM/AA" value="">
                                         <div class="validation-message"
                                             *ngIf="(arrival_date_warehouse.dirty || arrival_date_warehouse.touched) && arrival_date_warehouse.invalid && arrival_date_warehouse.errors.required">
                                             *Campo fecha de llegada obligatorio
@@ -91,19 +94,26 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label">Fotos</label>
-                                        <input formControlName="file" id="file" type="file" class="form-control-file" multiple=""
-                                          (change)="onFileChange($event)">
-                                        <div *ngIf="formValue.file.touched && formValue.file.invalid" class="alert alert-danger">
-                                          <div *ngIf="formValue.file.errors && formValue.file.errors.required">Se requiere de fotos.</div>
+                                        <input formControlName="file" id="file" type="file" class="form-control-file"
+                                            multiple="" (change)="onFileChange($event)">
+                                        <div *ngIf="formValue.file.touched && formValue.file.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="formValue.file.errors && formValue.file.errors.required">Se
+                                                requiere de fotos.</div>
                                         </div>
-                                      </div>
-                                  
-                                      <div class="preview-wrapper">
-                                        <div class="img-preview" *ngFor='let url of colectionImages'>
-                                          <img [src]="url" width="200px">
-                                          <button type="button" class="btn btn-danger btn-sm" (click)="removeImage(url)">X</button>
+                                    </div>
+
+                                    <div class="preview-wrapper">
+                                        <div class="d-flex flex-row">
+                                            <div class="img-preview" *ngFor='let url of colectionImages'>
+                                                <div class="d-flex flex-row">
+                                                <img [src]="url" width="200px">
+                                                <button type="button" style="height: 30px;" class="btn btn-danger btn-sm"
+                                                    (click)="removeImage(url)">X</button>
+                                                </div>
+                                            </div>
                                         </div>
-                                      </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
