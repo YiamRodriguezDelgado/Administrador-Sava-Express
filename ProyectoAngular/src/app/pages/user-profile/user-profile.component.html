@@ -13,29 +13,37 @@
 <div class="row mt-0">
   <div class="col">
     <div class="card shadow">
-      <div class="card-header border-0">
-        <h3 class="mb-0">Administra los clientes de la empresa.
-        </h3>
-      </div>
-      <div class="table-responsive">
-        <table class="table align-items-center table-flush">
+        <div class="row ml-0 mr-0 " >
+          <div class="col-6 card-header border-0">
+            <h3 class="mb-0">Administra los clientes de la empresa.</h3>
+          </div>
+          <div class="col-3 pt-2 offset-md-2">
+            <form class="navbar-search navbar-search-light form-inline mr-3 d-none d-md-flex ml-lg-auto" onsubmit="return false">
+              <div class="form-group mb-0" >
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                  </div>
+                  <input #correo (keyup.enter)="searchUser(correo.value)" class="form-control" placeholder="Buscar" type="text">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      <div class="table-responsive" >
+        <table class="table align-items-center table-flush" >
           <thead class="thead-light">
           <tr>
+            <th scope="col" class="text-center">Numero_Lista</th>
             <th scope="col" class="text-center">Username</th>
-            <th scope="col" class="text-center">Contraseña</th>
-            <th scope="col">Email</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Celular</th>
-            <th scope="col">Dirección</th>
-            <th scope="col">Ciudad</th>
-            <th scope="col">País</th>
+            <th scope="col" class="text-center">Password</th>
+            <th scope="col" class="text-center">Numero Telefono</th>
+            <th scope="col" class="text-center">Rol</th>
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-         
+        <tbody >
+          <tr *ngFor="let user of users" >
             <th scope="row">
               <div class="media align-items-center">
               <td class="text-left">
@@ -44,259 +52,37 @@
                   <i class="fas fa-ellipsis-v"></i>
                 </a>
                 <div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
-                  <a class="dropdown-item" href="javascript:void(0)">Editar</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Enviar mensaje</a>
+                  <a class="dropdown-item" (click)="deleteUser(user)" >Eliminar</a>
                 </div>
               </div>
             </td>
-                <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                  <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
-                </a>
-                <div class="media-body">
-                  <span class="mb-0 text-sm">YiamR</span>
+                <div class="media">
+                  <span class="mb-0 text-sm">{{user.id}}</span>
                 </div>
               </div>
             </th>
-            <td>
-            <input type="password" id="password" required size="10" value="myPassword"/>
-              <button onclick="if (password.type == 'text') password.type = 'password';
-                else password.type = 'text';"><i class='fas fa-eye-slash'></i></button>     
+            <td class="text-center">
+              {{user.username}}
             </td>
-            <td>
-            yyyy@gmail.com
+            <td class="text-center">
+            <input #Password type="password" id="password" required size="10" value="{{user.password}}" readonly="readonly"/>
+            <button (click)="Password.type=Password.type=='password'?'text':'password'"><i class='fas fa-eye-slash'></i></button>     
             </td>
-            <td>
-              Yiam
+            <td class="text-center">
+              {{user.phoneNumber}}
             </td>
-            <td>
-              Rodríguez
+            <td class="text-center" *ngIf="user.role==2">
+              Cliente
             </td>
-            <td>
-              099921993
+            <td  class="text-center" *ngIf="user.role==1">
+              Administrador
             </td>
-            <td>
-              9 de Octubre y Rumichaca 1225
-            </td>
-            <td>
-            Guayaquil
-            </td>
-            <td>
-            Ecuador
-            </td>
-            
-            
-          </tr>
-          <tr>
-          <th scope="row">
-              <div class="media align-items-center">
-              <td class="text-left">
-              <div ngbDropdown placement="bottom-left">
-                <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                  <i class="fas fa-ellipsis-v"></i>
-                </a>
-                <div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
-                  <a class="dropdown-item" href="javascript:void(0)">Editar</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Enviar mensaje</a>
-                </div>
-              </div>
-            </td>
-                <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                  <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
-                </a>
-                <div class="media-body">
-                  <span class="mb-0 text-sm">Juan</span>
-                </div>
-              </div>
-            </th>
-            <td>
-            <input type="password" id="password" required size="10" value="myPassword"/>
-              <button onclick="if (password.type == 'text') password.type = 'password';
-                else password.type = 'text';"><i class='fas fa-eye-slash'></i></button>  
-            </td>
-            <td>
-            roib@gmail.com
-            </td>
-            <td>
-              Juan
-            </td>
-            <td>
-              Peralta
-            </td>
-            <td>
-              098755323
-            </td>
-            <td>
-              Los Ceibos 1022 y calle primera
-            </td>
-            <td>
-             Guayaquil
-            </td> 
-            <td>
-            Ecuador
-            </td>    
-          </tr>
-          <tr>
-          <th scope="row">
-              <div class="media align-items-center">
-              <td class="text-left">
-              <div ngbDropdown placement="bottom-left">
-                <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                  <i class="fas fa-ellipsis-v"></i>
-                </a>
-                <div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
-                  <a class="dropdown-item" href="javascript:void(0)">Editar</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Enviar mensaje</a>
-                </div>
-              </div>
-            </td>
-                <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                  <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg">
-                </a>
-                <div class="media-body">
-                  <span class="mb-0 text-sm">Jose</span>
-                </div>
-              </div>
-            </th>
-            <td>
-            <input type="password" id="password" required size="10" value="myPassword"/>
-              <button onclick="if (password.type == 'text') password.type = 'password';
-                else password.type = 'text';"><i class='fas fa-eye-slash'></i></button>  
-            </td>
-            <td>
-            jose@gmail.com
-            </td>
-            <td>
-              José 
-            </td>
-            <td>
-              Delgado
-            </td>
-            <td>
-              098725852
-            </td>
-            <td>
-             9 de Octubre 1234 y calle segunda
-            </td>
-            <td>
-              Quito
-            </td>
-            <td>
-            Ecuador
-            </td>
-           
-          </tr>
-          <tr>
-          <th scope="row">
-              <div class="media align-items-center">
-              <td class="text-left">
-              <div ngbDropdown placement="bottom-left">
-                <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                  <i class="fas fa-ellipsis-v"></i>
-                </a>
-                <div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
-                  <a class="dropdown-item" href="javascript:void(0)">Editar</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Enviar mensaje</a>
-                </div>
-              </div>
-            </td>
-                <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                  <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg">
-                </a>
-                <div class="media-body">
-                  <span class="mb-0 text-sm">Sofi</span>
-                </div>
-              </div>
-            </th>
-            <td>
-            <input type="password" id="password" required size="10" value="myPassword"/>
-              <button onclick="if (password.type == 'text') password.type = 'password';
-                else password.type = 'text';"><i class='fas fa-eye-slash'></i></button>  
-            </td>
-            <td>
-            sofi@gmail.com
-            </td>
-            <td>
-              Sofía
-            </td>
-            <td>
-              Jimenez
-            </td>
-            <td>
-              098725698
-            </td>
-            <td>
-            9 de Octubre 1234 y calle primera
-            </td>
-            <td>
-            Cuenca
-            </td>
-            <td>
-            Ecuador
-            </td>
-            
-            
-          </tr>
-          <tr>
-          <th scope="row">
-              <div class="media align-items-center">
-              <td class="text-left">
-              <div ngbDropdown placement="bottom-left">
-                <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                  <i class="fas fa-ellipsis-v"></i>
-                </a>
-                <div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
-                  <a class="dropdown-item" href="javascript:void(0)">Editar</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Eliminar</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Enviar mensaje</a>
-                </div>
-              </div>
-            </td>
-                <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                  <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg">
-                </a>
-                <div class="media-body">
-                  <span class="mb-0 text-sm">Lore</span>
-                </div>
-              </div>
-            </th>
-            <td>
-            <input type="password" id="password" required size="10" value="myPassword"/>
-              <button onclick="if (password.type == 'text') password.type = 'password';
-                else password.type = 'text';"><i class='fas fa-eye-slash'></i></button> 
-            </td>
-            <td>
-            lore@gmail.com
-            </td>
-            <td>
-              Lorena
-            </td>
-            <td>
-              Delgado
-            </td>
-            <td>
-              098755877
-            </td>
-            <td>
-              Sergio Toral 2 Mz. 4543  SL. 23
-            </td>
-            <td>
-            Guayaquil
-            </td>
-            <td>
-              Ecuador
-            </td>
-              
-            
           </tr>
           </tbody>
         </table>
       </div>
     </div>
     <div>
-  <button class="btn btn-primary mat-raised-button mt-5 mb-2" (click)="openAdminUsersDialog()" type="button">Agregar Cliente</button>
+  <button class="btn btn-primary mat-raised-button mt-5 mb-2" (click)="openAdminUsersDialog()" type="button">Agregar Cliente </button>
   </div>
   </div>
