@@ -15,7 +15,7 @@
                                     <div class="form-group">
                                         <label class="form-control-label">Cliente</label>
                                         <select class="form-control form-control-alternative" formControlName="client_name">
-                                            <option *ngFor="let client of clients" [value]="client.value">{{ client.viewValue }}</option>
+                                            <option  >opcion1</option>
                                           </select>
                                         <div class="validation-message"
                                             *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">

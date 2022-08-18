@@ -27,7 +27,8 @@ export class PackagesAdminDialogComponent implements OnInit {
   price: FormControl = new FormControl("");
   arrival_date: FormControl = new FormControl("", [Validators.required]);
   images: FormControl = new FormControl([])
-  imagesFile = [];
+  imagesFile =[];
+  upload=[];
   selectedFile: ImageSnippet
   private warehouseCrudSubscription: Subscription;
   colectionImages : string[] = [];
@@ -83,30 +84,17 @@ export class PackagesAdminDialogComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
         var filesAmount = event.target.files.length;
         for (let i = 0; i < filesAmount; i++) {
-                var reader = new FileReader();
-                reader.onload = (event:any) => {
-                  // Push Base64 string
-                  this.colectionImages.push(event.target.result); 
-                  this.patchValues();
-                }
-                reader.readAsDataURL(event.target.files[i]);
+          var reader = new FileReader();
+          reader.onload = (event:any) => {
+            this.colectionImages.push(event.target.result); 
+            this.patchValues();
+          }
+          reader.readAsDataURL(event.target.files[i]);
         }
+        this.upload.push(event.target.files[0])
+        console.log(this.upload)
     }
   }
-
-  private convertToFile(webcamImage: any) {
-    const arr = webcamImage.split(",")
-    const mime = arr[0].match(/:(.*?)/)[1]
-    const bstr = atob(arr[1])
-    let n = bstr.length
-    const u8arr = new Uint8Array(n)
-    while (n--) {
-      u8arr[n] = bstr.charCodeAt(n)
-    }
-    const file: File = new File([u8arr], "", { type: "image/jpeg" })
-    return file
-  }
-
   patchValues(){
     this.imageForm.patchValue({
        fileSource: this.colectionImages
@@ -115,9 +103,12 @@ export class PackagesAdminDialogComponent implements OnInit {
 
   // Remove Image
   removeImage(url:any){
-    console.log(this.colectionImages,url);
-    this.colectionImages = this.colectionImages.filter(img => (img != url));
-    this.patchValues();
+    let position=this.colectionImages.indexOf(url)
+    this.colectionImages = this.colectionImages.filter(img => (img != url))
+    this.patchValues()
+    console.log(this.upload);
+    this.upload.splice(position,1)
+    console.log(this.upload);
   }
 
   accept() {
@@ -125,14 +116,10 @@ export class PackagesAdminDialogComponent implements OnInit {
     if (this.arrival_date.valid) {
       const formData = new FormData()
       if (this.colectionImages){
-        this.colectionImages.forEach((element) => {
-          this.imagesFile.push(this.convertToFile(element))
-
-        })
         this.images.setValue(this.imagesFile)
-        console.log(this.imagesFile)
-        console.log(this.images.value)
-        formData.append("images", this.images.value)
+        for(var i=0;i<this.upload.length;i++){
+          formData.append("images", this.upload[i])
+        }
       }
       formData.append("warehouseForm", JSON.stringify(this.warehousePackageForm.value))
       if (this.onCreate) {
