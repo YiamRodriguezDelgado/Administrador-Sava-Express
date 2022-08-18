@@ -58,24 +58,35 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label">Fecha llegada a destino</label>
-                                        <input [formControl]="arrival_date_destiny" type="date" id="arrival_date_destiny"
-                                            class="form-control form-control-alternative" placeholder="DD-MM-AA" value="">
-                                        <div class="validation-message"
-                                            *ngIf="(arrival_date_destiny.dirty || arrival_date_destiny.touched) && arrival_date_destiny.invalid && arrival_date_destiny.errors.required">
-                                            *Campo fecha de llegada obligatorio
+                                        <label class="form-control-label">Código sava</label>
+                                        <input [formControl]="sava_code" type="text" id="sava_code"
+                                            class="form-control form-control-alternative" placeholder="Precio" value="">
+                                            <div class="validation-message"
+                                            *ngIf="(sava_code.dirty || sava_code.touched) && sava_code.invalid && sava_code.errors.required">
+                                            *Campo precio obligatorio
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Fecha salida de bodega</label>
-                                        <input [formControl]="arrival_date_warehouse" type="date" id="arrival_date_warehouse"
+                                        <input [formControl]="departure_date_warehouse" type="date" id="departure_date_warehouse"
                                             class="form-control form-control-alternative" placeholder="DD-MM-AA" value="">
                                         <div class="validation-message"
-                                            *ngIf="(arrival_date_warehouse.dirty || arrival_date_warehouse.touched) && arrival_date_warehouse.invalid && arrival_date_warehouse.errors.required">
+                                            *ngIf="(departure_date_warehouse.dirty || departure_date_warehouse.touched) && departure_date_warehouse.invalid && departure_date_warehouse.errors.required">
                                             *Campo fecha de salida obligatorio
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Fecha llegada a destino</label>
+                                    <input [formControl]="arrival_date_destiny" type="date" id="arrival_date_destiny"
+                                        class="form-control form-control-alternative" placeholder="DD-MM-AA" value="">
+                                    <div class="validation-message"
+                                        *ngIf="(arrival_date_destiny.dirty || arrival_date_destiny.touched) && arrival_date_destiny.invalid && arrival_date_destiny.errors.required">
+                                        *Campo fecha de llegada obligatorio
                                     </div>
                                 </div>
                             </div>

@@ -14,28 +14,15 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Cliente</label>
-                                        <input [formControl]="client_name" type="text" id="client_name"
-                                            class="form-control form-control-alternative" placeholder="Cliente"
-                                            value="">
+                                        <select class="form-control form-control-alternative" formControlName="client_name">
+                                            <option *ngFor="let client of clients" [value]="client.value">{{ client.viewValue }}</option>
+                                          </select>
                                         <div class="validation-message"
                                             *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">
                                             *Campo cliente obligatorio
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Estado de paquete</label>
-                                        <input [formControl]="status" type="text" id="status"
-                                            class="form-control form-control-alternative" placeholder="Estado paquete">
-                                        <div class="validation-message"
-                                            *ngIf="(status.dirty || status.touched) && status.invalid && status.errors.required">
-                                            *Campo estado obligatorio
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Número de tracking</label>
@@ -46,6 +33,15 @@
                                             *ngIf="(tracking_number.dirty || tracking_number.touched) && tracking_number.invalid && tracking_number.errors.required">
                                             *Campo número de tracking obligatorio
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Precio</label>
+                                        <input [formControl]="price" type="text" id="price"
+                                            class="form-control form-control-alternative" placeholder="Precio" value="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -61,22 +57,14 @@
                                 </div>
                             </div>
                             <div class="row">
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Precio</label>
-                                        <input [formControl]="price" type="text" id="price"
-                                            class="form-control form-control-alternative" placeholder="Precio" value="">
-                                    </div>
-                                </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Fecha llegada</label>
-                                        <input [formControl]="arrival_date_warehouse" type="date"
-                                            id="arrival_date_warehouse" class="form-control form-control-alternative"
+                                        <input [formControl]="arrival_date" type="date"
+                                            id="arrival_date" class="form-control form-control-alternative"
                                             placeholder="DD/MM/AA" value="">
                                         <div class="validation-message"
-                                            *ngIf="(arrival_date_warehouse.dirty || arrival_date_warehouse.touched) && arrival_date_warehouse.invalid && arrival_date_warehouse.errors.required">
+                                            *ngIf="(arrival_date.dirty || arrival_date.touched) && arrival_date.invalid && arrival_date.errors.required">
                                             *Campo fecha de llegada obligatorio
                                         </div>
                                     </div>
@@ -104,7 +92,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </form>

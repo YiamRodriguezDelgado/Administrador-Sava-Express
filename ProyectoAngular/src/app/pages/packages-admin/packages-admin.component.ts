@@ -26,13 +26,9 @@ export class PackagesAdminComponent implements OnInit {
     id: 5,
     tracking_number: "0788566565",
     client_name: "Raquel Riofrio",
-    status: "Rumbo a Ecuador",
     pounds: "20 libras",
     price: "50",
-    departure_date: new Date(),
-    arrival_date_destiny: new Date(),
-    arrival_date_warehouse: new Date(),
-    sava_code: "21555-255512-456",
+    arrival_date: new Date(),
     images: []
   }]
 

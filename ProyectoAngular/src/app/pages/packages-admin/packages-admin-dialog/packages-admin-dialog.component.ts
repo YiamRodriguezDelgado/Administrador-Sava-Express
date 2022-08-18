@@ -3,8 +3,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
+import { User } from 'src/app/models/users';
 import { PackagesService } from 'src/app/services/packages.service';
 import Swal from 'sweetalert2';
+import { ClientsDataService } from 'src/app/services/clients-data.service';
 
 class ImageSnippet {
   constructor(public src: string, public file: File) { }
@@ -23,24 +25,25 @@ export class PackagesAdminDialogComponent implements OnInit {
   tracking_number: FormControl = new FormControl("", [Validators.required]);
   pounds: FormControl = new FormControl("", [Validators.required]);
   price: FormControl = new FormControl("");
-  arrival_date_warehouse: FormControl = new FormControl("", [Validators.required]);
-  status: FormControl = new FormControl("");
-  sava_code: FormControl = new FormControl("");
-  departure_date: FormControl = new FormControl("");
-  arrival_date_destiny: FormControl = new FormControl("");
-  images: FormControl = new FormControl(File);
+  arrival_date: FormControl = new FormControl("", [Validators.required]);
+  images: FormControl = new FormControl([])
+  imagesFile = [];
   selectedFile: ImageSnippet
   private warehouseCrudSubscription: Subscription;
   colectionImages : string[] = [];
+  clients: User[]
+
   imageForm = new FormGroup({
    name: new FormControl('', [Validators.required]),
    file: new FormControl('', [Validators.required]),
    fileSource: new FormControl('', [Validators.required])
  });
+ 
   private warehousePackage: WarehousePackage
   constructor(
     private dialogRef: MatDialogRef<PackagesAdminDialogComponent>,
     private _warehousePackageCrudService: PackagesService,
+    private _clientCrudService: ClientsDataService,
     @Inject(MAT_DIALOG_DATA) private data,
   ) { }
 
@@ -54,25 +57,25 @@ export class PackagesAdminDialogComponent implements OnInit {
       this.warehousePackage = this.data.object as WarehousePackage
       this.client_name.setValue(this.warehousePackage.client_name)
       this.tracking_number.setValue(this.warehousePackage.tracking_number)
-      this.sava_code.setValue(this.warehousePackage.sava_code)
       this.pounds.setValue(this.warehousePackage.pounds)
       this.price.setValue(this.warehousePackage.price)
-      this.arrival_date_warehouse.setValue(this.warehousePackage.arrival_date_warehouse)
-      this.arrival_date_destiny.setValue(this.warehousePackage.arrival_date_destiny)
-      this.departure_date.setValue(this.warehousePackage.departure_date)
-      this.status.setValue(this.warehousePackage.status)
+      this.arrival_date.setValue(this.warehousePackage.arrival_date)
+    }else {
+      this.getClients()
     }
     this.warehousePackageForm = new FormGroup({
       client_name: this.client_name,
       tracking_number: this.tracking_number,
       pounds: this.pounds,
       price: this.price,
-      arrival_date_warehouse: this.arrival_date_warehouse,
-      status: this.status,
-      sava_code: this.sava_code,
-      departure_date: this.departure_date,
-      arrival_date_destiny: this.arrival_date_destiny,
+      arrival_date: this.arrival_date,
       images: this.images
+    })
+  }
+
+  getClients() {
+    this._clientCrudService.getClientsData().subscribe((result) => {
+      this.clients = result
     })
   }
 
@@ -91,6 +94,19 @@ export class PackagesAdminDialogComponent implements OnInit {
     }
   }
 
+  private convertToFile(webcamImage: any) {
+    const arr = webcamImage.split(",")
+    const mime = arr[0].match(/:(.*?)/)[1]
+    const bstr = atob(arr[1])
+    let n = bstr.length
+    const u8arr = new Uint8Array(n)
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n)
+    }
+    const file: File = new File([u8arr], "", { type: "image/jpeg" })
+    return file
+  }
+
   patchValues(){
     this.imageForm.patchValue({
        fileSource: this.colectionImages
@@ -106,10 +122,17 @@ export class PackagesAdminDialogComponent implements OnInit {
 
   accept() {
     this.warehousePackageForm.markAllAsTouched()
-    if (this.arrival_date_warehouse.valid) {
+    if (this.arrival_date.valid) {
       const formData = new FormData()
       if (this.colectionImages){
-        formData.append("images", JSON.stringify(this.colectionImages))
+        this.colectionImages.forEach((element) => {
+          this.imagesFile.push(this.convertToFile(element))
+
+        })
+        this.images.setValue(this.imagesFile)
+        console.log(this.imagesFile)
+        console.log(this.images.value)
+        formData.append("images", this.images.value)
       }
       formData.append("warehouseForm", JSON.stringify(this.warehousePackageForm.value))
       if (this.onCreate) {

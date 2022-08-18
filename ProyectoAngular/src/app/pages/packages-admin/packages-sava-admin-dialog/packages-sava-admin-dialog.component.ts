@@ -20,12 +20,10 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
   tracking_number: FormControl = new FormControl("", [Validators.required]);
   pounds: FormControl = new FormControl("", [Validators.required]);
   price: FormControl = new FormControl("");
-  arrival_date_warehouse: FormControl = new FormControl("", [Validators.required]);
   status: FormControl = new FormControl("");
   sava_code: FormControl = new FormControl("");
-  departure_date: FormControl = new FormControl("");
+  departure_date_warehouse: FormControl = new FormControl("");
   arrival_date_destiny: FormControl = new FormControl("");
-  images: FormControl = new FormControl("");
   private savaCrudSubscription: Subscription;
   private savaPackage: Package
   constructor(
@@ -44,10 +42,9 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
       tracking_number: this.tracking_number,
       pounds: this.pounds,
       price: this.price,
-      warehouse: this.arrival_date_warehouse,
       status: this.status,
       sava_code: this.sava_code,
-      departure_date: this.departure_date,
+      departure_date_warehouse: this.departure_date_warehouse,
       arrival_date_destiny: this.arrival_date_destiny
     })
   }
