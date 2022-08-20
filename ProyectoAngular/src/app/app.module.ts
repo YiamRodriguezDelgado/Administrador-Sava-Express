@@ -18,6 +18,7 @@ import { AdminUsersDialogComponent } from './pages/user-profile/admin-users-dial
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { PackagesSavaAdminDialogComponent } from './pages/packages-admin/packages-sava-admin-dialog/packages-sava-admin-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { PackagesSavaAdminDialogComponent } from './pages/packages-admin/package
     ComponentsModule,
     RouterModule,
     MatDialogModule,
+    MatSelectModule,
     AppRoutingModule,
     ModalModule.forRoot(),
     NgbModule,

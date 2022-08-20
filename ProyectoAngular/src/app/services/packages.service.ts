@@ -21,12 +21,12 @@ export class PackagesService {
   }
 
   getWarehousePackageList(filters: string = ""): Observable<Array<WarehousePackage>> {
-    const apiUrl = `${this.url}/warehouse-packages${filters}`
+    const apiUrl = `${this.url}/api/warehouse-packages${filters}`
     return this.http.get<Array<WarehousePackage>>(apiUrl)
   }
 
-  getSavaPackageList(filters: string = ""): Observable<Array<Package>> {
-    const apiUrl = `${this.url}/savaPackage${filters}`
+  getSavaPackageList(): Observable<Array<Package>> {
+    const apiUrl = `${this.url}/savaPackage/all`
     return this.http.get<Array<Package>>(apiUrl)
   }
 

@@ -14,9 +14,9 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Cliente</label>
-                                        <select class="form-control form-control-alternative" formControlName="client_name">
-                                            <option  >opcion1</option>
-                                          </select>
+                                          <mat-select [formControl]="client_name" class="form-control form-control-alternative" >
+                                            <mat-option *ngFor="let client of clients | async" [value]="client.client_name"> {{ client.client_name | titlecase }}</mat-option>
+                                          </mat-select>
                                         <div class="validation-message"
                                             *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">
                                             *Campo cliente obligatorio

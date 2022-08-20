@@ -25,6 +25,12 @@ export class ClientsDataService {
     return this._http.get<Array<User>>(apiUrl, {withCredentials: true, headers})
   }
 
+  getClientsSelected(packageId: number = 0): Observable<Array<User>>{
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    const apiUrl = `${this.url}/users/${packageId}`
+    return this._http.get<Array<User>>(apiUrl, {withCredentials: true, headers})
+  }
+
   searchSavaPackages(){
     const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
     return this._http.get<any[]>(this.url+"/savaPackage/", {withCredentials: true,headers})
