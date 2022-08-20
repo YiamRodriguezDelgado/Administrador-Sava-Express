@@ -76,6 +76,7 @@ export class PackagesAdminDialogComponent implements OnInit {
 
   getClients() {
     this._clientCrudService.getClientsData().subscribe((result) => {
+      console.log(result)
       this.clients = result
     })
   }
@@ -110,7 +111,10 @@ export class PackagesAdminDialogComponent implements OnInit {
     this.upload.splice(position,1)
     console.log(this.upload);
   }
-
+  changeUser(user:any){
+    console.log(user);
+    this.client_name.setValue(user);
+  }
   accept() {
     this.warehousePackageForm.markAllAsTouched()
     if (this.arrival_date.valid) {
@@ -121,9 +125,9 @@ export class PackagesAdminDialogComponent implements OnInit {
           formData.append("images", this.upload[i])
         }
       }
+      console.log(JSON.stringify(this.warehousePackageForm.value));
       formData.append("warehouseForm", JSON.stringify(this.warehousePackageForm.value))
-      if (this.onCreate) {
-  
+      /*if (this.onCreate) {
         this.warehouseCrudSubscription = this._warehousePackageCrudService.createWarehousePackage(formData).subscribe(
           (result) => {
             
@@ -149,8 +153,8 @@ export class PackagesAdminDialogComponent implements OnInit {
             icon: 'error', 
             confirmButtonText: 'OK'});
         })
-    }
-  }
+      }
+    */}
 }
 cancel(){
   this.dialogRef.close()
