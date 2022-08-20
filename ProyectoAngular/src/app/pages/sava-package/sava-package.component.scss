@@ -1,0 +1,408 @@
+::ng-deep .sava-item {
+    background-color: white;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    flex: 0 0 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+
+  ::ng-deep .sava-item h3 {
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+
+  ::ng-deep .sava-item p {
+    color: red;
+    border-radius: 50%;
+    border: 1px solid red;
+    padding: 0 0.35rem;
+    height: 1.4rem;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  ::ng-deep .sava-item p:hover {
+    background-color: red;
+    color: white;
+  }
+  
+  .package-details {
+    background-color: white;
+    flex: 0 0 20rem;
+    margin: 1rem 1rem 1rem 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 2rem;
+    flex-direction: column;
+  }
+  
+  .package-section {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+  
+  .package-section-empty {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .side-bar {
+    background-color: var(--sava-second-color);
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 15rem;
+  }
+  
+  .side-bar div:nth-child(3) {
+    background-color: var(--sava-first-color);
+    border-radius: 10px;
+  }
+  
+  .side-bar div a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .side-bar div {
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .side-bar div:hover {
+    background-color: var(--sava-first-color);
+    border-radius: 10px;
+  }
+  
+  .side-bar div img {
+    max-height: 2rem;
+    margin-right: 0.5rem;
+  }
+  
+  .package-container {
+    display: flex;
+    position: fixed;
+    top: 4.6rem;
+    width: 100%;
+    bottom: 0px;
+    background-color: #F7F7F7;
+  }
+  
+  .empty-section {
+    height: 50%;
+    opacity: 50%;
+  }
+  
+  .package-card {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    flex: 0 0 10rem;
+    width: 35rem;
+  }
+  
+  .package-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .package-icon {
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+    margin-right: 1rem;
+  }
+  
+  .package-options {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 100%;
+  }
+  
+  .package-options h1 {
+    text-align: start;
+    color: var(--sava-first-color);
+    font-weight: bolder;
+    font-size: x-large;
+    margin-bottom: auto;
+  }
+  
+  .package-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
+    width: 100%;
+  }
+  
+  .package-options-info{
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
+  }
+  
+  .package-options-info div p {
+    padding: 0.1rem 1rem;
+    margin-right: 1rem;
+    color: white;
+    background-color: var(--sava-third-color);
+    border-radius: 1rem;
+    font-weight: normal;
+  }
+  
+  .package-options-info div:nth-child(2) p {
+    background-color: var(--sava-forth-color);
+  }
+  
+  ::ng-deep .select-button {
+    color: var(--sava-first-color);
+    font-weight: 500;
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+  }
+  
+  .select-button:hover {
+    color: var(--sava-forth-color);
+  }
+  
+  .package-details-box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  .package-details-box div {
+    margin-bottom: 0.5rem;
+    text-align: start;
+    font-weight: 600;
+    color: var(--sava-second-color);
+  }
+  
+  .package-details-box div p {
+    font-weight: 500;
+  }
+  
+  .package-details-box div h2 {
+    margin-bottom: 0;
+  }
+  
+  .package-details h1 {
+    font-weight: bolder;
+    font-size: x-large;
+    color: var(--sava-first-color);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .grid-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .grid-images img {
+    height: 5.33rem;
+    width: 5.33rem;
+    border: 1px solid lightgrey;
+  }
+  
+  .grid-image {
+    height: 5.33rem;
+    width: 5.33rem;
+    border: 1px solid lightgrey;
+  }
+  
+  .cross {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    display: none;
+  }
+  
+  .cross img {
+    height: 2rem;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  
+  .cross img:hover {
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    cursor: pointer;
+  }
+
+  .sava-packages {
+    background-color: #F7F7F7;
+    height: 15rem;
+    overflow-y: auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .package-details-value {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .package-details-value p {
+    text-align: center;
+  }
+  
+  .send-button {
+    margin-top: auto;
+    border-radius: 10px;
+    background-color: var(--sava-third-color);
+    padding: 0.5rem 0.75rem;
+    transition: all 0.1s ease-in 0s;
+  }
+
+  .send-button p {
+    margin-bottom: 0;
+    color: white;
+    cursor: pointer;
+  }
+
+  .send-button:hover {
+    background-color: var(--sava-forth-color);
+    border-bottom: 2px solid #666;
+  }
+
+  .send-button:active {
+    border-bottom: none;
+
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .side-bar {
+      position: fixed;
+      top: 4.6rem;
+      left: 0;
+      bottom: 0;
+      flex: 0 0 3rem;
+      padding: 1rem 0.1rem;
+    }
+  
+    .package-container {
+      padding-left: 4rem;
+    }
+  
+    .side-bar div a {
+      display: none;
+    }
+  
+    .side-bar div img {
+      margin-right: 0;
+    }
+  
+    .side-bar:hover div a {
+      display: block;
+      margin-left: 0.2rem;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .package-details {
+      display: none;
+    }
+  
+    .package-details.active {
+      display: flex;
+      position: fixed;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+    
+    .cross {
+      display: flex;
+    }
+  }
+  
+  @media only screen and (max-width: 650px) {
+    .package-icon {
+      display: none;
+    }
+
+    .package-options-info div:nth-child(2) {
+        display: none;
+    }
+  
+    .package-card {
+      width: 20rem;
+      padding-bottom: 0;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {
+    .package-card {
+      width: 15rem;
+      flex: 0 0 5rem;
+    }
+  
+    .package-options-info p {
+      font-size: small;
+      font-weight: lighter;
+    }
+  
+    .package-options-info div:nth-child(2) {
+      display: none;
+    }
+  
+    .package-options-info div p {
+      background-color: var(--sava-forth-color);
+      margin-top: 1rem;
+    }
+  
+    .package-info {
+      align-items: end;
+    }
+  
+    .package-details {
+      flex: 0 0 15rem;
+    }
+  
+    .grid-images img {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+  
+  
+  

@@ -25,6 +25,11 @@
     "@angular/platform-browser-dynamic": "13.3.11",
     "@angular/router": "13.3.11",
     "@auth0/angular-jwt": "^5.0.2",
+    "@fortawesome/angular-fontawesome": "^0.11.1",
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@fortawesome/free-brands-svg-icons": "^6.1.2",
+    "@fortawesome/free-regular-svg-icons": "^6.1.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "@material/dialog": "^14.0.0",
     "@ng-bootstrap/ng-bootstrap": "10.0.0",
     "bootstrap": "4.5.2",
@@ -41,6 +46,7 @@
     "nouislider": "14.6.2",
     "rxjs": "7.5.5",
     "sweetalert2": "^11.4.19",
+    "underscore": "^1.13.4",
     "zone.js": "0.11.4"
   },
   "devDependencies": {

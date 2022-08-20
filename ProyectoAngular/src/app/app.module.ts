@@ -41,7 +41,7 @@ import { PackagesSavaAdminDialogComponent } from './pages/packages-admin/package
     PackagesAdminDialogComponent,
     AdminUsersDialogComponent,
     PackagesAdminDialogComponent,
-    PackagesSavaAdminDialogComponent
+    PackagesSavaAdminDialogComponent,
   ],
   providers: [
   {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},

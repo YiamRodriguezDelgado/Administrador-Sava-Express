@@ -1,0 +1,82 @@
+<div class="package-container">
+  <div class="side-bar">
+    <div>
+      <img
+        src="../../../assets/img/icons/common/warehouse.png"
+        alt="warehouse"
+      />
+      <a [routerLink]="['/inicio/paquetes']">Paquetes en bodega</a>
+    </div>
+    <div>
+      <img
+        src="../../../assets/img/icons/common/airplane.png"
+        alt="warehouse"
+      />
+      <a [routerLink]="['/inicio/warehouse']">Paquetes rumbo a Ecuador</a>
+    </div>
+    <div>
+      <img src="../../../assets/img/icons/common/send.png" alt="enviar" />
+      <a [routerLink]="['/inicio/savaPackage']">Enviar paquetes</a>
+    </div>
+  </div>
+
+  <div *ngIf="isEmpty" class="package-section-empty">
+    <img
+      class="empty-section"
+      src="../../../assets/img/icons/common/package-background.png"
+      alt="package-background"
+    />
+  </div>
+
+  <div *ngIf="!isEmpty" class="package-section">
+    <div class="package-card" *ngFor="let package of userPackage">
+      <div class="package-content">
+        <img
+          class="package-icon"
+          src="{{ package.Images[0].source }}"
+          alt="package-icon"
+        />
+        <div class="package-options">
+          <h1>Paquete {{ package.id }}</h1>
+          <div class="package-info">
+            <div class="package-options-info">
+              <div><p>En bodega</p></div>
+              <div>
+                <p>{{ package.arrival_date }}</p>
+              </div>
+            </div>
+            <p (click)="selectPackage(package, $event.target)" class="select-button">
+              Seleccionar
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="package-details" class="package-details">
+    <div class="cross" (click)="closeDetails()">
+      <img src="../../../assets/img/icons/common/cross.png" alt="cross" />
+    </div>
+    <div class="package-details-box" id="package-details-box">
+      <h1>Crea tu paquete</h1>
+      <div>
+        <h2>Paquetes seleccionados</h2>
+        <div class="sava-packages" id="sava-packages">
+            
+        </div>
+      </div>
+      <div class="package-details-value">
+        <div>
+          <h2>Peso</h2>
+          <p>{{pounds}} lb</p>
+        </div>
+        <div>
+          <h2>Precio</h2>
+          <p>$ {{price}}</p>
+        </div>
+      </div>
+      <div class="send-button" (click)="sendPackage()"><p>Enviar paquete(s)</p></div>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,8 @@ import { SentComponent } from 'src/app/pages/sent/sent.component';
 import {MatSelectModule} from '@angular/material/select';
 import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
 import { LandingPageComponent } from 'src/app/pages/landing-page/landing-page.component';
+import { WarehouseComponent } from 'src/app/pages/warehouse/warehouse.component';
+import { SavaPackageComponent } from 'src/app/pages/sava-package/sava-package.component';
 
 @NgModule({
   imports: [
@@ -31,7 +33,9 @@ import { LandingPageComponent } from 'src/app/pages/landing-page/landing-page.co
     SentComponent,
     CarouselComponent,
     LandingPageComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    WarehouseComponent,
+    SavaPackageComponent
   ]
 })
 export class UserLayoutModule { }

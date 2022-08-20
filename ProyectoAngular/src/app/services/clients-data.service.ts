@@ -24,4 +24,9 @@ export class ClientsDataService {
     const apiUrl = `${this.url}/users/`
     return this._http.get<Array<User>>(apiUrl, {withCredentials: true, headers})
   }
+
+  searchSavaPackages(){
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this._http.get<any[]>(this.url+"/savaPackage/", {withCredentials: true,headers})
+  }
 }

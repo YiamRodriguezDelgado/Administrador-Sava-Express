@@ -1,19 +1,82 @@
-<mat-tab-group mat-align-tabs="center" [selectedIndex]=0>
-  <mat-tab label="Paquetes en Miami">
-    <div class="container">
-      <div class="d-flex justify-content-end align-items-center mt-2 " [routerLink]="['/inicio']">
-        <div class="row click" [routerLink]="['/inicio/envio']">
-          <p class="text-title texto " >Envio de <br> paquetes</p>
-          <img class="img-fluid img-size mt-2" src="../../../assets/img/icons/common/arrow.png" alt="Imagen de flecha">
+<div class="package-container">
+  <div class="side-bar">
+    <div>
+      <img
+        src="../../../assets/img/icons/common/warehouse.png"
+        alt="warehouse"
+      />
+      <a [routerLink]="['/inicio/paquetes']">Paquetes en bodega</a>
+    </div>
+    <div>
+      <img
+        src="../../../assets/img/icons/common/airplane.png"
+        alt="warehouse"
+      />
+      <a [routerLink]="['/inicio/warehouse']">Paquetes rumbo a Ecuador</a>
+    </div>
+    <div>
+      <img
+        src="../../../assets/img/icons/common/send.png"
+        alt="enviar"
+      />
+      <a [routerLink]="['/inicio/savaPackage']">Enviar paquetes</a>
+    </div>
+  </div>
+
+  <div *ngIf="(isEmpty)" class="package-section-empty">
+    <img class="empty-section" src="../../../assets/img/icons/common/package-background.png" alt="package-background">
+  </div>
+
+  <div *ngIf="!(isEmpty)" class="package-section">
+    <div class="package-card" *ngFor="let package of userPackage">
+      <div class="package-content">
+        <img class="package-icon" src={{package.Images[0].source}} alt="package-icon">
+        <div class="package-options">
+          <h1>Paquete {{package.id}}</h1>
+          <div class="package-info">
+            <div class="package-options-info">
+              <div><p>En bodega</p></div>
+              <div><p>{{package.arrival_date}}</p></div>
+            </div>
+            <img (click)="showDetails(package)" class="details-button" src="../../../assets/img/icons/common/details.png" alt="details">
+          </div>
         </div>
       </div>
     </div>
-    <div class="package-container row">
-      <app-package *ngFor="let individual of userPackage" [package]=individual class="package-box col-5"></app-package>
-    </div>
-  </mat-tab>
-  <mat-tab label="Paquetes camino a Ecuador">
-    <div class="packages-ecuador"></div>
-  </mat-tab>
-</mat-tab-group>
+  </div>
 
+  <div id="package-details" class="package-details">
+    <img class="empty-section" id="details-img" src="../../../assets/img/icons/common/details-background.png" alt="details-background">
+    <div class="cross" (click)="closeDetails()">
+      <img src="../../../assets/img/icons/common/cross.png" alt="cross">
+    </div>
+    <div class="package-details-box" id="package-details-box">
+      <h1></h1>
+      <div>
+        <h2>Número de rastreo</h2>
+        <p></p>
+      </div>
+      <div>
+        <h2>Posición actual</h2>
+        <p>Bodega de Miami</p>
+      </div>
+      <div>
+        <h2>Peso</h2>
+        <p></p>
+      </div>
+      <div>
+        <h2>Precio</h2>
+        <p></p>
+      </div>
+      <div>
+        <h2>Fecha de arrivo</h2>
+        <p></p>
+      </div>
+      <div>
+        <h2>Fotos</h2>
+        <div class="grid-images" id="grid-images">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

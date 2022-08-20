@@ -141,6 +141,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --body-bg-color: #F5F5F5;
     --bar-bg-color: lightgrey;
     --content-font: Open Sans,sans-serif;
+    --sava-first-color: #003462;
+    --sava-second-color: #44789D;
+    --sava-third-color: #2D6CB5;
+    --sava-forth-color: #FEBE10;
 }
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
