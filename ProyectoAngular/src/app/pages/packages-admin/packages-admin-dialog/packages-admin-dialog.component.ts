@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Subscription } from 'rxjs';
+import { ReplaySubject, Subscription } from 'rxjs';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
 import { User } from 'src/app/models/users';
 import { PackagesService } from 'src/app/services/packages.service';
@@ -27,6 +27,7 @@ export class PackagesAdminDialogComponent implements OnInit {
   price: FormControl = new FormControl("");
   arrival_date: FormControl = new FormControl("", [Validators.required]);
   images: FormControl = new FormControl([])
+  filteredClientMulti: ReplaySubject<User[]> = new ReplaySubject<User[]>(1)
   imagesFile =[];
   upload=[];
   selectedFile: ImageSnippet
@@ -41,6 +42,7 @@ export class PackagesAdminDialogComponent implements OnInit {
  });
  
   private warehousePackage: WarehousePackage
+  warehousePackageCrudSubscription: any;
   constructor(
     private dialogRef: MatDialogRef<PackagesAdminDialogComponent>,
     private _warehousePackageCrudService: PackagesService,
@@ -53,6 +55,8 @@ export class PackagesAdminDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
+    this.getClients()
     if (this.data) {
       this.onCreate = false
       this.warehousePackage = this.data.object as WarehousePackage
@@ -61,8 +65,8 @@ export class PackagesAdminDialogComponent implements OnInit {
       this.pounds.setValue(this.warehousePackage.pounds)
       this.price.setValue(this.warehousePackage.price)
       this.arrival_date.setValue(this.warehousePackage.arrival_date)
+      this.getClientInstance()
     }else {
-      this.getClients()
     }
     this.warehousePackageForm = new FormGroup({
       client_name: this.client_name,
@@ -78,9 +82,46 @@ export class PackagesAdminDialogComponent implements OnInit {
     this._clientCrudService.getClientsData().subscribe((result) => {
       console.log(result)
       this.clients = result
+      console.log(this.clients)
     })
   }
-
+  
+  getClientInstance() {
+    const clientNoSelected: User[] = []
+    const filters = `${this.warehousePackage.id}`
+    const clientInstanceSelected = []
+    this.warehousePackageCrudSubscription = this._clientCrudService.getClientsSelected(Number(filters)).subscribe(
+       (result) => {
+        if (result) {
+          for (const client of result) {
+            clientInstanceSelected.push(client.id)
+          }
+        }
+      },
+      (error) => {
+       
+      })
+    setTimeout(() => {
+    this.warehousePackageCrudSubscription = this._clientCrudService.getClientsData().subscribe(
+      (result_clients) => {
+        if (result_clients) {
+          result_clients.forEach((element) => {
+            if (clientInstanceSelected.includes(element.id)) {
+              this.clients.push(element)
+            } else {
+              if (this.warehousePackage.id !== element.id) {
+                clientNoSelected.push(element)
+              }
+            }
+          })
+          this.clients = this.clients.concat(clientNoSelected)
+          this.filteredClientMulti.next(this.clients)
+          this.client_name.setValue(clientInstanceSelected)
+        }
+      },
+      (error) => {
+      })}, 150)
+  }
   onFileChange(event:any) {
     if (event.target.files && event.target.files[0]) {
         var filesAmount = event.target.files.length;

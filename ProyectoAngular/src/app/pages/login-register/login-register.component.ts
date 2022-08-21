@@ -62,7 +62,7 @@ export class LoginRegisterComponent implements OnInit {
             console.log('Entrando');
             this.router.navigate(['dashboard']);
           } else {
-            this.router.navigate(['inicio']);
+            this.router.navigate(['inicio/paquetes']);
           }
         }
 

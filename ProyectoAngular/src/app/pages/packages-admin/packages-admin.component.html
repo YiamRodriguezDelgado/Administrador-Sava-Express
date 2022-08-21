@@ -129,13 +129,14 @@
                 <th scope="col" class="text-center">Cliente</th>
                 <th scope="col"> Código sava</th>
                 <th scope="col">Precio</th>
+                <th scope="col">Peso</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Fecha de salida de bodega</th>
                 <th scope="col">Fecha llegada a Ecuador</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let package of warehousePackages">
+              <tr *ngFor="let package of savaPackages">
                 <th scope="row">
                   <div class="media align-items-center">
                 <td class="text-left">
@@ -155,6 +156,7 @@
         </th>
         <td>{{ package.sava_code }} </td>
         <td>{{ package.price }} </td>
+        <td>{{ package.weight }} </td>
         <td> <span class="badge badge-dot mr-4">
             <i class="bg-danger"></i> {{ package.status }}
           </span> </td>
@@ -180,7 +182,7 @@
         </tbody>
         </table>
       </div>
-      <div class="card-footer py-4">
+      <div class="card-footer py-4" *ngFor="let item of images">
         <nav aria-label="...">
           <ul class="pagination justify-content-end mb-0">
             <li class="page-item disabled">

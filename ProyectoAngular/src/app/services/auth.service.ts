@@ -24,9 +24,9 @@ export class AuthService {
    }
 
   signIn(user: any) {
-    return this.http.post<any>(`${this.url}/users/userConfirmation`, user, {withCredentials: true}).pipe(
+    return this.http.post<any>(`${this.url}/users/userConfirmation`, user, ).pipe(
       map(result=>{
-        if(result && result.token){
+        if(result && result.token!="error"){
           localStorage.setItem('token', result.token);
           localStorage.setItem('loginStatus', '1');
           this.isUserLoggedIn = true;

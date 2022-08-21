@@ -14,11 +14,9 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Cliente</label>
-                                        <select class="form-control form-control-alternative"  (change)="changeUser($event.target.value)" formControlName="client_name">
-                                            <option [ngValue]="null" disabled>Escoga el correo del cliente</option>
-                                            <option *ngFor="let client of clients" [ngValue]="client.username">{{ client.username }}</option>
-                                            
-                                          </select>
+                                          <mat-select [formControl]="client_name" class="form-control form-control-alternative" >
+                                            <mat-option *ngFor="let client of clients | async" [value]="client.username"> {{ client.username | titlecase }}</mat-option>
+                                          </mat-select>
                                         <div class="validation-message"
                                             *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">
                                             *Campo cliente obligatorio

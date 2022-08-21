@@ -42,6 +42,7 @@ export class PackagesAdminComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.search()
     this.packagesForm = new FormGroup({
       package_instance: this.package_instance
     })
@@ -82,6 +83,7 @@ export class PackagesAdminComponent implements OnInit {
     this.warehousePackageSubscription = this._warehouseCrudService.getSavaPackageList().subscribe(
       (result) => {
         this.savaPackages = result
+        console.log(this.savaPackages)
       },
       (error) => {}
     )
