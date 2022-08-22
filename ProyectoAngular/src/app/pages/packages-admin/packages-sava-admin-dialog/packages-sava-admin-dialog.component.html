@@ -20,8 +20,12 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label">Estado de paquete</label>
-                                    <input [formControl]="status" type="text" id="status"
-                                        class="form-control form-control-alternative" placeholder="Estado paquete">
+                                    <select class="form-control form-control-alternative" formControlName="status">
+                                        <option [ngValue]="false">En bodega</option>
+                                        <option [ngValue]="true">Viajando</option>
+                                        <option [ngValue]="true">En oficinas</option>
+                                        <option [ngValue]="true">Entregado</option>
+                                      </select>
                                     <div class="validation-message"
                                         *ngIf="(status.dirty || status.touched) && status.invalid && status.errors.required">
                                         *Campo estado obligatorio

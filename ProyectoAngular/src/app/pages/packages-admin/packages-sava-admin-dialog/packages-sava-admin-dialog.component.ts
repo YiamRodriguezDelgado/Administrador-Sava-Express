@@ -37,7 +37,7 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
     if (this.data) {
       this.onCreate = false
       this.savaPackage = this.data.savaPackage as Package
-      this.client_name.setValue(this.savaPackage.price)
+      this.client_name.setValue(this.savaPackage.Client["email"])
       this.sava_code.setValue(this.savaPackage.sava_code)
       this.status.setValue(this.savaPackage.status)
       this.price.setValue(this.savaPackage.price)
@@ -46,12 +46,10 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
       this.arrival_date_destiny.setValue(this.savaPackage.arrival_date_destiny)
     }
     this.savaPackageForm = new FormGroup({
-      client_name: this.client_name,
-      tracking_number: this.tracking_number,
-      pounds: this.pounds,
-      price: this.price,
-      status: this.status,
       sava_code: this.sava_code,
+      status: this.status,
+      price: this.price,
+      weight: this.weight,
       departureDate: this.departureDate,
       arrival_date_destiny: this.arrival_date_destiny
     })
