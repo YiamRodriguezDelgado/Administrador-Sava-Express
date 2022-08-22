@@ -1,3 +1,4 @@
+import { ClientDate } from "./client-data";
 import { WarehousePackage } from "./warehouse-package";
 
 export class Model { }
@@ -10,6 +11,6 @@ export interface Package {
     weight: number,
     departureDate: Date,
     arrival_date_destiny: Date,
-    CliendId: number,
+    Client: Array<ClientDate>,
     WarehousePackages: Array<WarehousePackage>
 }

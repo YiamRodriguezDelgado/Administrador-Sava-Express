@@ -62,10 +62,6 @@ export class PackagesAdminComponent implements OnInit {
     this.warehousePackageSubscription = this._warehouseCrudService.getWarehousePackageList().subscribe(
       (result) => {
         this.warehousePackages = result
-       // this.imageList = result["Images"]
-        console.log(result)
-        console.log(this.warehousePackages)
-        console.log(this.imageList)
       },
       (error) => {}
     )
@@ -85,14 +81,14 @@ export class PackagesAdminComponent implements OnInit {
     )
   }
 
-  edit(warehousePackage: WarehousePackage){
+ /* edit(warehousePackage: WarehousePackage){
     const dialogConfig = new MatDialogConfig()
     dialogConfig.data = {
       warehousePackage: warehousePackage
     }
     this.dialog.open(PackagesAdminDialogComponent, dialogConfig)
   }
-
+*/
   editSavaPackage(savaPackage: Package){
     const dialogConfig = new MatDialogConfig()
     dialogConfig.disableClose = true

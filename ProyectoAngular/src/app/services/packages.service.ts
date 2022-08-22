@@ -36,7 +36,7 @@ export class PackagesService {
   }
 
   updateSavaPackage(sava_package: Package): Observable<any> {
-    const apiUrl = `${this.url}/savaPackage/newStatus${sava_package.id}`
+    const apiUrl = `${this.url}/savaPackage/edit`
     return this.http.put(apiUrl, sava_package)
   }
 

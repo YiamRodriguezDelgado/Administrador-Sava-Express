@@ -148,8 +148,8 @@
         <td> <span class="badge badge-dot mr-4">
             <i class="bg-danger"></i> {{ package.status || "-"}}
           </span> </td>
-        <td>{{ package.departureDate | date: "dd-MM-yyy HH:mm:ss" || "-" }} </td>
-        <td>{{ package.arrival_date_destiny | date: "dd-MM-yyy HH:mm:ss" || "-"}} </td>
+        <td style="align-items: center;">{{ (package.departureDate | date: "dd-MM-yyy HH:mm:ss") || "-" }} </td>
+        <td style="align-items: center;">{{ (package.arrival_date_destiny | date: "dd-MM-yyy HH:mm:ss") || "-"}} </td>
         </tr>
         </tbody>
         </table>
