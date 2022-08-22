@@ -15,7 +15,7 @@
                                     <div class="form-group">
                                         <label class="form-control-label">Cliente</label>
                                           <mat-select [formControl]="client_name" class="form-control form-control-alternative" >
-                                            <mat-option *ngFor="let client of clients" [value]="client.username"> {{ client.username | titlecase }}</mat-option>
+                                            <mat-option *ngFor="let client of clients" [value]="client.id"> {{ client.username | titlecase }}</mat-option>
                                           </mat-select>
                                         <div class="validation-message"
                                             *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">

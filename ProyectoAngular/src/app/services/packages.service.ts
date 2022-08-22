@@ -40,8 +40,8 @@ export class PackagesService {
     return this.http.put(apiUrl, sava_package)
   }
 
-  deleteWarehousePackage(id: number): Observable<any> {
-    const apiUrl = `${this.url}/warehouse_packages${id}`
+  deleteWarehousePackage(id: string): Observable<any> {
+    const apiUrl = `${this.url}/api/warehouse-packages/${id}`
     return this.http.delete(apiUrl)
   }
 }

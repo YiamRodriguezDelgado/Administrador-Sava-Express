@@ -6,6 +6,7 @@ import { WarehousePackage } from 'src/app/models/warehouse-package';
 import { User } from 'src/app/models/users';
 import { PackagesService } from 'src/app/services/packages.service';
 import { ClientsDataService } from 'src/app/services/clients-data.service';
+import Swal from 'sweetalert2';
 
 class ImageSnippet {
   constructor(public src: string, public file: File) { }
@@ -166,11 +167,24 @@ export class PackagesAdminDialogComponent implements OnInit {
         }
       }
       console.log(JSON.stringify(this.warehousePackageForm.value));
-      formData.append("warehouseForm", JSON.stringify(this.warehousePackageForm.value))
-      /*if (this.onCreate) {
+      formData.append("warehouseForm",JSON.stringify(this.warehousePackageForm.value))
+      if (this.onCreate) {
         this.warehouseCrudSubscription = this._warehousePackageCrudService.createWarehousePackage(formData).subscribe(
           (result) => {
-            
+            if(result.message=='Ese tracking Number ya esta registrado'){
+              Swal.fire({
+                text:result.message,
+                icon:'error'
+              })
+            }else{
+              Swal.fire(
+                "Paquete",
+                'Se ha creado satisfactoriamente el nuevo paquete',
+                'success'
+              ).then(function() {
+                window.location.reload();
+            });
+            }
         },
           (error) => {
 
@@ -194,7 +208,7 @@ export class PackagesAdminDialogComponent implements OnInit {
             confirmButtonText: 'OK'});
         })
       }
-    */}
+    }
 }
 cancel(){
   this.dialogRef.close()

@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Image } from 'src/app/models/image';
-import { Model, Package } from 'src/app/models/package';
+import { Package } from 'src/app/models/package';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
 import { PackagesService } from 'src/app/services/packages.service';
 import Swal from 'sweetalert2';
@@ -116,13 +116,14 @@ export class PackagesAdminComponent implements OnInit {
       cancelButtonText: 'No'
     }).then((response: any) => {
       if (response.value) {
-        this.warehousePackageSubscription = this._warehouseCrudService.deleteWarehousePackage(packagee.id).subscribe(
+        this.warehousePackageSubscription = this._warehouseCrudService.deleteWarehousePackage(packagee.tracking_number).subscribe(
           (result) => {
             Swal.fire(
               'Eliminado!',
               'success',
-              
-            )
+            ).then(function() {
+              window.location.reload();
+          })
           },
           (error) =>{
             Swal.fire({ 

@@ -3,6 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { Output, EventEmitter } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  constructor(location: Location,  private element: ElementRef, private router: Router,private acct: AuthService) {
     this.location = location;
   }
 
@@ -32,6 +33,10 @@ export class NavbarComponent implements OnInit {
         }
     }
     return 'Dashboard';
+  }
+  onLogOut(): void{
+    this.acct.logout();
+    this.router.navigate(["inicio"])
   }
 
 }

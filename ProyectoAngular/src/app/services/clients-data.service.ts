@@ -21,7 +21,7 @@ export class ClientsDataService {
 
   getClientsData(): Observable<Array<User>>{
     const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
-    const apiUrl = `${this.url}/users/`
+    const apiUrl = `${this.url}/users/clients`
     return this._http.get<Array<User>>(apiUrl, { headers})
   }
 
