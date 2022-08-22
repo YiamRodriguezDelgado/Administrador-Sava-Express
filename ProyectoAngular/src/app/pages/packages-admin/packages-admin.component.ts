@@ -2,10 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
-import { Package } from 'src/app/models/package';
+import { Image } from 'src/app/models/image';
+import { Model, Package } from 'src/app/models/package';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
 import { PackagesService } from 'src/app/services/packages.service';
 import Swal from 'sweetalert2';
+import { SavaPackageComponent } from '../sava-package/sava-package.component';
 import { PackagesAdminDialogComponent } from './packages-admin-dialog/packages-admin-dialog.component';
 import { PackagesSavaAdminDialogComponent } from './packages-sava-admin-dialog/packages-sava-admin-dialog.component';
 
@@ -22,20 +24,11 @@ export class PackagesAdminComponent implements OnInit {
   packagesForm: FormGroup
   package_instance: FormControl = new FormControl()
   packagesOptions: Array<string> = ["Paquetes SAVA", "Paquetes bodega"]
-  warehousePackages: Array<WarehousePackage> = [{
-    id: 5,
-    tracking_number: "0788566565",
-    client_name: "Raquel Riofrio",
-    pounds: "20 libras",
-    price: "50",
-    arrival_date: new Date(),
-    images: []
-  }]
-
+  warehousePackages: Array<WarehousePackage> = []
   savaPackages: Array<Package> = []
-
-  @Input() object: WarehousePackage
+  imageList: Array<Image> = []
   private warehousePackageSubscription: Subscription
+
   constructor(
     public dialog: MatDialog,
     private _warehouseCrudService: PackagesService
@@ -50,7 +43,6 @@ export class PackagesAdminComponent implements OnInit {
     this.packagesForm.valueChanges.subscribe(() => {
       this.search()
     })
-
   }
 
   search(){
@@ -70,6 +62,10 @@ export class PackagesAdminComponent implements OnInit {
     this.warehousePackageSubscription = this._warehouseCrudService.getWarehousePackageList().subscribe(
       (result) => {
         this.warehousePackages = result
+       // this.imageList = result["Images"]
+        console.log(result)
+        console.log(this.warehousePackages)
+        console.log(this.imageList)
       },
       (error) => {}
     )
@@ -89,16 +85,15 @@ export class PackagesAdminComponent implements OnInit {
     )
   }
 
-  edit(){
+  edit(warehousePackage: WarehousePackage){
     const dialogConfig = new MatDialogConfig()
-    dialogConfig.disableClose = true
     dialogConfig.data = {
-      object: this.object
+      warehousePackage: warehousePackage
     }
     this.dialog.open(PackagesAdminDialogComponent, dialogConfig)
   }
 
-  editSavaPackage(){
+  editSavaPackage(savaPackage: Package){
     const dialogConfig = new MatDialogConfig()
     dialogConfig.disableClose = true
     dialogConfig.width = '40vm'
@@ -106,7 +101,7 @@ export class PackagesAdminComponent implements OnInit {
     dialogConfig.maxHeight = '100vm'
     dialogConfig.maxWidth = '80vm'
     dialogConfig.data = {
-      object: this.object
+      savaPackage: savaPackage
     }
     this.dialog.open(PackagesSavaAdminDialogComponent, dialogConfig)
   }

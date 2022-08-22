@@ -21,8 +21,9 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
   pounds: FormControl = new FormControl("", [Validators.required]);
   price: FormControl = new FormControl("");
   status: FormControl = new FormControl("");
+  weight: FormControl = new FormControl("");
   sava_code: FormControl = new FormControl("");
-  departure_date_warehouse: FormControl = new FormControl("");
+  departureDate: FormControl = new FormControl("");
   arrival_date_destiny: FormControl = new FormControl("");
   private savaCrudSubscription: Subscription;
   private savaPackage: Package
@@ -35,7 +36,14 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
   ngOnInit(): void {
     if (this.data) {
       this.onCreate = false
-      this.savaPackage = this.data.object as Package
+      this.savaPackage = this.data.savaPackage as Package
+      this.client_name.setValue(this.savaPackage.price)
+      this.sava_code.setValue(this.savaPackage.sava_code)
+      this.status.setValue(this.savaPackage.status)
+      this.price.setValue(this.savaPackage.price)
+      this.weight.setValue(this.savaPackage.weight)
+      this.departureDate.setValue(this.savaPackage.departureDate)
+      this.arrival_date_destiny.setValue(this.savaPackage.arrival_date_destiny)
     }
     this.savaPackageForm = new FormGroup({
       client_name: this.client_name,
@@ -44,7 +52,7 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
       price: this.price,
       status: this.status,
       sava_code: this.sava_code,
-      departure_date_warehouse: this.departure_date_warehouse,
+      departureDate: this.departureDate,
       arrival_date_destiny: this.arrival_date_destiny
     })
   }

@@ -5,7 +5,6 @@ import { ReplaySubject, Subscription } from 'rxjs';
 import { WarehousePackage } from 'src/app/models/warehouse-package';
 import { User } from 'src/app/models/users';
 import { PackagesService } from 'src/app/services/packages.service';
-import Swal from 'sweetalert2';
 import { ClientsDataService } from 'src/app/services/clients-data.service';
 
 class ImageSnippet {
@@ -59,8 +58,8 @@ export class PackagesAdminDialogComponent implements OnInit {
     this.getClients()
     if (this.data) {
       this.onCreate = false
-      this.warehousePackage = this.data.object as WarehousePackage
-      this.client_name.setValue(this.warehousePackage.client_name)
+      this.warehousePackage = this.data.warehousePackage as WarehousePackage
+      this.client_name.setValue(this.warehousePackage.Client["email"])
       this.tracking_number.setValue(this.warehousePackage.tracking_number)
       this.pounds.setValue(this.warehousePackage.pounds)
       this.price.setValue(this.warehousePackage.price)

@@ -39,7 +39,6 @@
                 <th scope="col"> Código sava</th>
                 <th scope="col">Peso en libras</th>
                 <th scope="col">Costo</th>
-                <th scope="col">Estado</th>
                 <th scope="col">Fecha de llegada a bodega</th>
                 <th scope="col">Imagenes</th>
               </tr>
@@ -54,36 +53,25 @@
                       <i class="fas fa-ellipsis-v"></i>
                     </a>
                     <div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
-                      <a class="dropdown-item" (click)="edit()">Editar</a>
+                      <a class="dropdown-item" (click)="edit(package)">Editar</a>
                     </div>
                   </div>
                 </td>
                 <div class="media-body">
-                  <span class="mb-0 text-sm">{{ package.client_name }}</span>
+                  <span class="mb-0 text-sm">{{ package.Client.email|| "-"}}</span>
                 </div>
         </div>
         </th>
-        <td>{{ package.tracking_number }}</td>
-        <td>{{ package.sava_code }} </td>
-        <td>{{ package.pounds }} </td>
-        <td>{{ package.price }} </td>
-        <td> <span class="badge badge-dot mr-4">
-            <i class="bg-danger"></i> {{ package.status }}
-          </span> </td>
-        <td>{{ package.arrival_date_warehouse | date: "dd-MM-yyy HH:mm:ss" }} </td>
+        <td>{{ package.tracking_number || "-" }}</td>
+        <td>{{ package.sava_code || "-"}} </td>
+        <td>{{ package.pounds || "-"}} </td>
+        <td>{{ package.price || "-"}} </td>
+        <td>{{ package.arrival_date | date: "dd-MM-yyy HH:mm:ss" || "-"}} </td>
         <td>
-          <div class="avatar-group">
+          <div class="avatar-group" *ngFor="let image of package.Images">
             <a href="javascript:void(0)" class="avatar avatar-lg rounded-circle" data-toggle="tooltip"
               data-original-title="Romina Hadid">
-              <img alt="Image placeholder" src="../assets/img/theme/sava1.jpg" class="rounded-circle">
-            </a>
-            <a href="javascript:void(0)" class="avatar avatar-lg rounded-circle" data-toggle="tooltip"
-              data-original-title="Alexander Smith">
-              <img alt="Image placeholder" src="../assets/img/theme/sava3.jpg" class="rounded-circle">
-            </a>
-            <a href="javascript:void(0)" class="avatar avatar-lg rounded-circle" data-toggle="tooltip"
-              data-original-title="Jessica Doe">
-              <img alt="Image placeholder" src="../assets/img/theme/sava4.jpg" class="rounded-circle">
+              <img alt="Image placeholder" src="{{image.source}}" class="rounded-circle">
             </a>
           </div>
         </td>
@@ -145,39 +133,23 @@
                       <i class="fas fa-ellipsis-v"></i>
                     </a>
                     <div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
-                      <a class="dropdown-item" (click)="editSavaPackage()">Editar</a>
+                      <a class="dropdown-item" (click)="editSavaPackage(package)">Editar</a>
                     </div>
                   </div>
                 </td>
                 <div class="media-body">
-                  <span class="mb-0 text-sm">{{ package.client_name }}</span>
+                  <span class="mb-0 text-sm">{{ package.Client.email || "-"}}</span>
                 </div>
         </div>
         </th>
-        <td>{{ package.sava_code }} </td>
-        <td>{{ package.price }} </td>
-        <td>{{ package.weight }} </td>
+        <td>{{ package.sava_code || "-"}} </td>
+        <td>{{ package.price || "-" }} </td>
+        <td>{{ package.weight || "-" }} </td>
         <td> <span class="badge badge-dot mr-4">
-            <i class="bg-danger"></i> {{ package.status }}
+            <i class="bg-danger"></i> {{ package.status || "-"}}
           </span> </td>
-        <td>{{ package.departure_date | date: "dd-MM-yyy HH:mm:ss" }} </td>
-        <td>{{ package.arrival_date_destiny | date: "dd-MM-yyy HH:mm:ss" }} </td>
-        <td>
-          <div class="avatar-group">
-            <a href="javascript:void(0)" class="avatar avatar-lg rounded-circle" data-toggle="tooltip"
-              data-original-title="Romina Hadid">
-              <img alt="Image placeholder" src="../assets/img/theme/sava1.jpg" class="rounded-circle">
-            </a>
-            <a href="javascript:void(0)" class="avatar avatar-lg rounded-circle" data-toggle="tooltip"
-              data-original-title="Alexander Smith">
-              <img alt="Image placeholder" src="../assets/img/theme/sava3.jpg" class="rounded-circle">
-            </a>
-            <a href="javascript:void(0)" class="avatar avatar-lg rounded-circle" data-toggle="tooltip"
-              data-original-title="Jessica Doe">
-              <img alt="Image placeholder" src="../assets/img/theme/sava4.jpg" class="rounded-circle">
-            </a>
-          </div>
-        </td>
+        <td>{{ package.departureDate | date: "dd-MM-yyy HH:mm:ss" || "-" }} </td>
+        <td>{{ package.arrival_date_destiny | date: "dd-MM-yyy HH:mm:ss" || "-"}} </td>
         </tr>
         </tbody>
         </table>

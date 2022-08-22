@@ -1,5 +1,7 @@
 import { WarehousePackage } from "./warehouse-package";
 
+export class Model { }
+
 export interface Package {
     id: number,
     sava_code: string;

@@ -1,84 +1,83 @@
-
-<h2 mat-dialog-title  class="input-label ml-3"  style="font-weight: 799;">EDITAR PAQUETE SAVA</h2>
+<h2 mat-dialog-title class="input-label ml-3" style="font-weight: 799;">EDITAR PAQUETE SAVA</h2>
 <mat-dialog-content class="container-fluid d-flex align-items-center" style="margin: 0; padding: 0">
     <div class="container-fluid ">
-        <div>
-            <div class="card bg-secondary shadow">
-                <div class="card-body">
-                    <form [formGroup]="savaPackageForm">
-                        <div class="pl-lg-4 control-media">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Cliente</label>
-                                        <input [formControl]="client_name" type="text" id="client_name"
-                                            class="form-control form-control-alternative" placeholder="Cliente" value="">
-                                        <div class="validation-message"
-                                            *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">
-                                            *Campo cliente obligatorio
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Estado de paquete</label>
-                                        <input [formControl]="status" type="text" id="status"
-                                            class="form-control form-control-alternative" placeholder="Estado paquete">
-                                        <div class="validation-message"
-                                            *ngIf="(status.dirty || status.touched) && status.invalid && status.errors.required">
-                                            *Campo estado obligatorio
-                                        </div>
+        <div class="card bg-secondary shadow">
+            <div class="card-body">
+                <form [formGroup]="savaPackageForm">
+                    <div class="pl-lg-4 control-media">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Cliente</label>
+                                    <input [formControl]="client_name" type="text" id="client_name"
+                                        class="form-control form-control-alternative" placeholder="Cliente" value="" disabled>
+                                    <div class="validation-message"
+                                        *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">
+                                        *Campo cliente obligatorio
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Peso en libras</label>
-                                        <input [formControl]="pounds" type="text" id="pounds"
-                                            class="form-control form-control-alternative" placeholder="Peso" value="">
-                                        <div class="validation-message"
-                                            *ngIf="(pounds.dirty || pounds.touched) && pounds.invalid && pounds.errors.required">
-                                            *Campo peso obligatorio
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Precio</label>
-                                        <input [formControl]="price" type="text" id="price"
-                                            class="form-control form-control-alternative" placeholder="Precio" value="">
-                                            <div class="validation-message"
-                                            *ngIf="(price.dirty || price.touched) && price.invalid && price.errors.required">
-                                            *Campo precio obligatorio
-                                        </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Estado de paquete</label>
+                                    <input [formControl]="status" type="text" id="status"
+                                        class="form-control form-control-alternative" placeholder="Estado paquete">
+                                    <div class="validation-message"
+                                        *ngIf="(status.dirty || status.touched) && status.invalid && status.errors.required">
+                                        *Campo estado obligatorio
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Código sava</label>
-                                        <input [formControl]="sava_code" type="text" id="sava_code"
-                                            class="form-control form-control-alternative" placeholder="Precio" value="">
-                                            <div class="validation-message"
-                                            *ngIf="(sava_code.dirty || sava_code.touched) && sava_code.invalid && sava_code.errors.required">
-                                            *Campo precio obligatorio
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Fecha salida de bodega</label>
-                                        <input [formControl]="departure_date_warehouse" type="date" id="departure_date_warehouse"
-                                            class="form-control form-control-alternative" placeholder="DD-MM-AA" value="">
-                                        <div class="validation-message"
-                                            *ngIf="(departure_date_warehouse.dirty || departure_date_warehouse.touched) && departure_date_warehouse.invalid && departure_date_warehouse.errors.required">
-                                            *Campo fecha de salida obligatorio
-                                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Peso en libras</label>
+                                    <input [formControl]="pounds" type="text" id="pounds"
+                                        class="form-control form-control-alternative" placeholder="Peso" value="">
+                                    <div class="validation-message"
+                                        *ngIf="(pounds.dirty || pounds.touched) && pounds.invalid && pounds.errors.required">
+                                        *Campo peso obligatorio
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Precio</label>
+                                    <input [formControl]="price" type="text" id="price"
+                                        class="form-control form-control-alternative" placeholder="Precio" value="">
+                                    <div class="validation-message"
+                                        *ngIf="(price.dirty || price.touched) && price.invalid && price.errors.required">
+                                        *Campo precio obligatorio
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Código sava</label>
+                                    <input [formControl]="sava_code" type="text" id="sava_code"
+                                        class="form-control form-control-alternative" placeholder="Precio" value="" disabled>
+                                    <div class="validation-message"
+                                        *ngIf="(sava_code.dirty || sava_code.touched) && sava_code.invalid && sava_code.errors.required">
+                                        *Campo precio obligatorio
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Peso</label>
+                                    <input [formControl]="weight" type="text" id="weight"
+                                        class="form-control form-control-alternative" placeholder="Peso" value="">
+                                    <div class="validation-message"
+                                        *ngIf="(weight.dirty || weight.touched) && weight.invalid && weight.errors.required">
+                                        *Campo peso obligatorio
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label">Fecha llegada a destino</label>
@@ -90,16 +89,26 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Fecha salida de bodega</label>
+                                    <input [formControl]="departureDate" type="date" id="departureDate"
+                                        class="form-control form-control-alternative" placeholder="DD-MM-AA" value="">
+                                    <div class="validation-message"
+                                        *ngIf="(departureDate.dirty || departureDate.touched) && departureDate.invalid && departureDate.errors.required">
+                                        *Campo fecha de salida obligatorio
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                    </div>
+                </form>
+             </div>
+         </div>
     </div>
 </mat-dialog-content>
-<mat-dialog-actions 
-    class="model-dialog-actions d-sm-flex flex-row justify-content-between"
+<mat-dialog-actions class="model-dialog-actions d-sm-flex flex-row justify-content-between"
     style="padding: 0; margin-bottom: 20px;">
-    <button class="btn btn-primary mt-5 ml-3"  style="width: 36%;"  (click)="accept()" type="submit">Guardar</button>
+    <button class="btn btn-primary mt-5 ml-3" style="width: 36%;" (click)="accept()" type="submit">Guardar</button>
     <button class="btn cancel-button mt-5 mr-3" style="width: 36%" (click)="cancel()">Cancelar</button>
 </mat-dialog-actions>
