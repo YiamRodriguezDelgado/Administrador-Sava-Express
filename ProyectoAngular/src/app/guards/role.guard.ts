@@ -18,6 +18,9 @@ export class RoleGuard implements CanActivate {
     if (!this.authService.isExpired()) {
       this.router.navigate(['inicio/login']);
       return false;
+    }else if(!this.authService.isLoggedIn){
+      this.router.navigate(['inicio/login']);
+      return false;
     }
 
     const expectedRole = route.data.expectedRole;

@@ -10,10 +10,7 @@ export class AdminDataService {
     //const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
     return this._http.get<any[]>(this.url+"/users/",)
   }
-  searchUser(email){
-    //const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
-    return this._http.get<any[]>(this.url+"/users/email")
-  }
+
   createUsers(body: any){
     //const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
     if(body.get("role")=="administrador"){
@@ -26,5 +23,14 @@ export class AdminDataService {
   }
   deleteUsers(body:any){
     return this._http.delete<any>(`${this.url}/users/`, {body});
+  }
+  obtainClients(){
+    return this._http.get(`${this.url}/dashboard/clients`)
+  }
+  obtainPackages(){
+    return this._http.get(`${this.url}/dashboard/packages/delivered`)
+  }
+  obtainStadistics(){
+    return this._http.get(`${this.url}/dashboard/packages/total`)
   }
 }

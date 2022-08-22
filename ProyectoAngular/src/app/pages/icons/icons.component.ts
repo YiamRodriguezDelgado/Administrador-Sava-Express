@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
-
+  
   public copy: string;
   constructor() { }
 

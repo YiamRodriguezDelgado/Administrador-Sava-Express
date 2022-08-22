@@ -11,9 +11,10 @@ import { User } from 'src/app/models/users';
 })
 export class UserProfileComponent implements OnInit {
   users: Array<User>=[]
-  public focus;
+  usersFilter:Array<User>=[]
+  public focus
   constructor(public dialog: MatDialog,private _petitions: AdminDataService) { }
-
+  emailToSearch=""
   ngOnInit() {
     this.searchAllUsers()
 
@@ -21,14 +22,16 @@ export class UserProfileComponent implements OnInit {
   searchAllUsers(){
     this._petitions.searchUsers().subscribe(users=>{
       this.users=users
+      this.usersFilter=users
     })
   }
   searchUser(email:string){
+    this.emailToSearch=email
     if(email=""){
-      this.searchAllUsers()
+      this.usersFilter=this.users
     }else{
-      this._petitions.searchUser(email).subscribe(user=>{
-        this.users=user
+      this.usersFilter=this.users.filter(User=> {
+        return User.username.includes(this.emailToSearch)
       })
     }
   }

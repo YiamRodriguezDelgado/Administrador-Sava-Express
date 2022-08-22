@@ -57,8 +57,8 @@ export class LoginRegisterComponent implements OnInit {
         } else {
           const rol = decode(res.token);
           console.log(rol);
-          console.log(rol['rol'])
-          if (rol['rol'] == 1) {
+          console.log(rol['role'])
+          if (rol['role'] == 1) {
             console.log('Entrando');
             this.router.navigate(['dashboard']);
           } else {

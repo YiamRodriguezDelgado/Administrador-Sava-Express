@@ -13,7 +13,7 @@ export const userLayoutRoutes: Routes = [
     { path: 'paquetes',          component: PackagesComponent, canActivate: [BlockGuard]},
     { path: 'login',             component: LoginRegisterComponent, canActivate: [AuthGuard] },
     { path:'envio',              component: SentComponent},
-    { path:'',                    component:LandingPageComponent},
+    { path:'', canActivate: [AuthGuard],component:LandingPageComponent},
     { path: 'warehouse', component: WarehouseComponent},
     { path: 'savaPackage', component: SavaPackageComponent }
 ];

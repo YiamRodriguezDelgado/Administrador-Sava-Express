@@ -25,7 +25,7 @@ export class AdminUsersDialogComponent implements OnInit {
   Guardar(form){
     if(this.checkoutForm.invalid){
       Swal.fire({
-        text:"Llene todos los datos",
+        text:"Llene todos los datos correctamente",
         icon:'error'
       })
       return
@@ -39,22 +39,29 @@ export class AdminUsersDialogComponent implements OnInit {
     formData.append('role',form.role)
     formData.append('password',form.password)
     formData.append('telefono',form.phone)
-    this._petitions.createUsers(formData).subscribe((message:any)=>{
-      if(message.message=="Usuario ya registrado"){
-        Swal.fire({
-          text:message.message,
-          icon:'error'
-        })
-        return
-      }else{
-        Swal.fire(
-          "Paquetes",
-          'Se ha creado satisfactoriamente el nuevo usuario',
-          'success'
-        ).then(function() {
-          window.location.reload();
-      });
-      }
-    })
+    if(form.password!=form.password2){
+      Swal.fire({
+        text:"Las contraseñas no coinciden",
+        icon:'error'
+      })
+    }else{
+      this._petitions.createUsers(formData).subscribe((message:any)=>{
+        if(message.message=="Usuario ya registrado"){
+          Swal.fire({
+            text:message.message,
+            icon:'error'
+          })
+          return
+        }else{
+          Swal.fire(
+            "Paquetes",
+            'Se ha creado satisfactoriamente el nuevo usuario',
+            'success'
+          ).then(function() {
+            window.location.reload();
+        });
+        }
+      })
+    }
   }
 }
