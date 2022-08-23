@@ -27,6 +27,9 @@ export class PackagesAdminComponent implements OnInit {
   warehousePackages: Array<WarehousePackage> = []
   savaPackages: Array<Package> = []
   imageList: Array<Image> = []
+  warehousePackageFilter:Array<WarehousePackage>=[]
+  savaPackageFilter:Array<Package>=[]
+  emailToSearch=""
   private warehousePackageSubscription: Subscription
 
   constructor(
@@ -53,6 +56,28 @@ export class PackagesAdminComponent implements OnInit {
     }
   }
 
+  searchWarehousePackage(email:string){
+    this.emailToSearch=email
+    if(email=""){
+      this.warehousePackageFilter=this.warehousePackages
+    }else{
+      this.warehousePackageFilter=this.warehousePackages.filter(WarehousePackage=> {
+        return WarehousePackage.Client["email"].includes(this.emailToSearch)
+      })
+    }
+  }
+
+  searchSavaPackage(email:string){
+    this.emailToSearch=email
+    if(email=""){
+      this.savaPackageFilter=this.savaPackages
+    }else{
+      this.savaPackageFilter=this.savaPackages.filter(SavaPackage=> {
+        return SavaPackage.Client["email"].includes(this.emailToSearch)
+      })
+    }
+  }
+
   downloadWarehousePackages(){
     this.default_package = "Paquetes bodega"
     if (this.warehousePackageSubscription) {
@@ -62,6 +87,7 @@ export class PackagesAdminComponent implements OnInit {
     this.warehousePackageSubscription = this._warehouseCrudService.getWarehousePackageList().subscribe(
       (result) => {
         this.warehousePackages = result
+        this.warehousePackageFilter = result
       },
       (error) => {}
     )
@@ -75,7 +101,7 @@ export class PackagesAdminComponent implements OnInit {
     this.warehousePackageSubscription = this._warehouseCrudService.getSavaPackageList().subscribe(
       (result) => {
         this.savaPackages = result
-        console.log(this.savaPackages)
+        this.savaPackageFilter = result
       },
       (error) => {}
     )

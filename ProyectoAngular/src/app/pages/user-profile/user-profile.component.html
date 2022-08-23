@@ -71,10 +71,10 @@
             <td class="text-center">
               {{user.phoneNumber}}
             </td>
-            <td class="text-center" *ngIf="user.role==2">
+            <td class="text-center" *ngIf="user.role===2">
               Cliente
             </td>
-            <td  class="text-center" *ngIf="user.role==1">
+            <td  class="text-center" *ngIf="user.role===1">
               Administrador
             </td>
           </tr>
