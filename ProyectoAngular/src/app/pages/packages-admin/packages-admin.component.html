@@ -16,18 +16,20 @@
   <div class="row mt-0">
     <div class="col">
       <div class="card shadow" *ngIf="default_package === 'Paquetes bodega'; else savaPackage">
-        <div class="row ml-0 mr-0 " >
+        <div class="row ml-0 mr-0 ">
           <div class="col-6 card-header border-0">
             <h3 class="mb-0">Paquetes en bodega.</h3>
           </div>
           <div class="col-3 pt-2 offset-md-2">
-            <form class="navbar-search navbar-search-light form-inline mr-3 d-none d-md-flex ml-lg-auto" onsubmit="return false">
-              <div class="form-group mb-0" >
+            <form class="navbar-search navbar-search-light form-inline mr-3 d-none d-md-flex ml-lg-auto"
+              onsubmit="return false">
+              <div class="form-group mb-0">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                   </div>
-                  <input #correo (keyup.enter)="searchWarehousePackage(correo.value)" class="form-control" placeholder="Buscar" type="text">
+                  <input #correo (keyup.enter)="searchWarehousePackage(correo.value)" class="form-control"
+                    placeholder="Buscar" type="text">
                 </div>
               </div>
             </form>
@@ -40,7 +42,7 @@
                 <th scope="col" class="text-center">Cliente</th>
                 <th scope="col"> Número de tracking</th>
                 <th scope="col"> Código sava</th>
-                <th scope="col">Peso en libras</th>
+                <th scope="col">Peso</th>
                 <th scope="col">Costo</th>
                 <th scope="col">Fecha de llegada a bodega</th>
                 <th scope="col">Imagenes</th>
@@ -110,18 +112,20 @@
     </div>
     <ng-template #savaPackage>
       <div class="card shadow">
-        <div class="row ml-0 mr-0 " >
+        <div class="row ml-0 mr-0 ">
           <div class="col-6 card-header border-0">
-            <h3 class="mb-0">Paquetes en bodega.</h3>
+            <h3 class="mb-0">Paquetes sava.</h3>
           </div>
           <div class="col-3 pt-2 offset-md-2">
-            <form class="navbar-search navbar-search-light form-inline mr-3 d-none d-md-flex ml-lg-auto" onsubmit="return false">
-              <div class="form-group mb-0" >
+            <form class="navbar-search navbar-search-light form-inline mr-3 d-none d-md-flex ml-lg-auto"
+              onsubmit="return false">
+              <div class="form-group mb-0">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                   </div>
-                  <input #correo (keyup.enter)="searchSavaPackage(correo.value)" class="form-control" placeholder="Buscar" type="text">
+                  <input #correo (keyup.enter)="searchSavaPackage(correo.value)" class="form-control"
+                    placeholder="Buscar" type="text">
                 </div>
               </div>
             </form>
@@ -138,6 +142,7 @@
                 <th scope="col">Estado</th>
                 <th scope="col">Fecha de salida de bodega</th>
                 <th scope="col">Fecha llegada a Ecuador</th>
+                <th scope="col">Paquetes</th>
               </tr>
             </thead>
             <tbody>
@@ -167,6 +172,9 @@
           </span> </td>
         <td style="align-items: center;">{{ (package.departureDate | date: "dd-MM-yyy HH:mm:ss") || "-" }} </td>
         <td style="align-items: center;">{{ (package.arrival_date_destiny | date: "dd-MM-yyy HH:mm:ss") || "-"}} </td>
+        <div class="avatar-group" *ngFor="let package of package.WarehousePackages">
+          <td>{{package.tracking_number || "-"}}</td>
+        </div>
         </tr>
         </tbody>
         </table>

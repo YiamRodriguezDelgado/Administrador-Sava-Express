@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Package } from 'src/app/models/package';
+import { WarehousePackage } from 'src/app/models/warehouse-package';
 import { PackagesService } from 'src/app/services/packages.service';
 import Swal from 'sweetalert2';
 import { PackagesAdminDialogComponent } from '../packages-admin-dialog/packages-admin-dialog.component';
@@ -25,6 +26,7 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
   sava_code: FormControl = new FormControl("");
   departureDate: FormControl = new FormControl("");
   arrival_date_destiny: FormControl = new FormControl("");
+  tracking_numbers: WarehousePackage[]
   private savaCrudSubscription: Subscription;
   private savaPackage: Package
   constructor(
@@ -44,6 +46,7 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
       this.weight.setValue(this.savaPackage.weight)
       this.departureDate.setValue(this.savaPackage.departureDate)
       this.arrival_date_destiny.setValue(this.savaPackage.arrival_date_destiny)
+      this.tracking_numbers = this.savaPackage.WarehousePackages
     }
     this.savaPackageForm = new FormGroup({
       sava_code: this.sava_code,

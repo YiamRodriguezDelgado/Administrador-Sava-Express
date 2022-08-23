@@ -36,12 +36,12 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label">Peso en libras</label>
-                                    <input [formControl]="pounds" type="text" id="pounds"
-                                        class="form-control form-control-alternative" placeholder="Peso" value="">
+                                    <label class="form-control-label">Código sava</label>
+                                    <input [formControl]="sava_code" type="text" id="sava_code"
+                                        class="form-control form-control-alternative" placeholder="Precio" value="" disabled>
                                     <div class="validation-message"
-                                        *ngIf="(pounds.dirty || pounds.touched) && pounds.invalid && pounds.errors.required">
-                                        *Campo peso obligatorio
+                                        *ngIf="(sava_code.dirty || sava_code.touched) && sava_code.invalid && sava_code.errors.required">
+                                        *Campo precio obligatorio
                                     </div>
                                 </div>
                             </div>
@@ -58,14 +58,15 @@
                             </div>
                         </div>
                         <div class="row">
+                          
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label">Código sava</label>
-                                    <input [formControl]="sava_code" type="text" id="sava_code"
-                                        class="form-control form-control-alternative" placeholder="Precio" value="" disabled>
+                                    <label class="form-control-label">Fecha salida de bodega</label>
+                                    <input [formControl]="departureDate" type="date" id="departureDate"
+                                        class="form-control form-control-alternative" placeholder="DD-MM-AA" value="">
                                     <div class="validation-message"
-                                        *ngIf="(sava_code.dirty || sava_code.touched) && sava_code.invalid && sava_code.errors.required">
-                                        *Campo precio obligatorio
+                                        *ngIf="(departureDate.dirty || departureDate.touched) && departureDate.invalid && departureDate.errors.required">
+                                        *Campo fecha de salida obligatorio
                                     </div>
                                 </div>
                             </div>
@@ -90,17 +91,6 @@
                                     <div class="validation-message"
                                         *ngIf="(arrival_date_destiny.dirty || arrival_date_destiny.touched) && arrival_date_destiny.invalid && arrival_date_destiny.errors.required">
                                         *Campo fecha de llegada obligatorio
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label">Fecha salida de bodega</label>
-                                    <input [formControl]="departureDate" type="date" id="departureDate"
-                                        class="form-control form-control-alternative" placeholder="DD-MM-AA" value="">
-                                    <div class="validation-message"
-                                        *ngIf="(departureDate.dirty || departureDate.touched) && departureDate.invalid && departureDate.errors.required">
-                                        *Campo fecha de salida obligatorio
                                     </div>
                                 </div>
                             </div>
