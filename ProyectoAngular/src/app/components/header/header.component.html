@@ -12,7 +12,7 @@
                 </button>
             </div>
             <ul class="navbar-nav ml-auto">
-                <li><a class="nav-link nav-item py-2 px-3" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/inicio']" >Inicio</a></li>
+                <li *ngIf="!(isLoggedIn)"><a class="nav-link nav-item py-2 px-3" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/inicio']" >Inicio</a></li>
                 <li><a class="nav-link nav-item py-2 px-3" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/inicio/paquetes']">Envios</a></li>
                 <li *ngIf="(isLoggedIn)" (click)="onLogOut()"><a class="nav-link nav-item py-2 px-3" [routerLink]="['/inicio/login']">Cerrar Sesión</a></li>
                 <li *ngIf="!(isLoggedIn)" ><a class="nav-link nav-item py-2 px-3" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/inicio/login']">Iniciar Sesion</a></li>

@@ -60,6 +60,8 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
 
   accept() {
     this.savaPackageForm.markAllAsTouched()
+    console.log(this.savaPackageForm.value)
+    /*
       this.savaCrudSubscription = this._savaPackageCrudService.updateSavaPackage(this.savaPackageForm.value).subscribe(
         (result) => {
           Swal.fire(
@@ -74,7 +76,7 @@ export class PackagesSavaAdminDialogComponent implements OnInit {
             confirmButtonColor: '#FEBE10', 
             icon: 'error', 
             confirmButtonText: 'OK'});
-        })
+        })*/
   }
   cancel() {
     this.dialogRef.close()
