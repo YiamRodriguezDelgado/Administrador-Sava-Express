@@ -44,4 +44,11 @@ export class PackagesService {
     const apiUrl = `${this.url}/api/warehouse-packages/${id}`
     return this.http.delete(apiUrl)
   }
+
+  deleteSavaPackage(id: number): Observable<any> {
+    const apiUrl = `${this.url}/sava-packages/${id}`
+    return this.http.delete(apiUrl)
+  }
+
+
 }

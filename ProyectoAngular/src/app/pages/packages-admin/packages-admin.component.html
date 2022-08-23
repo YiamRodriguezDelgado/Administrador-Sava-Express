@@ -58,7 +58,7 @@
                       <i class="fas fa-ellipsis-v"></i>
                     </a>
                     <div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
-                      <a class="dropdown-item" (click)="delete(package)">Eliminar</a>
+                      <a class="dropdown-item" (click)="deleteWarehousePackage(package)">Eliminar</a>
                     </div>
                   </div>
                 </td>
@@ -84,31 +84,7 @@
         </tbody>
         </table>
       </div>
-      <div class="card-footer py-4">
-        <nav aria-label="...">
-          <ul class="pagination justify-content-end mb-0">
-            <li class="page-item disabled">
-              <a class="page-link" href="javascript:void(0)" tabindex="-1">
-                <i class="fas fa-angle-left"></i>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item active">
-              <a class="page-link" href="javascript:void(0)">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="javascript:void(0)">
-                <i class="fas fa-angle-right"></i>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+    
     </div>
     <ng-template #savaPackage>
       <div class="card shadow">
@@ -156,6 +132,7 @@
                     </a>
                     <div ngbDropdownMenu class=" dropdown-menu-left dropdown-menu-arrow">
                       <a class="dropdown-item" (click)="editSavaPackage(package)">Editar</a>
+                      <a class="dropdown-item" (click)="deleteSavaPackage(package)">Eliminar</a>
                     </div>
                   </div>
                 </td>
@@ -179,31 +156,7 @@
         </tbody>
         </table>
       </div>
-      <div class="card-footer py-4" *ngFor="let item of images">
-        <nav aria-label="...">
-          <ul class="pagination justify-content-end mb-0">
-            <li class="page-item disabled">
-              <a class="page-link" href="javascript:void(0)" tabindex="-1">
-                <i class="fas fa-angle-left"></i>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item active">
-              <a class="page-link" href="javascript:void(0)">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="javascript:void(0)">
-                <i class="fas fa-angle-right"></i>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+   
   </div>
   </ng-template>
 </div>

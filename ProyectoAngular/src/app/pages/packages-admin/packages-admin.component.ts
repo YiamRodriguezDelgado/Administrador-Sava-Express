@@ -128,7 +128,7 @@ export class PackagesAdminComponent implements OnInit {
     this.dialog.open(PackagesSavaAdminDialogComponent, dialogConfig)
   }
 
-  delete(packagee: WarehousePackage){
+  deleteWarehousePackage(packagee: WarehousePackage){
     Swal.fire({
       title: 'Estas seguro de eliminar el paquete?',
       icon: 'warning',
@@ -156,13 +156,39 @@ export class PackagesAdminComponent implements OnInit {
               confirmButtonText: 'OK'});
           }
         )
-      } else if (response.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire({ 
-          title: 'Cancelado', 
-          text: 'El paquete no fue eliminado', 
-          confirmButtonColor: '#FEBE10', 
-          icon: 'error', 
-          confirmButtonText: 'OK' });
+      }
+    })
+  }
+
+  
+  deleteSavaPackage(packagee: Package){
+    Swal.fire({
+      title: 'Estas seguro de eliminar el paquete?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#FEBE10',
+      confirmButtonText: 'Sí, eliminar!',
+      cancelButtonText: 'No'
+    }).then((response: any) => {
+      if (response.value) {
+        this.warehousePackageSubscription = this._warehouseCrudService.deleteSavaPackage(packagee.id).subscribe(
+          (result) => {
+            Swal.fire(
+              'Eliminado!',
+              'success',
+            ).then(function() {
+              window.location.reload();
+          })
+          },
+          (error) =>{
+            Swal.fire({ 
+              title: 'Error', 
+              text: 'No se pudo eliminar paquete', 
+              confirmButtonColor: '#FEBE10', 
+              icon: 'error', 
+              confirmButtonText: 'OK'});
+          }
+        )
       }
     })
   }
