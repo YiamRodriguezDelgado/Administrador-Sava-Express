@@ -171,7 +171,7 @@ export class PackagesAdminComponent implements OnInit {
       cancelButtonText: 'No'
     }).then((response: any) => {
       if (response.value) {
-        this.warehousePackageSubscription = this._warehouseCrudService.deleteSavaPackage(packagee.id).subscribe(
+        this.warehousePackageSubscription = this._warehouseCrudService.deleteSavaPackage(packagee.sava_code).subscribe(
           (result) => {
             Swal.fire(
               'Eliminado!',

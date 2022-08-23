@@ -52,7 +52,7 @@ export class AuthService {
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('loginStatus');
-    this.router.navigate(['/inicio']);
+    this.router.navigate(['inicio']);
     this.isUserLoggedIn = false;
     this.subject.next(this.isUserLoggedIn);
   }

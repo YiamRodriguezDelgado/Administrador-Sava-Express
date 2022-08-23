@@ -45,8 +45,8 @@ export class PackagesService {
     return this.http.delete(apiUrl)
   }
 
-  deleteSavaPackage(id: number): Observable<any> {
-    const apiUrl = `${this.url}/sava-packages/${id}`
+  deleteSavaPackage(id: string): Observable<any> {
+    const apiUrl = `${this.url}/savaPackage/${id}`
     return this.http.delete(apiUrl)
   }
 

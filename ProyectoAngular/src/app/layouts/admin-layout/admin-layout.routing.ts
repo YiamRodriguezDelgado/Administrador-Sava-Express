@@ -7,7 +7,7 @@ import { PackagesAdminComponent } from '../../pages/packages-admin/packages-admi
 import { RoleGuard } from 'src/app/guards/role.guard';
 
 export const adminLayoutRoutes: Routes = [
-    { path: 'dashboard',canActivate: [RoleGuard],      component: DashboardComponent, data: {expectedRole: 1} },
+    { path: 'dashboard',component: DashboardComponent,canActivate: [RoleGuard], data: {expectedRole: 1} },
     { path: 'user-profile',canActivate: [RoleGuard],   component: UserProfileComponent, data: {expectedRole: 1}},
     { path: 'packages-admin',canActivate: [RoleGuard],         component: PackagesAdminComponent, data: {expectedRole: 1}  },
     { path: 'icons',canActivate: [RoleGuard],          component: IconsComponent, data: {expectedRole: 1}  },

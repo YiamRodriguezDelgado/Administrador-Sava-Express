@@ -21,10 +21,10 @@
                                 <div class="form-group">
                                     <label class="form-control-label">Estado de paquete</label>
                                     <select class="form-control form-control-alternative" formControlName="status">
-                                        <option [value]="status.value">En bodega</option>
-                                        <option [value]="status.value">Viajando</option>
-                                        <option [value]="status.value">En oficinas</option>
-                                        <option [value]="status.value">Entregado</option>
+                                        <option value="En bodega">En bodega</option>
+                                        <option value="Viajando">Viajando</option>
+                                        <option value="En oficinas">En oficinas</option>
+                                        <option value="Entregado">Entregado</option>
                                       </select>
                                     <div class="validation-message"
                                         *ngIf="(status.dirty || status.touched) && status.invalid && status.errors.required">
