@@ -17,14 +17,11 @@ export class AuthGuard implements CanActivate {
     if(!this.authService.isExpired()){
       return true;
     }
-
     const token = localStorage.getItem('token');
     const rol: string = decode(token);
-
     if (rol['role'] == 1) {
       this.router.navigate(['dashboard']);
     } else {
-      console.log("Hola")
       this.router.navigate(['inicio/paquetes']);
     }
 

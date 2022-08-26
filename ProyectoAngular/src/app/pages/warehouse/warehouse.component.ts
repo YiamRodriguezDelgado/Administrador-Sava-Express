@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PictureComponent } from 'src/app/components/picture/picture.component';
 import { ClientsDataService } from 'src/app/services/clients-data.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { ClientsDataService } from 'src/app/services/clients-data.service';
 export class WarehouseComponent implements OnInit {
   userPackage: any[]=[];
   isEmpty: boolean = true;
+  images:any[]=[]
   constructor(private _petitions: ClientsDataService) { }
 
   ngOnInit(): void {
@@ -31,26 +33,24 @@ export class WarehouseComponent implements OnInit {
 
     let details_img = document.getElementById('details-img');
     details_img.style.display = 'none';
-
     let details_section = document.getElementById('package-details-box');
     details_section.getElementsByTagName('h1')[0].innerHTML = "Paquete " + package_details.id;
     details_section.getElementsByTagName('p')[0].innerHTML = package_details.sava_code;
     details_section.getElementsByTagName('p')[1].innerHTML = package_details.status;
     details_section.getElementsByTagName('p')[2].innerHTML = package_details.weight + "lb";
     details_section.getElementsByTagName('p')[3].innerHTML = "$" + package_details.price;
-    details_section.getElementsByTagName('p')[4].innerHTML = package_details.arrival_date_destiny;
+    details_section.getElementsByTagName('p')[4].innerHTML = package_details.departureDate;
+    details_section.getElementsByTagName('p')[5].innerHTML = package_details.arrival_date_destiny;
     details_section.style.display = 'block';
 
-    let grid_images = document.getElementById('grid-images');
-    grid_images.innerHTML = '';
-
+    this.images=[]
     for (let sava_package of package_details.WarehousePackages){
       for (let image of sava_package.Images) {
-        grid_images.innerHTML += `
-                                    <img class="grid-image" src=${image.source} alt="image">
-                                `
+        this.images.push(image)
       }
+
     }
+
     
 
   }

@@ -19,7 +19,7 @@
         src="../../../assets/img/icons/common/send.png"
         alt="enviar"
       />
-      <a [routerLink]="['/inicio/savaPackage']">Enviar paquetes</a>
+      <a id="sending" [routerLink]="['/inicio/savaPackage']">Enviar paquetes</a>
     </div>
   </div>
 
@@ -28,7 +28,7 @@
   </div>
 
   <div *ngIf="!(isEmpty)" class="package-section">
-    <div class="package-card" *ngFor="let package of userPackage">
+    <div class="package-card" *ngFor="let package of userPackage" id="{{package.tracking_number}}">
       <div class="package-content">
         <img class="package-icon" src={{package.Images[0].source}} alt="package-icon">
         <div class="package-options">
@@ -75,8 +75,10 @@
       <div>
         <h2>Fotos</h2>
         <div class="grid-images" id="grid-images">
+          <img class="grid-image" *ngFor="let image of images" (click)="Pictures.createModal(image.source)" src="{{image.source}}" alt="image">
         </div>
       </div>
     </div>
   </div>
 </div>
+<app-picture #Pictures ></app-picture>

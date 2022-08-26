@@ -36,7 +36,6 @@ export class NavbarComponent implements OnInit {
   }
   onLogOut(): void{
     this.acct.logout();
-    console.log(this)
   }
 
 }

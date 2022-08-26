@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 declare interface RouteInfo {
     path: string;
@@ -9,7 +10,6 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 icon-color-sidebar', class: 'text-color-sidebar' },
-    { path: '/icons', title: 'Notificaciones',  icon:'ni ni-bell-55 icon-color-sidebar', class: 'text-color-sidebar' },
     { path: '/user-profile', title: 'Clientes',  icon:'ni-single-02 icon-color-sidebar', class: 'text-color-sidebar' },
     { path: '/tablesPackages', title: 'Paquetes',  icon:'ni-bullet-list-67 icon-color-sidebar', class: 'text-color-sidebar' }
 ];
@@ -24,7 +24,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   public menuItems: any[];
   public isCollapsed = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private acct: AuthService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -35,5 +35,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
   }
-
+  onLogOut(): void{
+    this.acct.logout();
+  }
 }

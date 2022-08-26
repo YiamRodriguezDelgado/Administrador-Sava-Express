@@ -11,19 +11,19 @@
             <p>
               <label for="mail">
                 <span class="field">Correo</span>
-                <input [(ngModel)]="client.correo" type="email" name="mail" required="required" />
+                <input [(ngModel)]="client.correo" type="email" name="mail" id="mail" required="required" />
               </label>
             </p>
             <p>
               <label for="pws">
                 <span class="field">Contraseña</span>
-                <input [(ngModel)]="client.password" type="password" name="pws" require="required"/>
+                <input [(ngModel)]="client.password" type="password" name="pws"  id="pass" require="required"/>
               </label>
             </p>
             <p>
               <label for="cell">
                 <span class="field">Teléfono</span>
-                <input [(ngModel)]="client.telefono" type="text" name="cell" require="required"/>
+                <input [(ngModel)]="client.telefono" type="text" name="cell" id="phone" require="required"/>
               </label>
             </p>
             <fieldset class="contact-field" require="required">
@@ -34,12 +34,12 @@
                   <span>Correo</span>
                 </label>
                 <label>
-                  <input type="radio" name="contact-option" class="radio-contact" [(ngModel)]="client.contacto" [value]="contactOptions.telefonoOption">
+                  <input type="radio" name="contact-option" id="contact-option" class="radio-contact" [(ngModel)]="client.contacto" [value]="contactOptions.telefonoOption">
                   <span>Teléfono</span>
                 </label>
               </div>
             </fieldset>
-            <input (click)="register()" type="submit" value="Crear Cuenta">
+            <input (click)="register()" id="submit" type="submit" value="Crear Cuenta">
           </form>
         </section>
         <section class="login-box">
@@ -53,16 +53,16 @@
               <p>
                 <label for="login-mail" class="form-label">
                   <span class="field">Correo</span>
-                  <input [(ngModel)]="user.correo" name="login-mail" type="email" required="required" />
+                  <input [(ngModel)]="user.correo" id="email" name="login-mail" type="email" required="required" />
                 </label>
               </p>
               <p>
                 <label for="login-pws" class="form-label">
                   <span class="field">Contraseña</span>
-                  <input [(ngModel)]="user.password" type="password" require="required"/>
+                  <input [(ngModel)]="user.password" id="password" type="password" require="required"/>
                 </label>
               </p>
-              <input (click)="logIn()" type="submit" value="Iniciar Sesión">
+              <input (click)="logIn()" id="button" type="submit" value="Iniciar Sesión">
             </form>
         </section>
       </div>

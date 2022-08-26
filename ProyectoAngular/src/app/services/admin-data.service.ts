@@ -7,30 +7,32 @@ export class AdminDataService {
   private url = 'http://localhost:4000';
   constructor(private _http: HttpClient) { }
   searchUsers(){
-    //const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
-    return this._http.get<any[]>(this.url+"/users/",)
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this._http.get<any[]>(this.url+"/users/",{headers})
   }
 
   createUsers(body: any){
-    //const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
     if(body.get("role")=="administrador"){
-      console.log("administrador")
-      return this._http.post<any>(`${this.url}/users/admin`, body);
+      return this._http.post<any>(`${this.url}/users/admin`, body,{headers});
     }else{
-      console.log("no administrador")
-      return this._http.post<any>(`${this.url}/users/client`, body);
+      return this._http.post<any>(`${this.url}/users/client`, body,{headers});
     }
   }
   deleteUsers(body:any){
-    return this._http.delete<any>(`${this.url}/users/`, {body});
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this._http.delete<any>(`${this.url}/users/`, {body,headers});
   }
   obtainClients(){
-    return this._http.get(`${this.url}/dashboard/clients`)
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this._http.get(`${this.url}/dashboard/clients`,{headers})
   }
   obtainPackages(){
-    return this._http.get(`${this.url}/dashboard/packages/delivered`)
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this._http.get(`${this.url}/dashboard/packages/delivered`,{headers})
   }
   obtainStadistics(){
-    return this._http.get(`${this.url}/dashboard/packages/total`)
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this._http.get(`${this.url}/dashboard/packages/total`,{headers})
   }
 }

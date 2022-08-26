@@ -1,11 +1,17 @@
 import { browser, by, element } from 'protractor';
 
 export class AppPage {
-  navigateTo() {
-    return browser.get('/');
+  navigateToLogin() {
+    return browser.get('/#/inicio/login');
   }
-
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return by.css('#button');
+  }
+  loginAsAdmin(){
+    element(by.id("email")).sendKeys("admin@hotmail.com")
+    element(by.id("password")).sendKeys("admin")
+  }
+  creatingRandomUser(){
+    let email= Math.random()+"@hotmail.com"
   }
 }

@@ -19,7 +19,7 @@
           src="../../../assets/img/icons/common/send.png"
           alt="enviar"
         />
-        <a [routerLink]="['/inicio/savaPackage']">Enviar paquetes</a>
+        <a id="sending" [routerLink]="['/inicio/savaPackage']">Enviar paquetes</a>
       </div>
     </div>
   
@@ -29,7 +29,7 @@
   
     <div *ngIf="!(isEmpty)" class="package-section">
       <div class="package-card" *ngFor="let package of userPackage">
-        <div class="package-content">
+        <div class="package-content" id="ViewPackages">
           <img class="package-icon" src={{package.WarehousePackages[0].Images[0].source}} alt="package-icon">
           <div class="package-options">
             <h1>Paquete {{package.id}}</h1>
@@ -69,15 +69,20 @@
           <p></p>
         </div>
         <div>
-          <h2>Fecha de arrivo</h2>
+          <h2>Fecha de salida</h2>
+          <p></p>
+        </div>
+        <div>
+          <h2>Fecha de llegada a oficina</h2>
           <p></p>
         </div>
         <div>
           <h2>Fotos</h2>
           <div class="grid-images" id="grid-images">
+            <img class="grid-image" *ngFor="let image of images" (click)="Pictures.createModal(image.source)" src="{{image.source}}" alt="image">
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+  <app-picture #Pictures ></app-picture>

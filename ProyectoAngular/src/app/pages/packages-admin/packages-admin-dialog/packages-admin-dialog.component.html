@@ -14,8 +14,8 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Cliente</label>
-                                          <mat-select [formControl]="client_name" class="form-control form-control-alternative" >
-                                            <mat-option *ngFor="let client of clients" [value]="client.id"> {{ client.username | titlecase }}</mat-option>
+                                          <mat-select id="selection" [formControl]="client_name" class="form-control form-control-alternative" >
+                                            <mat-option *ngFor="let client of clients" id="{{client.username}}"[value]="client.id"> {{ client.username | titlecase }}</mat-option>
                                           </mat-select>
                                         <div class="validation-message"
                                             *ngIf="(client_name.dirty || client_name.touched) && client_name.invalid && client_name.errors.required">
@@ -101,6 +101,6 @@
     </div>
 </mat-dialog-content>
 <mat-dialog-actions class="model-dialog-actions d-sm-flex flex-row justify-content-between mb-2" style="padding: 0">
-    <button class="btn btn-primary mt-5 ml-3" style="width: 36%;" (click)="accept()" type="submit">Guardar</button>
+    <button id="add" class="btn btn-primary mt-5 ml-3" style="width: 36%;" (click)="accept()" type="submit">Guardar</button>
     <button class="btn cancel-button mt-5 mr-3" style="width: 36%" (click)="cancel()">Cancelar</button>
 </mat-dialog-actions>

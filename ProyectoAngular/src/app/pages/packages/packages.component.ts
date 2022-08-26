@@ -9,6 +9,7 @@ import { ClientsDataService } from 'src/app/services/clients-data.service';
 export class PackagesComponent implements OnInit {
   userPackage: any[]=[];
   isEmpty: boolean = true;
+  images:any[]=[]
   constructor(private _petitions: ClientsDataService) { }
 
   ngOnInit(): void {
@@ -40,13 +41,9 @@ export class PackagesComponent implements OnInit {
     details_section.getElementsByTagName('p')[4].innerHTML = package_details.arrival_date;
     details_section.style.display = 'block';
 
-    let grid_images = document.getElementById('grid-images');
-    grid_images.innerHTML = '';
-
+    this.images=[]
     for (let image of package_details.Images) {
-      grid_images.innerHTML += `
-                                  <img class="grid-image" src=${image.source} alt="image">
-                              `
+      this.images.push(image)
     }
 
   }

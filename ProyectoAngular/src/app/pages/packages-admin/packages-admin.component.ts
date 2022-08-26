@@ -72,6 +72,7 @@ export class PackagesAdminComponent implements OnInit {
     if(email=""){
       this.savaPackageFilter=this.savaPackages
     }else{
+
       this.savaPackageFilter=this.savaPackages.filter(SavaPackage=> {
         return SavaPackage.Client["email"].includes(this.emailToSearch)
       })

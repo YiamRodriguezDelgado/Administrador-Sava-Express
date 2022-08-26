@@ -31,10 +31,6 @@ export class AdminUsersDialogComponent implements OnInit {
       return
     }
     const formData=new FormData()
-    console.log(form.username)
-    console.log(form.role)
-    console.log(form.password)
-    console.log(form.phone)
     formData.append('correo',form.username)
     formData.append('role',form.role)
     formData.append('password',form.password)
@@ -54,7 +50,7 @@ export class AdminUsersDialogComponent implements OnInit {
           return
         }else{
           Swal.fire(
-            "Paquetes",
+            "Usuarios",
             'Se ha creado satisfactoriamente el nuevo usuario',
             'success'
           ).then(function() {

@@ -34,7 +34,7 @@ export class PackagesAdminDialogComponent implements OnInit {
   private warehouseCrudSubscription: Subscription;
   colectionImages : string[] = [];
   clients: User[]
-
+  
   imageForm = new FormGroup({
    name: new FormControl('', [Validators.required]),
    file: new FormControl('', [Validators.required]),
@@ -80,9 +80,7 @@ export class PackagesAdminDialogComponent implements OnInit {
 
   getClients() {
     this._clientCrudService.getClientsData().subscribe((result) => {
-      console.log(result)
       this.clients = result
-      console.log(this.clients)
     })
   }
   
@@ -134,7 +132,6 @@ export class PackagesAdminDialogComponent implements OnInit {
           reader.readAsDataURL(event.target.files[i]);
         }
         this.upload.push(event.target.files[0])
-        console.log(this.upload)
     }
   }
   patchValues(){
@@ -148,12 +145,9 @@ export class PackagesAdminDialogComponent implements OnInit {
     let position=this.colectionImages.indexOf(url)
     this.colectionImages = this.colectionImages.filter(img => (img != url))
     this.patchValues()
-    console.log(this.upload);
     this.upload.splice(position,1)
-    console.log(this.upload);
   }
   changeUser(user:any){
-    console.log(user);
     this.client_name.setValue(user);
   }
   accept() {
@@ -166,7 +160,6 @@ export class PackagesAdminDialogComponent implements OnInit {
           formData.append("images", this.upload[i])
         }
       }
-      console.log(JSON.stringify(this.warehousePackageForm.value));
       formData.append("warehouseForm",JSON.stringify(this.warehousePackageForm.value))
       if (this.onCreate) {
         this.warehouseCrudSubscription = this._warehousePackageCrudService.createWarehousePackage(formData).subscribe(

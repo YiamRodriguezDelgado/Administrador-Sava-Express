@@ -61,7 +61,7 @@
                 </div>
               </div>
             </th>
-            <td class="text-center">
+            <td class="text-center" id="{{user.username}}">
               {{user.username}}
             </td>
             <td class="text-center">
@@ -83,6 +83,6 @@
       </div>
     </div>
     <div>
-  <button class="btn btn-primary mat-raised-button mt-5 mb-2" (click)="openAdminUsersDialog()" type="button">Agregar Cliente </button>
+  <button class="btn btn-primary mat-raised-button mt-5 mb-2" id="addClients" (click)="openAdminUsersDialog()" type="button">Agregar Cliente </button>
   </div>
   </div>

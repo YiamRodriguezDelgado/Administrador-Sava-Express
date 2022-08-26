@@ -14,7 +14,6 @@ export class PackageComponent implements OnInit {
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    console.log(this.package);
   }
   displayEntry(detail: any): void {
     this.modalService.open(detail, {

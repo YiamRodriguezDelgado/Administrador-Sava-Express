@@ -12,7 +12,7 @@
         src="../../../assets/img/icons/common/airplane.png"
         alt="warehouse"
       />
-      <a [routerLink]="['/inicio/warehouse']">Paquetes rumbo a Ecuador</a>
+      <a id="wayToEcuador" [routerLink]="['/inicio/warehouse']">Paquetes rumbo a Ecuador</a>
     </div>
     <div>
       <img src="../../../assets/img/icons/common/send.png" alt="enviar" />
@@ -45,7 +45,7 @@
                 <p>{{ package.arrival_date }}</p>
               </div>
             </div>
-            <p (click)="selectPackage(package, $event.target)" class="select-button">
+            <p id="{{package.tracking_number}}"(click)="selectPackage(package, $event.target)" class="select-button">
               Seleccionar
             </p>
           </div>
@@ -76,7 +76,7 @@
           <p>$ {{price}}</p>
         </div>
       </div>
-      <div class="send-button" (click)="sendPackage()"><p>Enviar paquete(s)</p></div>
+      <div id="ToEcuador"class="send-button" (click)="sendPackage()"><p>Enviar paquete(s)</p></div>
     </div>
   </div>
 </div>

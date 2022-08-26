@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { WarehousePackage } from '../models/warehouse-package';
 import { environment } from "src/environments/environment"
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Package } from '../models/package';
 
 
@@ -17,37 +17,44 @@ export class PackagesService {
 
   createWarehousePackage(warehouse_package: FormData): Observable<any> {
     const apiUrl = `${this.url}/api/warehouse-packages`
-    return this.http.post(apiUrl, warehouse_package)
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this.http.post(apiUrl, warehouse_package,{headers})
   }
 
   getWarehousePackageList(filters: string = ""): Observable<Array<WarehousePackage>> {
     const apiUrl = `${this.url}/api/warehouse-packages${filters}`
-    return this.http.get<Array<WarehousePackage>>(apiUrl)
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this.http.get<Array<WarehousePackage>>(apiUrl,{headers})
   }
 
   getSavaPackageList(): Observable<Array<Package>> {
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
     const apiUrl = `${this.url}/savaPackage/all`
-    return this.http.get<Array<Package>>(apiUrl)
+    return this.http.get<Array<Package>>(apiUrl,{headers})
   }
 
   updateWarehousePackage(warehouse_package: WarehousePackage): Observable<any> {
     const apiUrl = `${this.url}/warehouse_packages${warehouse_package.id}`
-    return this.http.put(apiUrl, warehouse_package)
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this.http.put(apiUrl, warehouse_package,{headers})
   }
 
   updateSavaPackage(sava_package: Package): Observable<any> {
     const apiUrl = `${this.url}/savaPackage/edit`
-    return this.http.put(apiUrl, sava_package)
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this.http.put(apiUrl, sava_package,{headers})
   }
 
   deleteWarehousePackage(id: string): Observable<any> {
     const apiUrl = `${this.url}/api/warehouse-packages/${id}`
-    return this.http.delete(apiUrl)
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this.http.delete(apiUrl,{headers})
   }
 
   deleteSavaPackage(id: string): Observable<any> {
     const apiUrl = `${this.url}/savaPackage/${id}`
-    return this.http.delete(apiUrl)
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem("token"));
+    return this.http.delete(apiUrl,{headers})
   }
 
 

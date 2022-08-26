@@ -9,7 +9,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { PictureComponent } from 'src/app/components/picture/picture.component';
 import { PackageComponent } from 'src/app/components/package/package.component';
 import { LoginRegisterComponent } from 'src/app/pages/login-register/login-register.component';
-import { SentComponent } from 'src/app/pages/sent/sent.component';
 import {MatSelectModule} from '@angular/material/select';
 import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
 import { LandingPageComponent } from 'src/app/pages/landing-page/landing-page.component';
@@ -30,7 +29,6 @@ import { SavaPackageComponent } from 'src/app/pages/sava-package/sava-package.co
     PackagesComponent,
     PictureComponent,
     PackageComponent,
-    SentComponent,
     CarouselComponent,
     LandingPageComponent,
     LoginRegisterComponent,
