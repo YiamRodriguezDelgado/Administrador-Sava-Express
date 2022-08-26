@@ -131,13 +131,6 @@ argon-dashboard-angular
 │   │   │   │   ├── admin-layout.component.ts
 │   │   │   │   ├── admin-layout.module.ts
 │   │   │   │   └── admin-layout.routing.ts
-│   │   │   └── auth-layout
-│   │   │   │   ├── auth-layout.component.html
-│   │   │   │   ├── auth-layout.component.scss
-│   │   │   │   ├── auth-layout.component.spec.ts
-│   │   │   │   ├── auth-layout.component.ts
-│   │   │   │   ├── auth-layout.module.ts
-│   │   │   │   └── auth-layout.routing.ts
 │   │   │   ├── user-layout
 │   │   │   │   ├── user-layout.component.html
 │   │   │   │   ├── user-layout.component.scss
@@ -146,7 +139,11 @@ argon-dashboard-angular
 │   │   │   │   ├── user-layout.module.ts
 │   │   │   │   └── user-layout.routing.ts
 │   │   ├── models
+│   │   │   │   ├── client-data.ts
+│   │   │   │   ├── image.ts
 │   │   │   │   ├── package.ts
+│   │   │   │   ├── users.ts
+│   │   │   │   ├── warehouse-package.ts
 │   │   ├── pages
 │   │   │   ├── dashboard
 │   │   │   │   ├── dashboard.component.html
@@ -184,27 +181,50 @@ argon-dashboard-angular
 │   │   │   │   ├── packages.component.spec.ts
 │   │   │   │   └── packages.component.ts
 │   │   │   ├── packages-admin
+│   │   │   |   ├── packages-admin-dialog
+|   │   │   │   │   ├── packages-admin-dialog.component.html
+│   │   │   │   |   ├── packages-admin-dialog.component.scss
+│   │   │   │   |   ├── packages-admin-dialog.component.spec.ts
+│   │   │   │   |   └── packages-admin-dialog.component.ts
+│   │   │   |   ├── packages-sava-admin-dialog
+|   │   │   │   │   ├── packages-sava-admin-dialog.component.html
+│   │   │   │   |   ├── packages-sava-admin-dialog.component.scss
+│   │   │   │   |   ├── packages-sava-admin-dialog.component.spec.ts
+│   │   │   │   |   └── packages-sava-admin-dialog.component.ts
 │   │   │   │   ├── packages-admin.component.html
 │   │   │   │   ├── packages-admin.component.scss
 │   │   │   │   ├── packages-admin.component.spec.ts
 │   │   │   │   └── packages-admin.component.ts
-│   │   │   ├── sent
-│   │   │   │   ├── sent.component.html
-│   │   │   │   ├── sent.component.scss
-│   │   │   │   ├── sent.component.spec.ts
-│   │   │   │   └── sent.component.ts
+│   │   │   ├── register
+│   │   │   │   ├── register.component.html
+│   │   │   │   ├── register.component.scss
+│   │   │   │   ├── register.component.spec.ts
+│   │   │   │   └── register.component.ts
+│   │   │   ├── sava-package
+│   │   │   │   ├── sava-package.component.html
+│   │   │   │   ├── sava-package.component.scss
+│   │   │   │   ├── sava-package.component.spec.ts
+│   │   │   │   └── sava-package.component.ts
 │   │   │   └── user-profile
-│   │   │   └── user-profile
+│   │   │   |   ├── admin-users-dialog
+|   │   │   │   │   ├── admin-users-dialog.component.html
+│   │   │   │   |   ├── admin-users-dialog.component.scss
+│   │   │   │   |   ├── admin-users-dialog.component.spec.ts
+│   │   │   │   |   └── admin-users-dialog.component.ts
 │   │   │   |   ├── user-profile.component.html
 │   │   │   |   ├── user-profile.component.scss
 │   │   │   |   ├── user-profile.component.spec.ts
 │   │   │   |   └── user-profile.component.ts
+│   │   │   ├── warehouse
+│   │   │   │   ├── warehouse.component.html
+│   │   │   │   ├── warehouse.component.scss
+│   │   │   │   ├── warehouse.component.spec.ts
+│   │   │   │   └── warehouse.component.ts
 │   │   ├── service
-│   |   |   ├── clients-data.service.spec.ts
 │   |   |   ├── clients-data.service.ts
-│   │   ├── services
-│   |   |   ├── account.service.ts
+│   |   |   ├── admin-data.service.ts
 │   |   |   ├── auth.service.ts
+│   |   |   ├── package.service.ts
 │   │   └── variables
 │   │       └── charts.ts
 │   ├── assets
